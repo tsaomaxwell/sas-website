@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starving Artist Society</title>
+    <link rel="icon" type="image/png" href="assets/sas-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@600&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-frame">
+      <header class="hero" id="top">
+        <nav class="topbar">
+          <a class="brand" href="index.html#top">Starving Artist Society</a>
+          <button
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+          <div class="menu-panel">
+            <div class="menu-links">
+              <a class="menu-link is-current" href="index.html#top">Home</a>
+              <a class="menu-link" href="events.html#top">Events</a>
+              <a class="menu-link" href="index.html#zines">Zines</a>
+              <a class="menu-link" href="index.html#featured">Gallery</a>
+              <a class="menu-link" href="about.html">About</a>
+            </div>
+
+            <div class="menu-divider"></div>
+
+            <a class="menu-feature" href="index.html#submission">Submission &#8594;</a>
+            <p class="menu-caption">Want to be featured on our platform?</p>
+
+            <div class="menu-divider"></div>
+
+            <a class="menu-secondary" href="index.html#submission">Join the Society</a>
+            <a class="menu-secondary" href="404.html">Privacy Policy</a>
+
+            <div class="menu-socials">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://youtube.com" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-overlay">
+            <div class="hero-glow"></div>
+            <a class="hero-cta" href="#submission">Join the Society</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel panel-dark" id="featured">
+          <div class="section-label">Featured Artists</div>
+          <div class="slider" data-slider="featured">
+            <button class="slider-arrow slider-arrow-left" type="button" data-direction="-1" aria-label="Previous featured artist">
+              &#8249;
+            </button>
+
+            <div class="slider-track">
+              <article class="slide slide-active featured-card featured-card-aysu">
+                <div class="featured-caption">Aysu Bulda&#231;</div>
+              </article>
+              <article class="slide featured-card featured-card-luna">
+                <div class="featured-caption">Luna Vale</div>
+              </article>
+            </div>
+
+            <button class="slider-arrow slider-arrow-right" type="button" data-direction="1" aria-label="Next featured artist">
+              &#8250;
+            </button>
+          </div>
+        </section>
+
+        <section class="panel events-panel" id="events">
+          <div class="section-label">Upcoming Events</div>
+          <div class="plate-stage">
+            <article class="plate-card">
+              <p class="plate-title">Midsummer Blues</p>
+              <p class="plate-subtitle">Performed by</p>
+              <p class="plate-name">Jane Doe</p>
+              <p class="plate-meta">Saturday, Aug 31st</p>
+              <p class="plate-meta">3008 Santa Monica Blvd</p>
+              <a class="plate-link" href="#submission">RSVP Here</a>
+            </article>
+          </div>
+          <a class="panel-link" href="events.html">More &#8594;</a>
+        </section>
+
+        <section class="panel zines-panel" id="zines">
+          <div class="section-label dark-text">Zines</div>
+          <div class="slider zine-slider" data-slider="zines">
+            <button class="slider-arrow slider-arrow-left dark-arrow" type="button" data-direction="-1" aria-label="Previous zine">
+              &#8249;
+            </button>
+
+            <div class="slider-track">
+              <article class="slide slide-active zine-stage">
+                <div class="jewel-case">
+                  <div class="case-panel case-cover">
+                    <div class="paper-label">Zine 1</div>
+                  </div>
+                  <div class="case-panel case-disc">
+                    <div class="disc">
+                      <span class="disc-hole"></span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="slide zine-stage">
+                <div class="jewel-case">
+                  <div class="case-panel case-cover alt-cover">
+                    <div class="paper-label">Issue 2</div>
+                  </div>
+                  <div class="case-panel case-disc">
+                    <div class="disc alt-disc">
+                      <span class="disc-hole"></span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <button class="slider-arrow slider-arrow-right dark-arrow" type="button" data-direction="1" aria-label="Next zine">
+              &#8250;
+            </button>
+          </div>
+        </section>
+
+        <section class="panel submission-panel" id="submission">
+          <div class="section-label">Submission</div>
+          <div class="submission-card">
+            <h2>Artist Details</h2>
+
+            <form class="submission-form" action="mailto:no-reply@google.com" method="post" enctype="text/plain">
+              <label>
+                <span>Artist Name <em>*</em></span>
+                <input type="text" name="artistName" placeholder="What is your artist name?" required />
+              </label>
+
+              <label>
+                <span>Email <em>*</em></span>
+                <input type="email" name="email" placeholder="Email address" required />
+              </label>
+
+              <label>
+                <span>Bio <em>*</em></span>
+                <textarea name="bio" rows="4" placeholder="Tell us about you and your art ..." required></textarea>
+              </label>
+
+              <label>
+                <span>Links <em>*</em></span>
+                <input type="text" name="links" placeholder="Spotify, Portfolio, Instagram, etc." required />
+              </label>
+
+              <div class="submission-actions">
+                <button type="submit" class="next-link">Next &#8594;</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
