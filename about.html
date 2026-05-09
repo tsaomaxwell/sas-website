@@ -8,18 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="about.css" />
   </head>
   <body class="about-page">
     <div class="site-frame">
-      <header class="about-hero" id="top">
+      <header class="hero about-hero" id="top">
         <nav class="topbar about-topbar">
-          <a class="brand about-brand" href="index.html#top">Starving Artist Society</a>
+          <a class="brand" href="index.html#top">Starving Artist Society</a>
           <button
-            class="menu-button about-menu-button"
+            class="menu-button"
             type="button"
             aria-expanded="false"
             aria-controls="mobile-menu"
@@ -36,8 +37,8 @@
             <div class="menu-links">
               <a class="menu-link" href="index.html#top">Home</a>
               <a class="menu-link" href="events.html#top">Events</a>
-              <a class="menu-link" href="index.html#zines">Zines</a>
-              <a class="menu-link" href="index.html#featured">Gallery</a>
+              <a class="menu-link" href="zine.html">Zines</a>
+              <a class="menu-link" href="gallery.html">Gallery</a>
               <a class="menu-link is-current" href="about.html">About</a>
             </div>
 
@@ -48,34 +49,47 @@
 
             <div class="menu-divider"></div>
 
-            <a class="menu-secondary" href="index.html#submission">Join the Society</a>
-            <a class="menu-secondary" href="404.html">Privacy Policy</a>
+            <a class="menu-secondary" href="join.html">Join the Society</a>
+            <a class="menu-secondary" href="privacy.html">Privacy Policy</a>
 
             <div class="menu-socials">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer">YouTube</a>
+              <a href="https://www.instagram.com/strvingartistsociety/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@StarvingArtistSociety" target="_blank" rel="noreferrer">YouTube</a>
             </div>
           </div>
         </div>
 
-        <main class="about-layout">
-          <section class="about-copy">
-            <p>
-              Starving Artist Society is an emerging creative platform dedicated to uplifting
-              artists through community, collaboration, and honest human connection. We create
-              intimate visual and storytelling experiences, from live performance sessions to
-              comfort meal + conversation videos and editorial-style publications, designed to
-              spotlight artists beyond the polished surface. Our mission is to support and uplift
-              artists in the early stages of their creative journey by providing an international
-              space to create, share, and grow together.
-            </p>
-          </section>
-
-          <div class="about-logo-wrap">
-            <img class="about-logo" src="assets/SASandwitchpng 1.png" alt="Starving Artist Society logo" />
+        <div class="hero-image about-hero-image">
+          <div class="hero-overlay events-hero-overlay">
+            <div class="hero-center-title">About Us</div>
           </div>
-        </main>
+        </div>
       </header>
+
+      <main>
+        <section class="about-story-panel">
+          <div class="about-story-grid">
+            <div class="about-story-heading">
+              <h1>Starving Artist Society</h1>
+            </div>
+
+            <div class="about-story-copy">
+              <h2>Redefine what it means to be starving artist: hungry to create</h2>
+              <p>
+                Starving Artist Society is a creative community for young talents to showcase
+                their artistry. Our mission is to provide not only a stage, but also to be a
+                springboard for motivated artists. Through authentic collaborations, meaningful
+                connections, and exposure, Starving Artist Society empowers musicians to build
+                lasting careers on their terms.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-story-footer">
+            <a class="about-story-link" href="join.html">Join the Society</a>
+          </div>
+        </section>
+      </main>
     </div>
 
     <script src="script.js"></script>

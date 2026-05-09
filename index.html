@@ -8,10 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@600&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Gochi+Hand&family=Inter:wght@400;500;600&family=Syne:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
     <div class="site-frame">
@@ -36,8 +37,8 @@
             <div class="menu-links">
               <a class="menu-link is-current" href="index.html#top">Home</a>
               <a class="menu-link" href="events.html#top">Events</a>
-              <a class="menu-link" href="index.html#zines">Zines</a>
-              <a class="menu-link" href="index.html#featured">Gallery</a>
+              <a class="menu-link" href="zine.html">Zines</a>
+              <a class="menu-link" href="gallery.html">Gallery</a>
               <a class="menu-link" href="about.html">About</a>
             </div>
 
@@ -48,12 +49,12 @@
 
             <div class="menu-divider"></div>
 
-            <a class="menu-secondary" href="index.html#submission">Join the Society</a>
-            <a class="menu-secondary" href="404.html">Privacy Policy</a>
+            <a class="menu-secondary" href="join.html" data-open-subscribe-popup>Join the Society</a>
+            <a class="menu-secondary" href="privacy.html">Privacy Policy</a>
 
             <div class="menu-socials">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer">YouTube</a>
+              <a href="https://www.instagram.com/strvingartistsociety/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@StarvingArtistSociety" target="_blank" rel="noreferrer">YouTube</a>
             </div>
           </div>
         </div>
@@ -61,7 +62,7 @@
         <div class="hero-image">
           <div class="hero-overlay">
             <div class="hero-glow"></div>
-            <a class="hero-cta" href="#submission">Join the Society</a>
+            <a class="hero-cta" href="join.html" data-open-subscribe-popup>Join the Society</a>
           </div>
         </div>
       </header>
@@ -69,43 +70,50 @@
       <main>
         <section class="panel panel-dark" id="featured">
           <div class="section-label">Featured Artists</div>
-          <div class="slider" data-slider="featured">
-            <button class="slider-arrow slider-arrow-left" type="button" data-direction="-1" aria-label="Previous featured artist">
-              &#8249;
-            </button>
-
+          <div class="featured-slider">
             <div class="slider-track">
-              <article class="slide slide-active featured-card featured-card-aysu">
-                <div class="featured-caption">Aysu Bulda&#231;</div>
-              </article>
-              <article class="slide featured-card featured-card-luna">
-                <div class="featured-caption">Luna Vale</div>
+              <article class="slide featured-slide">
+                <picture class="featured-picture">
+                  <source
+                    media="(max-width: 900px)"
+                    srcset="assets/drive-import/Mobile/HOME page/Pictures (cropped)/motion_blu.jpeg"
+                  />
+                  <img
+                    class="featured-image featured-image-motion"
+                    src="assets/drive-import/Desktop/HOME page/Pictures (Original)/Motion_Blu_.jpeg"
+                    alt="Motion Blu"
+                  />
+                </picture>
+                <div class="featured-caption">Motion Blu</div>
               </article>
             </div>
-
-            <button class="slider-arrow slider-arrow-right" type="button" data-direction="1" aria-label="Next featured artist">
-              &#8250;
-            </button>
           </div>
         </section>
 
         <section class="panel events-panel" id="events">
           <div class="section-label">Upcoming Events</div>
-          <div class="plate-stage">
-            <article class="plate-card">
-              <p class="plate-title">Midsummer Blues</p>
-              <p class="plate-subtitle">Performed by</p>
-              <p class="plate-name">Jane Doe</p>
-              <p class="plate-meta">Saturday, Aug 31st</p>
-              <p class="plate-meta">3008 Santa Monica Blvd</p>
-              <a class="plate-link" href="#submission">RSVP Here</a>
-            </article>
+          <div class="events-empty-state">
+            <div class="events-scene events-scene-desktop" aria-hidden="true">
+              <div class="events-desktop-note">
+                <p class="events-desktop-title">No Events Yet!</p>
+                <a href="join.html" data-open-subscribe-popup>Subscribe here to our mailing list to stay updated</a>
+              </div>
+            </div>
+            <div class="events-scene-mobile" aria-hidden="true">
+              <div class="events-plate-card">
+                <div class="events-plate-note">
+                  <p>No Events Yet!</p>
+                  <a href="join.html" data-open-subscribe-popup>Sign up here to our newsletter to stay updated</a>
+                </div>
+              </div>
+            </div>
           </div>
           <a class="panel-link" href="events.html">More &#8594;</a>
         </section>
 
         <section class="panel zines-panel" id="zines">
           <div class="section-label dark-text">Zines</div>
+          <a class="zines-more-link" href="zine.html">More &#8594;</a>
           <div class="slider zine-slider" data-slider="zines">
             <button class="slider-arrow slider-arrow-left dark-arrow" type="button" data-direction="-1" aria-label="Previous zine">
               &#8249;
@@ -127,7 +135,7 @@
               <article class="slide zine-stage">
                 <div class="jewel-case">
                   <div class="case-panel case-cover alt-cover">
-                    <div class="paper-label">Issue 2</div>
+                    <div class="paper-label">Zine 1</div>
                   </div>
                   <div class="case-panel case-disc">
                     <div class="disc alt-disc">
@@ -147,36 +155,124 @@
         <section class="panel submission-panel" id="submission">
           <div class="section-label">Submission</div>
           <div class="submission-card">
-            <h2>Artist Details</h2>
+            <div class="submission-form-state">
+              <h2>Artist Details</h2>
 
-            <form class="submission-form" action="mailto:no-reply@google.com" method="post" enctype="text/plain">
-              <label>
-                <span>Artist Name <em>*</em></span>
-                <input type="text" name="artistName" placeholder="What is your artist name?" required />
-              </label>
+              <form class="submission-form" novalidate>
+                <label>
+                  <span>Artist Name <em>*</em></span>
+                  <input type="text" name="artistName" placeholder="What is your artist name?" required />
+                </label>
 
-              <label>
-                <span>Email <em>*</em></span>
-                <input type="email" name="email" placeholder="Email address" required />
-              </label>
+                <label>
+                  <span>Email <em>*</em></span>
+                  <input type="email" name="email" placeholder="Email address" required />
+                </label>
 
-              <label>
-                <span>Bio <em>*</em></span>
-                <textarea name="bio" rows="4" placeholder="Tell us about you and your art ..." required></textarea>
-              </label>
+                <label>
+                  <span>Bio <em>*</em></span>
+                  <textarea name="bio" rows="4" placeholder="Tell us about you and your art ..." required></textarea>
+                </label>
 
-              <label>
-                <span>Links <em>*</em></span>
-                <input type="text" name="links" placeholder="Spotify, Portfolio, Instagram, etc." required />
-              </label>
+                <div class="submission-file-row">
+                  <span class="submission-field-title">Files <em>*</em></span>
+                  <label class="upload-tile">
+                    <input class="upload-input" type="file" name="files" accept=".mp3,audio/*,.pdf,.png,.jpg,.jpeg" required />
+                    <span class="upload-icon" aria-hidden="true">&#8682;</span>
+                    <span class="upload-hint">(i.e. MP3)</span>
+                  </label>
+                  <p class="upload-filename" aria-live="polite">No file selected</p>
+                </div>
 
-              <div class="submission-actions">
-                <button type="submit" class="next-link">Next &#8594;</button>
+                <label>
+                  <span>Links</span>
+                  <input type="text" name="links" placeholder="Spotify, Portfolio, Instagram, etc." />
+                </label>
+
+                <div class="submission-actions">
+                  <button type="submit" class="next-link">Next &#8594;</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="submission-success-state" hidden>
+              <img
+                class="submission-success-mark"
+                src="assets/drive-import/Desktop/SUBMISSION page/Other Assets/SAS_logo_(offwhite).png"
+                alt="Starving Artist Society"
+              />
+              <p class="submission-success-message">
+                Thank you for sharing your work with us! We&rsquo;ve received your submission
+                and a confirmation state has been saved here for review.
+              </p>
+              <div class="submission-actions submission-actions-success">
+                <button type="button" class="next-link submission-done-button">Done</button>
               </div>
-            </form>
+            </div>
           </div>
         </section>
       </main>
+    </div>
+
+    <div class="subscribe-modal" hidden>
+      <div class="subscribe-modal-backdrop" data-close-subscribe-popup></div>
+      <div
+        class="subscribe-modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="subscribe-modal-title"
+      >
+        <button
+          class="subscribe-modal-close"
+          type="button"
+          aria-label="Close popup"
+          data-close-subscribe-popup
+        >
+          &times;
+        </button>
+
+        <div class="subscribe-modal-card subscribe-modal-form-state">
+          <p class="subscribe-modal-copy">Receive updates on events, artists, and more!</p>
+
+          <form class="subscribe-modal-form" novalidate>
+            <label class="subscribe-modal-input-shell">
+              <span class="sr-only">Email address</span>
+              <input
+                class="subscribe-modal-input"
+                type="email"
+                name="email"
+                placeholder="Enter email address"
+                required
+              />
+            </label>
+
+            <button class="subscribe-modal-submit" type="submit" aria-label="Subscribe">
+              &#8594;
+            </button>
+          </form>
+
+          <img
+            class="subscribe-modal-mark"
+            src="assets/drive-import/Desktop/JOIN THE SOCIETY page/Other Assets/SAS_logo_(black).png"
+            alt=""
+            aria-hidden="true"
+          />
+          <h2 class="subscribe-modal-title" id="subscribe-modal-title">Join the Society</h2>
+        </div>
+
+        <div class="subscribe-modal-card subscribe-modal-success-state" hidden>
+          <p class="subscribe-modal-success-heading">You&rsquo;ve Subscribed</p>
+          <p class="subscribe-modal-success-copy">You should be receiving an email confirmation.</p>
+
+          <img
+            class="subscribe-modal-mark"
+            src="assets/drive-import/Desktop/JOIN THE SOCIETY page/Other Assets/SAS_logo_(black).png"
+            alt=""
+            aria-hidden="true"
+          />
+          <h2 class="subscribe-modal-title">Join the Society</h2>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

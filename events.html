@@ -8,10 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@600&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600&family=Syne:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="events.css" />
   </head>
   <body class="events-page">
     <div class="site-frame">
@@ -36,8 +37,8 @@
             <div class="menu-links">
               <a class="menu-link" href="index.html#top">Home</a>
               <a class="menu-link is-current" href="events.html#top">Events</a>
-              <a class="menu-link" href="index.html#zines">Zines</a>
-              <a class="menu-link" href="index.html#featured">Gallery</a>
+              <a class="menu-link" href="zine.html">Zines</a>
+              <a class="menu-link" href="gallery.html">Gallery</a>
               <a class="menu-link" href="about.html">About</a>
             </div>
 
@@ -48,12 +49,12 @@
 
             <div class="menu-divider"></div>
 
-            <a class="menu-secondary" href="index.html#submission">Join the Society</a>
-            <a class="menu-secondary" href="404.html">Privacy Policy</a>
+            <a class="menu-secondary" href="join.html">Join the Society</a>
+            <a class="menu-secondary" href="privacy.html">Privacy Policy</a>
 
             <div class="menu-socials">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer">YouTube</a>
+              <a href="https://www.instagram.com/strvingartistsociety/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@StarvingArtistSociety" target="_blank" rel="noreferrer">YouTube</a>
             </div>
           </div>
         </div>
@@ -68,124 +69,89 @@
       <main>
         <section class="panel event-upcoming-panel" id="upcoming-events">
           <div class="section-label dark-text">Upcoming Events</div>
-          <div class="tray-stage">
-            <article class="silver-tray">
-              <div class="tray-card">
-                <p class="tray-card-date">June 12</p>
-                <h2>Listening Room</h2>
-                <p>Ambient performances and live visual improvisation.</p>
-                <p>Doors at 8 PM</p>
-              </div>
-            </article>
+          <div class="events-upcoming-empty">
+            <div class="events-upcoming-note">
+              <h2>No Events Yet</h2>
+              <a href="join.html">Subscribe here to stay updated!</a>
+            </div>
           </div>
         </section>
 
         <section class="panel past-events-panel" id="past-events">
           <div class="section-label">Past Events</div>
-          <div class="ticket-grid">
-            <article class="ticket-card">
-              <div class="ticket-paper">
-                <h3>Jazz Night</h3>
-                <p>performed by Sofia</p>
-                <p>Date: October 15th, 2025</p>
-                <p>Location: Cafe Triste</p>
-                <p>980 N Broadway</p>
-                <p>Los Angeles, CA 90012</p>
-                <p>United States</p>
-                <div class="ticket-barcode"></div>
-                <span>Archive</span>
-              </div>
-            </article>
-            <article class="ticket-card">
-              <div class="ticket-paper">
-                <h3>Jazz Night</h3>
-                <p>performed by Sofia</p>
-                <p>Date: October 15th, 2025</p>
-                <p>Location: Cafe Triste</p>
-                <p>980 N Broadway</p>
-                <p>Los Angeles, CA 90012</p>
-                <p>United States</p>
-                <div class="ticket-barcode"></div>
-                <span>Archive</span>
-              </div>
-            </article>
-            <article class="ticket-card">
-              <div class="ticket-paper">
-                <h3>Jazz Night</h3>
-                <p>performed by Sofia</p>
-                <p>Date: October 15th, 2025</p>
-                <p>Location: Cafe Triste</p>
-                <p>980 N Broadway</p>
-                <p>Los Angeles, CA 90012</p>
-                <p>United States</p>
-                <div class="ticket-barcode"></div>
-                <span>Archive</span>
-              </div>
-            </article>
+          <div class="past-events-hold">
+            <img
+              class="past-events-gif"
+              src="assets/drive-import/Desktop/EVENTS page/GIF/Flip Cooking GIF by Food Club FOX.gif"
+              alt="Cooking animation"
+            />
+            <p>Hold on, we&rsquo;re still cooking...</p>
           </div>
-          <a class="panel-link" href="#calendar">Gallery &#8594;</a>
+          <a class="panel-link" href="gallery.html">Gallery &#8594;</a>
         </section>
 
         <section class="panel calendar-collage-panel" id="calendar">
-          <div class="calendar-sheet">
-            <div class="calendar-sheet-header">
-              <h2>Calendar</h2>
-              <span>June</span>
-            </div>
+          <div class="calendar-gallery-shell">
+            <div class="calendar-sheet">
+              <div class="calendar-sheet-header">
+                <h2>Calendar</h2>
+                <span>June</span>
+              </div>
 
-            <div class="calendar-weekdays">
-              <span>Sunday</span>
-              <span>Monday</span>
-              <span>Tuesday</span>
-              <span>Wednesday</span>
-              <span>Thursday</span>
-              <span>Friday</span>
-              <span>Saturday</span>
-            </div>
+              <div class="calendar-weekdays">
+                <span>Sunday</span>
+                <span>Monday</span>
+                <span>Tuesday</span>
+                <span>Wednesday</span>
+                <span>Thursday</span>
+                <span>Friday</span>
+                <span>Saturday</span>
+              </div>
 
-            <div class="calendar-grid-board">
-              <div>1.</div>
-              <div class="calendar-note calendar-note-special">Holiday special starts!</div>
-              <div>2.</div>
-              <div>3.</div>
-              <div>4.</div>
-              <div>5.</div>
-              <div>6.</div>
-              <div>7.</div>
-              <div>8.</div>
-              <div>9.</div>
-              <div>10.</div>
-              <div>11.</div>
-              <div>12.</div>
-              <div>13.</div>
-              <div>14.</div>
-              <div>15.</div>
-              <div>16.</div>
-              <div>17.</div>
-              <div>18.</div>
-              <div>19.</div>
-              <div>20.</div>
-              <div>21.</div>
-              <div>22.</div>
-              <div class="calendar-note calendar-note-last">Last day in studio!!</div>
-              <div>24.</div>
-              <div>25.</div>
-              <div>26.</div>
-              <div>27.</div>
-              <div>28.</div>
-              <div>29.</div>
-              <div>30.</div>
-              <div>31.</div>
-              <div>1.</div>
-              <div class="calendar-note calendar-note-reopen">Studio reopens!</div>
-              <div>3.</div>
-              <div class="calendar-range calendar-range-closed">Studio Closed</div>
-              <div class="calendar-range calendar-range-break" aria-hidden="true"></div>
+              <div class="calendar-grid-board">
+                <div>1.</div>
+                <div class="calendar-note calendar-note-special">Holiday special starts!</div>
+                <div>2.</div>
+                <div>3.</div>
+                <div>4.</div>
+                <div>5.</div>
+                <div>6.</div>
+                <div>7.</div>
+                <div>8.</div>
+                <div>9.</div>
+                <div>10.</div>
+                <div>11.</div>
+                <div>12.</div>
+                <div>13.</div>
+                <div>14.</div>
+                <div>15.</div>
+                <div>16.</div>
+                <div>17.</div>
+                <div>18.</div>
+                <div>19.</div>
+                <div>20.</div>
+                <div>21.</div>
+                <div>22.</div>
+                <div class="calendar-note calendar-note-last">Last day in studio!!</div>
+                <div>24.</div>
+                <div>25.</div>
+                <div>26.</div>
+                <div>27.</div>
+                <div>28.</div>
+                <div>29.</div>
+                <div>30.</div>
+                <div>31.</div>
+                <div>1.</div>
+                <div class="calendar-note calendar-note-reopen">Studio reopens!</div>
+                <div>3.</div>
+                <div class="calendar-range calendar-range-closed">Studio Closed</div>
+                <div class="calendar-range calendar-range-break" aria-hidden="true"></div>
+              </div>
             </div>
           </div>
 
           <div class="join-footer" id="join">
-            <a class="join-footer-link" href="index.html#submission">Join the Society</a>
+            <a class="join-footer-link" href="join.html">Join the Society</a>
           </div>
         </section>
       </main>

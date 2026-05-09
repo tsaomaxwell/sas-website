@@ -1,0 +1,186 @@
+/* Events page overrides and tuning */
+.events-upcoming-note {
+  width: min(100%, 90.625rem);
+  min-height: min(44rem, 78vh);
+  background:
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Silver_Platter_with_Note.png")
+      center center / cover no-repeat;
+}
+
+.events-upcoming-note h2 {
+  top: 30%;
+}
+
+.events-upcoming-note a {
+  top: 39%;
+}
+
+@media (max-width: 900px) {
+  .events-hero-image {
+    background-position: center 28%;
+  }
+
+  .events-upcoming-note {
+    width: min(92vw, 34rem);
+    min-height: 31rem;
+    background-image:
+      url("assets/drive-import/Mobile/EVENTS page/Pictures (cropped)/silver_platter.png");
+    background-size: contain;
+  }
+
+  .past-events-gif {
+    width: min(19.5rem, 64vw);
+  }
+}
+
+@media (max-width: 640px) {
+  .events-hero-image {
+    min-height: 55.8125rem;
+    background-position: 59% 13%;
+    background-size: 398%;
+  }
+
+  .events-hero-overlay {
+    place-items: center;
+  }
+
+  .hero-center-title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .event-upcoming-panel {
+    min-height: 54.5rem;
+    padding-top: 3.5rem;
+    background:
+      url("assets/drive-import/Mobile/EVENTS page/Pictures (cropped)/fridge.jpeg")
+        center center / cover no-repeat;
+  }
+
+  .events-upcoming-empty {
+    padding: 2.4rem 0.85rem 1.6rem;
+  }
+
+  .events-upcoming-note {
+    width: min(100%, 25.0625rem);
+    min-height: 26rem;
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .events-upcoming-note h2 {
+    top: 40.8%;
+    width: 8rem;
+    font-size: 0.9375rem;
+    line-height: 1.2;
+  }
+
+  .events-upcoming-note a {
+    top: 46.2%;
+    width: 8.125rem;
+    font-size: 0.5625rem;
+    line-height: 1.2;
+  }
+
+  .events-upcoming-note a::after {
+    width: 4rem;
+    margin-top: 0.18rem;
+    border-top-width: 0.5px;
+  }
+
+  .past-events-panel {
+    min-height: 55.1875rem;
+    padding: 3.2rem 0.9rem 1.25rem;
+  }
+
+  .past-events-hold {
+    gap: 1rem;
+    padding: 3rem 0.8rem 1rem;
+  }
+
+  .past-events-gif {
+    width: 19.5625rem;
+    max-width: 78vw;
+  }
+
+  .past-events-hold p {
+    width: 19.1875rem;
+    max-width: 90%;
+    font-size: 1.125rem;
+    line-height: 1.2;
+  }
+
+  .past-events-panel .panel-link {
+    margin-right: 0;
+    align-self: stretch;
+    width: auto;
+    justify-content: flex-end;
+    padding-right: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .calendar-collage-panel {
+    min-height: 55.4375rem;
+    padding-top: 0;
+    background:
+      linear-gradient(180deg, rgba(12, 10, 10, 0.1), rgba(12, 10, 10, 0.22)),
+      url("assets/calendar-background.png") center top / 185% auto no-repeat;
+  }
+
+  .calendar-gallery-shell {
+    place-items: start center;
+    padding: 14.75rem 1.0625rem 1.4rem;
+  }
+
+  .calendar-sheet {
+    width: 23rem;
+    max-width: 100%;
+    padding: 1rem 0.95rem 0.85rem;
+  }
+
+  .calendar-sheet-header {
+    margin-bottom: 0.9rem;
+  }
+
+  .calendar-sheet-header h2,
+  .calendar-sheet-header span {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .calendar-weekdays span {
+    padding: 0.35rem 0.12rem;
+    font-size: 0.42rem;
+  }
+
+  .calendar-grid-board > div {
+    min-height: 2.1rem;
+    padding: 0.15rem;
+    font-size: 0.42rem;
+  }
+
+  .calendar-note,
+  .calendar-range {
+    font-size: 0.54rem;
+    line-height: 0.98;
+  }
+
+  .calendar-range-closed {
+    margin: 0 0.22rem;
+  }
+
+  .calendar-range-break {
+    margin: 0 0.3rem 0.32rem;
+  }
+
+  .join-footer {
+    min-height: 11.6875rem;
+    padding: 0.9rem 1rem 1.15rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 76.44%);
+  }
+
+  .join-footer-link {
+    align-self: end;
+    font-size: 1rem;
+  }
+}

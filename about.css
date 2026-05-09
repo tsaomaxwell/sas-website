@@ -1,0 +1,76 @@
+/* About page overrides and mobile tuning */
+@media (max-width: 900px) {
+  .about-hero-image {
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url("assets/drive-import/Mobile/ABOUT US page/SAS_record_player.jpg");
+  }
+}
+
+@media (max-width: 640px) {
+  .about-hero {
+    min-height: 55.3125rem;
+  }
+
+  .about-hero-image {
+    min-height: 55.3125rem;
+    background-position: center 25%;
+    background-size: cover;
+  }
+
+  .hero-center-title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .about-story-panel {
+    min-height: 49.1875rem;
+    padding: 3.25rem 2.125rem 1.55rem;
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 1.55rem;
+  }
+
+  .about-story-heading {
+    display: none;
+  }
+
+  .about-story-copy {
+    padding-top: 0;
+  }
+
+  .about-story-copy h2 {
+    max-width: 20.875rem;
+    font-size: 1.125rem;
+    line-height: 1.22;
+  }
+
+  .about-story-copy p {
+    max-width: 20.3125rem;
+    margin-top: 1.35rem;
+    font-size: 1.125rem;
+    line-height: 1.18;
+  }
+
+  .about-story-footer {
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 1.8rem;
+  }
+
+  .about-story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .about-story-link::after {
+    width: calc(100% + 0.9rem);
+    margin-top: 0.2rem;
+  }
+}

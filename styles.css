@@ -12,6 +12,27 @@
   --section-pad: 0.75rem;
 }
 
+@font-face {
+  font-family: "Circ Handwriting";
+  src: url("assets/drive-import/Desktop/HOME page/Fonts/circhand.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 250;
+}
+
+@font-face {
+  font-family: "Top Secret Stamp";
+  src: url("assets/drive-import/Desktop/JOIN THE SOCIETY page/Fonts/TopSecretStamp-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "OldNewspaperTypes";
+  src: url("assets/drive-import/Desktop/JOIN THE SOCIETY page/Fonts/OldNewspaperTypes.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -169,6 +190,7 @@ main > .panel {
   min-width: 20rem;
   min-height: 100vh;
   padding: clamp(4.7rem, 6vw, 5.5rem) clamp(1.6rem, 2vw, 1.625rem) 1.2rem;
+  overflow-y: auto;
   background:
     linear-gradient(270.32deg, rgba(0, 0, 0, 0.96) 12.2%, rgba(0, 0, 0, 0.62) 99.69%);
   box-shadow: -3rem 0 4rem rgba(0, 0, 0, 0.18);
@@ -238,6 +260,8 @@ main > .panel {
   gap: 1.75rem;
   margin-top: auto;
   padding-top: 1rem;
+  padding-right: 0.4rem;
+  flex-wrap: wrap;
 }
 
 .menu-socials a {
@@ -603,6 +627,22 @@ main > .panel {
   background: #efefef;
 }
 
+.zines-more-link {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.8rem;
+  z-index: 3;
+  color: #111;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.4rem, 1.8vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.22em;
+}
+
 .zine-stage {
   display: none;
   align-items: center;
@@ -809,11 +849,8 @@ main > .panel {
 .events-hero-image {
   min-height: clamp(48rem, 100svh, 55rem);
   background:
-    linear-gradient(180deg, rgba(13, 11, 10, 0.2), rgba(13, 11, 10, 0.58)),
-    radial-gradient(circle at 31% 53%, rgba(251, 221, 136, 0.54), transparent 9%),
-    linear-gradient(180deg, rgba(125, 83, 39, 0.16), rgba(13, 11, 10, 0.28)),
-    url("assets/events-hero.jpg")
-      center center / cover no-repeat;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("assets/events-hero.jpg") center center / cover no-repeat;
 }
 
 .events-hero-overlay {
@@ -836,65 +873,59 @@ main > .panel {
   flex-direction: column;
   min-height: clamp(48rem, 100svh, 56rem);
   padding-top: 4rem;
-  background:
-    linear-gradient(180deg, rgba(247, 243, 236, 0.08), rgba(247, 243, 236, 0.08)),
-    url("assets/upcoming-events-bg.png") center center / cover no-repeat;
+  background: #f9f6ef;
 }
 
-.tray-stage {
+.events-upcoming-empty {
   display: grid;
   place-items: center;
   flex: 1 1 auto;
-  padding: 2.5rem 1.2rem 2rem;
+  padding: 1rem 1.2rem 2rem;
 }
 
-.silver-tray {
+.events-upcoming-note {
   position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  min-height: clamp(34rem, 74vh, 48rem);
-  color: #2b2927;
-}
-
-.silver-tray::before {
-  display: none;
-}
-
-.silver-tray::after {
-  display: none;
-}
-
-.tray-card {
-  position: relative;
-  z-index: 1;
-  width: min(34vw, 23rem);
-  min-height: 15rem;
-  padding: 2.5rem 1.75rem;
-  transform: translateY(-2.2rem);
+  width: min(100%, 90.625rem);
+  min-height: min(44rem, 78vh);
+  padding: 0;
   text-align: center;
-  background: linear-gradient(180deg, #fffdfa, #f2ede6);
-  box-shadow: 1rem 1rem 1.5rem rgba(38, 33, 28, 0.28);
+  background:
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Silver_Platter_with_Note.png")
+      center center / cover no-repeat;
 }
 
-.tray-card-date {
-  margin: 0 0 0.8rem;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.tray-card h2 {
-  margin: 0 0 0.9rem;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+.events-upcoming-note h2 {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  margin: 0;
+  color: #10449e;
+  font-size: clamp(1.8rem, 2.2vw, 1.875rem);
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
+  transform: translateX(-50%);
 }
 
-.tray-card p {
-  margin: 0.35rem 0;
-  color: #383430;
+.events-upcoming-note a {
+  position: absolute;
+  left: 50%;
+  top: 39%;
+  display: inline-block;
+  color: #10449e;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.events-upcoming-note a::after {
+  content: "";
+  display: block;
+  width: 8.125rem;
+  margin: 0.3rem auto 0;
+  border-top: 1px solid #10449e;
 }
 
 .past-events-panel {
@@ -905,77 +936,35 @@ main > .panel {
   background: #000;
 }
 
-.ticket-grid {
+.past-events-hold {
   display: grid;
   flex: 1 1 auto;
+  place-items: center;
   align-content: center;
-  width: min(100%, 88.75rem);
-  margin: 1.25rem auto 0;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 1.8vw, 1.55rem);
+  gap: 1.6rem;
+  padding: 2rem 1rem 1rem;
 }
 
-.ticket-card {
-  padding: clamp(0.75rem, 1vw, 1rem);
-  background:
-    linear-gradient(180deg, rgba(16, 16, 16, 0.2), rgba(16, 16, 16, 0.2)),
-    linear-gradient(135deg, #09101a, #020203);
+.past-events-gif {
+  width: min(22.25rem, 44vw);
+  height: auto;
+  object-fit: contain;
 }
 
-.ticket-paper {
-  min-height: clamp(32rem, 38vw, 42.0625rem);
-  padding: 1.5rem 1.2rem 1.15rem;
-  color: #535353;
-  text-transform: none;
-  background:
-    url("assets/past-event-receipt.png") center center / cover no-repeat;
-  box-shadow: inset 0 0 0 1px rgba(223, 215, 204, 0.75);
-}
-
-.ticket-paper h3 {
-  margin: 0 0 1.2rem;
-  font-family: "Courier New", monospace;
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
-  text-align: center;
-}
-
-.ticket-paper p,
-.ticket-paper span {
-  font-family: "Courier New", monospace;
-}
-
-.ticket-paper p {
-  margin: 0 0 0.78rem;
-  font-size: clamp(0.92rem, 0.92vw, 1.08rem);
-  line-height: 1.32;
-}
-
-.ticket-barcode {
-  height: clamp(6.8rem, 8vw, 8.6rem);
-  margin: auto 0 1rem;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #2e2e2e 0 2px,
-      transparent 2px 4px,
-      #444 4px 5px,
-      transparent 5px 9px
-    );
-}
-
-.ticket-paper span {
-  display: block;
-  font-size: clamp(0.98rem, 1vw, 1.18rem);
-  font-weight: 700;
+.past-events-hold p {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.7rem, 2.2vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
 }
 
 .past-events-panel .panel-link {
   align-self: flex-end;
-  margin-top: 1rem;
+  margin-top: auto;
   margin-right: 0.35rem;
 }
 
@@ -985,8 +974,15 @@ main > .panel {
   min-height: clamp(48rem, 100svh, 56.5rem);
   padding: 3.9rem 0 0;
   background:
-    linear-gradient(180deg, rgba(247, 242, 233, 0.18), rgba(216, 209, 197, 0.1)),
+    linear-gradient(180deg, rgba(20, 15, 14, 0.1), rgba(20, 15, 14, 0.22)),
     url("assets/calendar-background.png") center center / cover no-repeat;
+}
+
+.calendar-gallery-shell {
+  flex: 1 1 auto;
+  display: grid;
+  place-items: start center;
+  padding: 0 1rem 2rem;
 }
 
 .calendar-sheet {
@@ -1116,6 +1112,51 @@ main > .panel {
   display: none;
 }
 
+.gallery-page {
+  background: #000;
+}
+
+.gallery-hero-image {
+  min-height: clamp(48rem, 100svh, 55rem);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("assets/drive-import/Desktop/GALLERY page/Pictures (Original)/Guitar_against_the_fridge.jpg")
+      center center / cover no-repeat;
+}
+
+.gallery-hold-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(48rem, 100svh, 55.625rem);
+  background: #000;
+}
+
+.gallery-hold-stage {
+  display: grid;
+  flex: 1 1 auto;
+  place-items: center;
+  align-content: center;
+  gap: 1.8rem;
+  padding: 2rem 1rem;
+}
+
+.gallery-hold-gif {
+  width: min(22.25rem, 44vw);
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-hold-stage p {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.7rem, 2.2vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .join-footer {
   display: grid;
   place-items: center;
@@ -1212,95 +1253,1054 @@ main > .panel {
 
 .about-page,
 .about-page .site-frame {
-  background: #fff;
+  background: #000;
 }
 
 .about-hero {
-  position: relative;
-  min-height: min(100vh, 50rem);
-  background: #fff;
+  min-height: clamp(48rem, 100svh, 55rem);
 }
 
 .about-topbar {
   z-index: 5;
 }
 
-.about-brand {
-  color: #000;
+.about-hero-image {
+  min-height: clamp(48rem, 100svh, 55rem);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("assets/drive-import/Desktop/HOME page/Pictures (Original)/SAS_record_player.jpg")
+      center 34% / cover no-repeat;
 }
 
-.about-menu-button span {
+.about-story-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(48rem, 100svh, 55.625rem);
+  padding: 3.25rem 2.2rem 2.6rem;
   background: #000;
 }
 
-.about-layout {
+.about-story-grid {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 40.3rem);
+  align-items: start;
+  gap: 2rem;
+}
+
+.about-story-heading h1,
+.about-story-copy h2,
+.about-story-copy p,
+.about-story-link {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+.about-story-heading h1 {
+  font-size: clamp(2.8rem, 3.5vw, 3.125rem);
+  font-weight: 600;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+
+.about-story-copy {
+  padding-top: 10rem;
+}
+
+.about-story-copy h2 {
+  max-width: 41.25rem;
+  font-size: clamp(1.55rem, 2.1vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.24;
+}
+
+.about-story-copy p {
+  max-width: 40.2rem;
+  margin-top: 2.1rem;
+  font-size: clamp(1.45rem, 2vw, 1.875rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.about-story-footer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  min-height: min(100vh, 50rem);
-  padding: clamp(8rem, 18vh, 10.875rem) 2rem clamp(2rem, 5vh, 2.8125rem);
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 2rem;
 }
 
-.about-copy {
-  width: min(72.8vw, 65.5rem);
+.about-story-link {
+  font-size: clamp(1.7rem, 2vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
 }
 
-.about-copy p {
+.about-story-link::after {
+  content: "";
+  display: block;
+  width: calc(100% + 1.3rem);
+  margin-top: 0.35rem;
+  border-top: 2px solid #fff;
+}
+
+.privacy-page,
+.privacy-page .site-frame {
+  background: #f9f6ef;
+}
+
+.privacy-header {
+  position: relative;
+  min-height: clamp(34rem, 100svh, 55.25rem);
+}
+
+.privacy-topbar {
+  z-index: 5;
+}
+
+.privacy-brand {
+  color: #000;
+}
+
+.privacy-menu-button span {
+  background: #000;
+}
+
+.privacy-hero {
+  display: grid;
+  place-items: center;
+  min-height: clamp(34rem, 100svh, 55.25rem);
+  padding: 6rem 1rem 4rem;
+}
+
+.privacy-hero h1 {
   margin: 0;
   color: #000;
   font-family: "Inter", sans-serif;
-  font-size: clamp(1.4rem, 2vw, 1.875rem);
-  font-style: normal;
+  font-size: clamp(1.8rem, 2vw, 1.875rem);
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
 }
 
-.about-logo-wrap {
+.privacy-main {
+  width: min(100%, 90rem);
+  margin: 0 auto;
+  padding: 0 1.75rem 3.5rem;
+}
+
+.privacy-copy {
+  width: min(76vw, 47rem);
+  margin: 0 auto;
+  color: #000;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: clamp(1.05rem, 1.25vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.privacy-copy h2,
+.privacy-copy h3,
+.privacy-copy p,
+.privacy-copy ul {
+  margin: 0;
+}
+
+.privacy-copy h2 {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.privacy-intro {
+  margin-top: 2rem;
+  font-size: clamp(1.55rem, 2.7vw, 1.95rem);
+  font-weight: 700;
+  line-height: 1.26;
+}
+
+.privacy-section {
+  margin-top: 2rem;
+}
+
+.privacy-section h3 {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.privacy-section p {
+  margin-top: 0.5rem;
+}
+
+.privacy-section ul {
+  margin-top: 0.4rem;
+  padding-left: 1.6rem;
+}
+
+.privacy-section li + li {
+  margin-top: 0.18rem;
+}
+
+.privacy-copy a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.privacy-mark-wrap {
   display: grid;
   place-items: center;
+  padding-top: 2.75rem;
+}
+
+.privacy-mark {
+  width: min(8.8125rem, 18vw);
+  height: auto;
+  object-fit: contain;
+}
+
+.join-page,
+.join-page .site-frame {
+  background: #000;
+}
+
+.join-header {
+  min-height: clamp(48rem, 100svh, 55.3125rem);
+  background:
+    url("assets/drive-import/Desktop/JOIN THE SOCIETY page/Pictures (Original)/brown paper bag.png")
+      center center / cover no-repeat;
+}
+
+.join-topbar {
+  z-index: 5;
+}
+
+.join-stage {
+  display: grid;
+  place-items: center;
+  min-height: clamp(48rem, 100svh, 55.3125rem);
+  padding: 6rem 1rem 2rem;
+}
+
+.join-card {
+  display: grid;
+  place-items: center;
+  width: min(38rem, 92vw);
+  text-align: center;
+}
+
+.join-mark {
+  width: min(11.4375rem, 24vw);
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.join-card-inner {
   width: 100%;
 }
 
-.about-logo {
-  width: min(10vw, 9.0625rem);
-  min-width: 6.5rem;
+.join-card h1,
+.join-copy,
+.join-success-copy {
+  margin: 0;
+  color: #000;
+}
+
+.join-card h1 {
+  font-family: "Top Secret Stamp", cursive;
+  font-size: clamp(2.8rem, 4.2vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.join-form {
+  margin-top: 1.35rem;
+}
+
+.join-input-shell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: min(29.375rem, 100%);
+  margin: 0 auto;
+  padding: 0 0.65rem 0 0.8rem;
+  background: #fff9ee;
+  border-radius: 15px;
+}
+
+.join-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.5rem 0;
+  border: 0;
+  color: #7e5329;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  outline: none;
+}
+
+.join-input::placeholder {
+  color: #7e5329;
+  opacity: 1;
+}
+
+.join-submit {
+  flex: 0 0 auto;
+  border: 0;
+  color: #b88551;
+  background: transparent;
+  font-size: 1.55rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.join-copy,
+.join-success-copy {
+  width: min(25.3125rem, 100%);
+  margin: 1.9rem auto 0;
+  font-family: "OldNewspaperTypes", serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.1875rem);
+  font-weight: 500;
+  line-height: 1.31;
+}
+
+.join-success-state[hidden] {
+  display: none;
+}
+
+.join-card.is-joined .join-form-state {
+  display: none;
+}
+
+.join-card.is-joined .join-success-state {
+  display: block;
+}
+
+.join-success-state h1 {
+  margin-top: 1.3rem;
+}
+
+.join-success-copy {
+  width: min(38.6875rem, 100%);
+  margin-top: 1.6rem;
+  font-size: clamp(1.6rem, 2.2vw, 1.875rem);
+  line-height: 1.34;
+}
+
+.join-reset {
+  margin-top: 2.6rem;
+  padding: 0;
+  border: 0;
+  color: #000;
+  background: transparent;
+  font-family: "OldNewspaperTypes", serif;
+  font-size: 1.25rem;
+  line-height: 1;
+  position: relative;
+}
+
+.join-reset::after {
+  content: "";
+  display: block;
+  width: 8.4375rem;
+  margin: 0.75rem auto 0;
+  border-top: 1.5px solid #000;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.has-subscribe-modal-open {
+  overflow: hidden;
+}
+
+.subscribe-modal[hidden] {
+  display: none;
+}
+
+.subscribe-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.subscribe-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.76);
+}
+
+.subscribe-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(47.0625rem, 92vw);
+  aspect-ratio: 753 / 740;
+  max-height: 84vh;
+  padding: 0;
+  background:
+    url("assets/drive-import/Desktop/JOIN THE SOCIETY page/Pictures (Original)/brown paper bag.png")
+      center center / contain no-repeat;
+}
+
+.subscribe-modal-dialog.is-success {
+  background-image:
+    url("assets/drive-import/Desktop/SUBSCRIBE POP UP/Open_envelope.png");
+}
+
+.subscribe-modal-close {
+  position: absolute;
+  top: 31.5%;
+  right: 20%;
+  border: 0;
+  color: #000;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.subscribe-modal-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.subscribe-modal-copy,
+.subscribe-modal-success-heading,
+.subscribe-modal-success-copy {
+  margin: 0;
+  color: #000;
+  font-family: "OldNewspaperTypes", serif;
+}
+
+.subscribe-modal-copy {
+  width: min(20rem, 42%);
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(1.55rem, 2vw, 1.875rem);
+  line-height: 1.25;
+}
+
+.subscribe-modal-form {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: min(29.375rem, 62%);
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 64%;
+  transform: translateX(-50%);
+}
+
+.subscribe-modal-input-shell {
+  flex: 1 1 auto;
+  display: block;
+  padding: 0 0.75rem;
+  background: #f3e1cc;
+  border-radius: 15px;
+}
+
+.subscribe-modal-input {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: 0;
+  color: #b88551;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  outline: none;
+}
+
+.subscribe-modal-input::placeholder {
+  color: #b88551;
+  opacity: 1;
+}
+
+.subscribe-modal-submit {
+  flex: 0 0 auto;
+  border: 0;
+  color: #b88551;
+  background: transparent;
+  font-size: 1.55rem;
+  line-height: 1;
+  padding: 0;
+}
+
+.subscribe-modal-mark {
+  display: block;
+  width: min(6.9375rem, 18vw);
   height: auto;
   object-fit: contain;
-  border-radius: 4px;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 76.5%;
+  transform: translateX(-50%);
+}
+
+.subscribe-modal-title {
+  margin: 0;
+  color: #000;
+  font-family: "Top Secret Stamp", cursive;
+  font-size: clamp(2.1rem, 3vw, 2.8125rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  bottom: 5.4%;
+  transform: translateX(-50%);
+}
+
+.subscribe-modal-success-state[hidden] {
+  display: none;
+}
+
+.subscribe-modal-success-heading {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 33%;
+  transform: translateX(-50%);
+  font-size: clamp(1.8rem, 2.2vw, 2.1875rem);
+  line-height: 1.15;
+}
+
+.subscribe-modal-success-copy {
+  width: min(13rem, 28%);
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 39%;
+  transform: translateX(-50%);
+  font-size: 0.9375rem;
+  line-height: 1.33;
+}
+
+.hero-image {
+  background:
+    linear-gradient(180deg, rgba(11, 8, 8, 0.08) 0%, rgba(11, 8, 8, 0.18) 52%, rgba(0, 0, 0, 0.78) 100%),
+    url("assets/drive-import/Desktop/HOME page/Pictures (Original)/SAS_record_player.jpg")
+      center 34% / cover no-repeat;
+}
+
+.hero-image::after {
+  height: 15rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0) 72%);
+}
+
+.hero-overlay {
+  padding: 1.25rem 2rem 2.6rem;
+}
+
+.hero-glow {
+  bottom: 2.05rem;
+  width: min(19.75rem, 40vw);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.hero-cta {
+  font-size: clamp(1.2rem, 1.9vw, 1.875rem);
+  letter-spacing: 0;
+}
+
+#featured,
+.events-panel,
+.zines-panel,
+.submission-panel {
+  min-height: min(61.2rem, 100vh);
+}
+
+#featured {
+  padding-top: 3rem;
+}
+
+.featured-stage {
+  position: relative;
+  min-height: calc(min(61.2rem, 100vh) - 3rem);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.66) 100%),
+    url("assets/drive-import/Desktop/HOME page/Pictures (Original)/Motion_Blu_.jpeg")
+      center center / cover no-repeat;
+}
+
+.featured-caption {
+  right: 3.8rem;
+  bottom: 1.1rem;
+  width: auto;
+  font-size: clamp(1.6rem, 2vw, 1.875rem);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.events-panel {
+  padding: 3.5rem 0 0;
+  background: #000;
+}
+
+.events-empty-state {
+  display: grid;
+  flex: 1 1 auto;
+  place-items: center;
+  padding: 1.25rem 4rem 0;
+}
+
+.events-scene {
+  position: relative;
+  width: min(86.95vw, 78.25rem);
+  min-height: min(47rem, 76vh);
+  background:
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Inside_fridge.jpg")
+      center center / cover no-repeat;
+}
+
+.events-note {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: min(38rem, 54vw);
+  min-height: 29rem;
+  padding: 3.4rem 3rem 3rem;
+  background:
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Silver_Platter_with_Note.png")
+      center center / contain no-repeat;
+  transform: translate(-50%, -50%) rotate(-2deg);
+}
+
+.scribble-line,
+.scribble-link {
+  margin: 0;
+  font-family: "Circ Handwriting", "Gochi Hand", cursive;
+  font-style: normal;
+  font-weight: 250;
+  line-height: 0.95;
+  color: #000;
+  text-align: center;
+}
+
+.scribble-line:nth-child(1) {
+  font-size: clamp(4.3rem, 5.9vw, 5.3125rem);
+  transform: rotate(-13deg) translate(-1.6rem, 0.6rem);
+}
+
+.scribble-line:nth-child(2) {
+  font-size: clamp(4.9rem, 6.6vw, 5.9375rem);
+  transform: rotate(-18deg);
+}
+
+.scribble-line:nth-child(3) {
+  font-size: clamp(4.9rem, 6.6vw, 5.9375rem);
+  transform: rotate(-18deg) translate(3rem, -0.6rem);
+}
+
+.scribble-link {
+  display: block;
+  width: min(16.5rem, 62%);
+  margin: 1.4rem auto 0;
+  font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+  line-height: 1;
+  text-decoration: none;
+  transform: rotate(-20deg) translate(0.6rem, 1.5rem);
+  position: relative;
+}
+
+.scribble-link::after {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 13%;
+  bottom: -0.4rem;
+  border-top: 1px solid #000;
+}
+
+.events-panel .panel-link {
+  width: fit-content;
+  margin: 0 1.2rem 0.65rem auto;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.zines-panel {
+  padding-top: 3.5rem;
+  background: #e8e8e8;
+}
+
+.zine-slider {
+  flex: 1 1 auto;
+}
+
+.zine-stage {
+  min-height: calc(min(61.2rem, 100vh) - 3.5rem);
+  padding: 2.8rem 5.5rem 3.8rem;
+}
+
+.zines-panel .slider-arrow {
+  top: 50%;
+  width: 5rem;
+  height: 5rem;
+  font-size: 5rem;
+}
+
+.zines-panel .slider-arrow-left {
+  left: 0.6rem;
+}
+
+.zines-panel .slider-arrow-right {
+  right: 0.6rem;
+}
+
+.jewel-case {
+  width: min(82vw, 49rem);
+  min-height: min(54vh, 28.75rem);
+  box-shadow: 0 0.9rem 1.7rem rgba(110, 110, 110, 0.34);
+}
+
+.case-panel {
+  min-height: min(54vh, 28.75rem);
+}
+
+.paper-label {
+  width: min(54%, 12.75rem);
+  min-height: 4.7rem;
+  padding: 0.75rem 1rem;
+  font-size: clamp(2rem, 2.4vw, 2.6rem);
+  text-transform: none;
+  letter-spacing: -0.03em;
+}
+
+.case-disc {
+  padding-left: 0;
+}
+
+.disc {
+  width: min(82%, 18rem);
+}
+
+.zine-composition {
+  position: relative;
+  width: min(85.8vw, 77.2rem);
+  min-height: min(37.25rem, 67vh);
+  background:
+    url("assets/drive-import/Desktop/HOME page/Other Assets/CD_zine_cover.png")
+      center center / cover no-repeat;
+}
+
+.zine-art {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.zine-art-cover {
+  left: 3%;
+  bottom: 5%;
+  width: min(42%, 33.125rem);
+  height: min(50%, 18.625rem);
+  background-image: url("assets/drive-import/Desktop/HOME page/Other Assets/Napkin.png");
+}
+
+.zine-art-disc {
+  right: 4%;
+  top: 4%;
+  width: min(46%, 35.75rem);
+  height: min(96%, 35.75rem);
+  background-image: url("assets/drive-import/Desktop/HOME page/Pictures (Original)/Plate.png");
+}
+
+.zine-title {
+  position: absolute;
+  left: 9%;
+  bottom: 30%;
+  font-family: "Gochi Hand", cursive;
+  font-size: clamp(3rem, 4.1vw, 3.75rem);
+  line-height: 1;
+  color: #10449e;
+}
+
+.zine-composition-alt .zine-art-cover {
+  background-image: url("assets/drive-import/Desktop/HOME page/Pictures (Original)/opened_CD_case.jpg");
+  left: 10%;
+  bottom: 8%;
+  width: min(34%, 26rem);
+  height: min(70%, 28rem);
+}
+
+.zine-composition-alt .zine-art-disc {
+  background-image: url("assets/drive-import/Desktop/HOME page/Pictures (Original)/wine_and_cheese_spread.jpeg");
+  right: 3%;
+  top: 9%;
+  width: min(48%, 37rem);
+  height: min(78%, 28rem);
+  background-size: cover;
+  border-radius: 50% 46% 42% 38%;
+}
+
+.submission-panel {
+  padding: 4rem 1rem 3rem;
+  background:
+    linear-gradient(180deg, rgba(44, 42, 42, 0.1), rgba(44, 42, 42, 0.28)),
+    url("assets/submission-background.png") center center / cover no-repeat;
+}
+
+.submission-card {
+  display: grid;
+  align-content: center;
+  min-height: min(46.6rem, 75vh);
+  padding: 1rem 1.9rem;
+}
+
+.submission-form-state,
+.submission-success-state {
+  width: 100%;
+}
+
+.submission-form {
+  gap: 1.2rem;
+}
+
+.submission-form label {
+  gap: 0.5rem;
+}
+
+.submission-form input,
+.submission-form textarea {
+  padding-bottom: 0.7rem;
+}
+
+.submission-file-row {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.submission-field-title {
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.upload-tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5.7rem;
+  border: 1px dashed #fff;
+  cursor: pointer;
+}
+
+.upload-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  color: #ccc9c7;
+  line-height: 1;
+}
+
+.upload-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.3rem;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.625rem;
+  line-height: 1.2;
+}
+
+.upload-filename {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+}
+
+.submission-success-state[hidden] {
+  display: none;
+}
+
+.submission-card.is-submitted .submission-form-state {
+  display: none;
+}
+
+.submission-card.is-submitted .submission-success-state {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.submission-success-mark {
+  width: min(9.625rem, 28vw);
+  height: auto;
+}
+
+.submission-success-message {
+  width: min(50.9375rem, 86%);
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.45rem, 2vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.submission-actions-success {
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.submission-done-button {
+  margin-left: auto;
 }
 
 @media (max-width: 900px) {
   .hero-image {
+    background-image:
+      linear-gradient(180deg, rgba(11, 8, 8, 0.08) 0%, rgba(11, 8, 8, 0.18) 52%, rgba(0, 0, 0, 0.78) 100%),
+      url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/SAS_record_player.jpg");
+  }
+
+  .hero-image {
     min-height: 100vh;
   }
 
-  .featured-card {
-    min-height: 34rem;
+  .featured-stage {
+    min-height: 36rem;
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.66) 100%),
+      url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/motion_blu.jpeg");
+  }
+
+  .events-empty-state {
+    padding: 1rem 1rem 0;
+  }
+
+  .events-scene {
+    width: min(92vw, 42rem);
+    min-height: 33rem;
+    background-image:
+      url("assets/drive-import/Mobile/EVENTS page/Pictures (cropped)/opened_fridge.jpg");
+  }
+
+  .events-note {
+    width: min(19rem, 78vw);
+    min-height: 18rem;
+    padding: 2rem 1.4rem 1.6rem;
+    background-image:
+      url("assets/drive-import/Mobile/EVENTS page/Pictures (cropped)/silver_platter.png");
   }
 
   .zine-stage {
-    padding-inline: 1rem;
+    padding: 2rem 3.5rem 2.8rem;
+  }
+
+  .scribble-link {
+    width: min(10rem, 70%);
+    font-size: 1.45rem;
+  }
+
+  .zines-more-link {
+    right: 1rem;
   }
 
   .jewel-case {
-    grid-template-columns: 1fr;
-    width: min(94vw, 46rem);
-    min-height: 0;
+    width: min(88vw, 40rem);
+    min-height: 24rem;
   }
 
   .case-panel {
-    min-height: 18rem;
+    min-height: 24rem;
   }
 
-  .ticket-grid {
-    grid-template-columns: 1fr;
+  .paper-label {
+    width: min(57%, 11rem);
+    min-height: 4rem;
+    font-size: 2rem;
   }
 
-  .ticket-paper {
-    min-height: 0;
+  .disc {
+    width: min(80%, 15.5rem);
+  }
+
+  .zine-composition {
+    width: min(84vw, 42rem);
+    min-height: 24rem;
+    background-image:
+      url("assets/drive-import/Mobile/HOME page/Other Assets/CD_zine_cover.png");
+  }
+
+  .zine-art-cover {
+    background-image: url("assets/drive-import/Mobile/HOME page/Other Assets/napkin.png");
+  }
+
+  .zine-art-disc {
+    background-image: url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/plate_(mobile).png");
+  }
+
+  .zine-composition-alt .zine-art-cover {
+    background-image: url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/opened_CD(mobile).png");
+  }
+
+  .zine-composition-alt .zine-art-disc {
+    background-image: url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/bread_and_cheese_spread.jpeg");
+  }
+
+  .events-upcoming-note {
+    width: min(92vw, 34rem);
+    min-height: 31rem;
+    background-image:
+      url("assets/drive-import/Mobile/EVENTS page/Pictures (cropped)/silver_platter.png");
+    background-size: contain;
+  }
+
+  .past-events-gif {
+    width: min(18rem, 62vw);
+  }
+
+  .gallery-hero-image {
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url("assets/drive-import/Mobile/GALLERY page/Pictures (cropped)/guitar_against_the_fridge.jpeg");
+  }
+
+  .gallery-hold-gif {
+    width: min(18rem, 62vw);
   }
 
   .calendar-sheet {
@@ -1330,13 +2330,47 @@ main > .panel {
     width: auto;
   }
 
-  .about-copy {
-    width: min(88vw, 65.5rem);
-  }
-
   .calendar-grid-board > div {
     min-height: 4.6rem;
     font-size: 0.8rem;
+  }
+
+  .about-hero-image {
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/SAS_record_player.jpg");
+  }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-story-copy {
+    padding-top: 0;
+  }
+
+  .privacy-copy {
+    width: min(88vw, 60rem);
+  }
+
+  .privacy-mark {
+    width: min(7rem, 18vw);
+  }
+
+  .join-header {
+    background-image:
+      url("assets/drive-import/Mobile/JOIN THE SOCIETY page/Pictures (cropped)/jointhesocietybag(mobile).png");
+  }
+
+  .join-copy,
+  .join-success-copy {
+    width: min(28rem, 90%);
+  }
+
+  .subscribe-modal-dialog {
+    background-image:
+      url("assets/drive-import/Mobile/JOIN THE SOCIETY page/Pictures (cropped)/jointhesocietybag(mobile).png");
   }
 }
 
@@ -1379,25 +2413,38 @@ main > .panel {
 
   .hero-image {
     min-height: 26rem;
-    background-position: center;
+    background-position: center 24%;
   }
 
   .hero-overlay {
-    padding: 1.3rem;
+    padding: 1rem 1rem 1.8rem;
   }
 
   .hero-glow {
-    bottom: 2rem;
-    width: 8rem;
+    bottom: 1.65rem;
+    width: 11rem;
   }
 
-  .featured-card {
-    min-height: 25rem;
+  #featured,
+  .events-panel,
+  .zines-panel,
+  .submission-panel {
+    min-height: 0;
+  }
+
+  #featured {
+    padding-top: 3.3rem;
+  }
+
+  .featured-stage {
+    min-height: 24rem;
+    background-position: center top;
   }
 
   .featured-caption {
-    right: 0.75rem;
-    bottom: 0.75rem;
+    right: 0.9rem;
+    bottom: 0.8rem;
+    font-size: 1.3rem;
   }
 
   .slider-arrow {
@@ -1409,28 +2456,99 @@ main > .panel {
     padding-top: 3.3rem;
   }
 
-  .plate-card {
-    width: min(92vw, 24rem);
+  .events-scene {
+    min-height: 24rem;
   }
 
-  .plate-stage {
-    padding-top: 0.75rem;
+  .events-note {
+    width: 14.5rem;
+    min-height: 13rem;
+    padding: 1.1rem 0.8rem;
+  }
+
+  .scribble-line:nth-child(1) {
+    font-size: 3rem;
+    transform: rotate(-12deg) translate(-0.8rem, 0.4rem);
+  }
+
+  .scribble-line:nth-child(2),
+  .scribble-line:nth-child(3) {
+    font-size: 3.35rem;
+  }
+
+  .scribble-line:nth-child(3) {
+    transform: rotate(-18deg) translate(1.2rem, -0.3rem);
+  }
+
+  .scribble-link {
+    width: 8.2rem;
+    margin-top: 0.6rem;
+    font-size: 1.08rem;
+    transform: rotate(-20deg) translate(0.2rem, 0.7rem);
+  }
+
+  .events-panel .panel-link {
+    margin-right: 0.75rem;
+    font-size: 1.35rem;
   }
 
   .zines-panel {
-    min-height: 0;
     padding-top: 3.3rem;
   }
 
   .zine-stage {
-    padding: 2rem 2.4rem 3rem;
+    min-height: 24rem;
+    padding: 1rem 2.2rem 2rem;
+  }
+
+  .zines-panel .slider-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 3rem;
+  }
+
+  .zines-panel .slider-arrow-left {
+    left: 0.2rem;
+  }
+
+  .zines-panel .slider-arrow-right {
+    right: 0.2rem;
+  }
+
+  .zines-more-link {
+    top: 0.7rem;
+    right: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .jewel-case {
+    width: min(82vw, 20rem);
+    min-height: 12rem;
+  }
+
+  .case-panel {
+    min-height: 12rem;
   }
 
   .paper-label {
-    width: min(58%, 16rem);
-    min-height: 5rem;
-    padding: 0.75rem 1.1rem;
-    font-size: 2rem;
+    width: 7.8rem;
+    min-height: 2.9rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .disc {
+    width: min(80%, 8.7rem);
+  }
+
+  .zine-composition {
+    min-height: 17rem;
+  }
+
+  .zine-title {
+    left: 11%;
+    bottom: 29%;
+    font-size: 2.2rem;
   }
 
   .submission-panel {
@@ -1439,6 +2557,7 @@ main > .panel {
 
   .submission-card {
     padding: 1rem 1rem 0.65rem;
+    min-height: 0;
   }
 
   .submission-form span {
@@ -1450,22 +2569,36 @@ main > .panel {
     font-size: 1.1rem;
   }
 
-  .about-layout {
-    min-height: 100vh;
-    padding: 6.5rem 1.1rem 2rem;
-  }
-
-  .about-copy p {
-    font-size: 1.1rem;
-  }
-
-  .about-logo {
-    min-width: 5.5rem;
-    width: 7rem;
+  .submission-success-message {
+    width: 100%;
+    font-size: 1.15rem;
   }
 
   .events-hero-image {
     min-height: 100vh;
+  }
+
+  .gallery-hero-image {
+    min-height: 100vh;
+  }
+
+  .about-hero-image {
+    min-height: 100vh;
+    background-position: center 24%;
+  }
+
+  .privacy-hero {
+    min-height: 26rem;
+    padding: 5.5rem 0.75rem 3rem;
+  }
+
+  .join-stage {
+    min-height: 100vh;
+    padding: 5.5rem 0.75rem 1.5rem;
+  }
+
+  .subscribe-modal {
+    padding: 1rem;
   }
 
   .hero-center-title {
@@ -1478,13 +2611,246 @@ main > .panel {
     min-height: 0;
   }
 
-  .tray-card {
-    width: min(68%, 16rem);
-    padding: 1.8rem 1rem;
+  .gallery-hold-panel {
+    min-height: 0;
   }
 
-  .ticket-card {
-    padding: 0.65rem;
+  .about-story-panel {
+    min-height: 0;
+    padding: 2.7rem 1rem 1.8rem;
+  }
+
+  .privacy-main {
+    padding: 0 1rem 2.5rem;
+  }
+
+  .join-mark {
+    width: 7.6rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .subscribe-modal-dialog {
+    width: min(22rem, 92vw);
+    aspect-ratio: 753 / 740;
+    max-height: 86vh;
+    padding: 0;
+  }
+
+  .subscribe-modal-close {
+    top: 31%;
+    right: 18%;
+    font-size: 1.7rem;
+  }
+
+  .events-upcoming-empty {
+    padding: 1rem 0.75rem 1.5rem;
+  }
+
+  .events-upcoming-note {
+    width: min(92vw, 20rem);
+    min-height: 18rem;
+  }
+
+  .events-upcoming-note h2 {
+    top: 33%;
+    width: 80%;
+    font-size: 1.35rem;
+  }
+
+  .events-upcoming-note a {
+    top: 42%;
+    width: 62%;
+    font-size: 0.9rem;
+  }
+
+  .past-events-hold {
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+
+  .past-events-gif {
+    width: min(14rem, 72vw);
+  }
+
+  .past-events-hold p {
+    font-size: 1.2rem;
+  }
+
+  .gallery-hold-stage {
+    gap: 1rem;
+    padding: 1rem 1rem 2rem;
+  }
+
+  .gallery-hold-gif {
+    width: min(14rem, 72vw);
+  }
+
+  .gallery-hold-stage p {
+    font-size: 1.2rem;
+  }
+
+  .about-story-heading h1 {
+    font-size: 2rem;
+  }
+
+  .about-story-copy h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-story-copy p {
+    margin-top: 1.2rem;
+    font-size: 1.08rem;
+    line-height: 1.32;
+  }
+
+  .about-story-footer {
+    padding-top: 1.5rem;
+  }
+
+  .about-story-link {
+    font-size: 1.25rem;
+  }
+
+  .privacy-copy {
+    width: min(100%, 23.125rem);
+    font-size: 1.125rem;
+    line-height: 1.22;
+  }
+
+  .privacy-hero {
+    min-height: 25.5rem;
+    padding: 5.25rem 0.75rem 2.25rem;
+  }
+
+  .privacy-hero h1 {
+    width: 100%;
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .privacy-main {
+    padding: 0 1rem 2.4rem;
+  }
+
+  .privacy-copy h2 {
+    font-size: 1.9rem;
+    line-height: 1.08;
+  }
+
+  .privacy-intro {
+    margin-top: 1.55rem;
+    font-size: 1.125rem;
+    line-height: 1.22;
+    font-weight: 500;
+  }
+
+  .privacy-section {
+    margin-top: 1.35rem;
+  }
+
+  .privacy-section h3 {
+    font-size: 1.125rem;
+    line-height: 1.18;
+  }
+
+  .privacy-section p {
+    margin-top: 0.28rem;
+  }
+
+  .privacy-section ul {
+    margin-top: 0.22rem;
+    padding-left: 1.15rem;
+  }
+
+  .privacy-section li + li {
+    margin-top: 0.06rem;
+  }
+
+  .privacy-mark-wrap {
+    padding-top: 1.65rem;
+  }
+
+  .privacy-mark {
+    width: 4.1875rem;
+  }
+
+  .join-card h1 {
+    font-size: 2rem;
+  }
+
+  .join-input-shell {
+    width: 100%;
+    padding-inline: 0.65rem;
+  }
+
+  .join-input {
+    font-size: 0.9rem;
+  }
+
+  .join-submit {
+    font-size: 1.35rem;
+  }
+
+  .join-copy {
+    margin-top: 1.5rem;
+    font-size: 1.28rem;
+    line-height: 1.3;
+  }
+
+  .join-success-copy {
+    margin-top: 1.2rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .join-reset {
+    margin-top: 1.8rem;
+  }
+
+  .subscribe-modal-copy {
+    width: 12rem;
+    top: 49%;
+    font-size: 1.15rem;
+    line-height: 1.2;
+  }
+
+  .subscribe-modal-form {
+    width: 62%;
+    top: 64%;
+  }
+
+  .subscribe-modal-input {
+    font-size: 0.85rem;
+  }
+
+  .subscribe-modal-submit {
+    font-size: 1.35rem;
+  }
+
+  .subscribe-modal-mark {
+    width: 5.2rem;
+    top: 76%;
+  }
+
+  .subscribe-modal-title {
+    bottom: 5%;
+    font-size: 1.8rem;
+  }
+
+  .subscribe-modal-success-heading {
+    top: 33%;
+    font-size: 1.35rem;
+  }
+
+  .subscribe-modal-success-copy {
+    width: 8.5rem;
+    top: 39%;
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+
+  .calendar-gallery-shell {
+    padding: 0 0.75rem 1.25rem;
   }
 
   .calendar-sheet-header {
@@ -1516,5 +2882,619 @@ main > .panel {
 
   .fallback-mark {
     transform: scale(0.9);
+  }
+}
+
+/* Homepage alignment overrides */
+.hero-image {
+  background:
+    linear-gradient(180deg, rgba(11, 8, 8, 0.08) 0%, rgba(11, 8, 8, 0.18) 52%, rgba(0, 0, 0, 0.78) 100%),
+    url("assets/drive-import/Desktop/HOME page/Pictures (Original)/SAS_record_player.jpg")
+      center 30% / cover no-repeat;
+}
+
+.hero-image::after {
+  height: 15rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0) 72%);
+}
+
+.hero-overlay {
+  padding: 1.25rem 2rem 2.6rem;
+}
+
+.hero-glow {
+  bottom: 2.05rem;
+  width: min(19.75rem, 40vw);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+#featured,
+.events-panel,
+.zines-panel,
+.submission-panel {
+  min-height: min(61.2rem, 100vh);
+}
+
+#featured {
+  padding-top: 3rem;
+  min-height: min(53rem, 86vh);
+}
+
+.featured-slider {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.featured-slider .slider-track {
+  display: block;
+  height: 100%;
+}
+
+.featured-slide {
+  position: relative;
+  display: block;
+  min-height: calc(min(53rem, 86vh) - 3rem);
+  overflow: hidden;
+}
+
+.featured-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: calc(min(53rem, 86vh) - 3rem);
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.02);
+}
+
+.featured-image-motion {
+  object-position: center 11%;
+}
+
+.featured-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.58) 100%);
+  pointer-events: none;
+}
+
+.featured-caption {
+  right: 3.8rem;
+  bottom: 1.1rem;
+  width: auto;
+  z-index: 1;
+  font-size: clamp(1.6rem, 2vw, 1.875rem);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.events-panel {
+  padding: 3.5rem 0 0;
+  background: #000;
+}
+
+.events-empty-state {
+  display: grid;
+  flex: 1 1 auto;
+  place-items: center;
+  padding: 1.25rem 4rem 0;
+}
+
+.events-scene-desktop {
+  position: relative;
+  width: min(86.95vw, 78.25rem);
+  min-height: min(47rem, 76vh);
+  background:
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Fridge.jpeg")
+      center center / cover no-repeat;
+}
+
+.events-desktop-note {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(28rem, 46%);
+  padding: 1.35rem 1.5rem;
+  color: #000;
+  font-family: "Circ Handwriting", "Gochi Hand", cursive;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.84);
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.events-desktop-title {
+  margin: 0;
+  font-size: clamp(3.25rem, 5vw, 4.75rem);
+  line-height: 0.92;
+}
+
+.events-desktop-note a {
+  display: block;
+  margin-top: 0.85rem;
+  color: #000;
+  font-size: clamp(1.25rem, 2.1vw, 1.8rem);
+  line-height: 1.02;
+  text-decoration: underline;
+}
+
+.events-scene-mobile {
+  display: none;
+}
+
+.events-plate-card {
+  display: grid;
+  place-items: center;
+  width: min(92vw, 29rem);
+  aspect-ratio: 1;
+  background:
+    url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/plate_(mobile).png")
+      center center / contain no-repeat;
+}
+
+.events-plate-note {
+  width: min(12rem, 50%);
+  margin-top: -0.2rem;
+  color: #000;
+  font-family: "Circ Handwriting", "Gochi Hand", cursive;
+  text-align: center;
+  transform: rotate(-12deg);
+}
+
+.events-plate-note p {
+  margin: 0;
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  line-height: 0.9;
+}
+
+.events-plate-note a {
+  display: block;
+  margin-top: 0.75rem;
+  color: #000;
+  font-size: clamp(0.95rem, 2.6vw, 1.35rem);
+  line-height: 1.05;
+  text-decoration: underline;
+}
+
+.events-panel .panel-link {
+  width: fit-content;
+  margin: 0 1.2rem 0.65rem auto;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.submission-form input,
+.submission-form textarea {
+  font-size: clamp(1.35rem, 1.85vw, 2rem);
+}
+
+.submission-form input {
+  min-height: 3.2rem;
+  padding: 0.25rem 0 0.9rem;
+}
+
+.submission-form textarea {
+  min-height: 12rem;
+  padding: 0.8rem 0.8rem 1rem;
+}
+
+@media (max-width: 900px) {
+  .hero-image {
+    background-image:
+      linear-gradient(180deg, rgba(11, 8, 8, 0.08) 0%, rgba(11, 8, 8, 0.18) 52%, rgba(0, 0, 0, 0.78) 100%),
+      url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/SAS_record_player.jpg");
+    background-position: center 26%;
+  }
+
+  .featured-slide,
+  .featured-image {
+    min-height: 36rem;
+  }
+
+  .featured-image-motion {
+    object-position: center 10%;
+  }
+
+  .featured-image-aysu {
+    object-position: center 14%;
+  }
+
+  .events-empty-state {
+    padding: 1rem 1rem 0;
+  }
+
+  .events-scene-desktop {
+    display: none;
+  }
+
+  .events-scene-mobile {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-image {
+    min-height: 26rem;
+    background-position: center 22%;
+  }
+
+  #featured {
+    padding-top: 3.3rem;
+    min-height: 0;
+  }
+
+  .featured-slide,
+  .featured-image {
+    min-height: 24rem;
+  }
+
+  .featured-image-motion {
+    object-position: center 12%;
+  }
+
+  .featured-caption {
+    right: 0.9rem;
+    bottom: 0.8rem;
+    font-size: 1.3rem;
+  }
+
+  .events-panel {
+    padding-top: 3.3rem;
+  }
+
+  .events-scene-mobile {
+    min-height: 22rem;
+  }
+
+  .events-plate-card {
+    width: min(88vw, 20rem);
+  }
+
+  .events-plate-note {
+    width: 9rem;
+    transform: rotate(-14deg) translateY(-0.1rem);
+  }
+
+  .events-plate-note p {
+    font-size: 2.45rem;
+  }
+
+  .events-plate-note a {
+    margin-top: 0.45rem;
+    font-size: 0.95rem;
+  }
+
+  .events-panel .panel-link {
+    margin-right: 0.75rem;
+    font-size: 1.35rem;
+  }
+
+  .submission-form input {
+    min-height: 2.85rem;
+  }
+
+  .submission-form textarea {
+    min-height: 10.5rem;
+  }
+}
+
+/* Zine page */
+.zine-hero-image {
+  min-height: clamp(48rem, 100svh, 55rem);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("assets/drive-import/Desktop/HOME page/Other Assets/CD_zine_cover.png") center center / cover no-repeat;
+}
+
+.zine-detail-panel {
+  position: relative;
+  display: grid;
+  place-items: start center;
+  min-height: clamp(40rem, 100svh, 55.625rem);
+  padding: 4rem 1rem 2.5rem;
+  background: #000;
+  color: #fff;
+}
+
+.zine-detail-shell {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: min(96vw, 98rem);
+  margin-top: 1.25rem;
+}
+
+.zine-detail-stage {
+  position: relative;
+  width: min(88vw, 92rem);
+  aspect-ratio: 1235 / 596;
+}
+
+.zine-detail-cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:
+    url("assets/drive-import/Desktop/HOME page/Pictures (Original)/opened_CD_case.jpg")
+      center center / cover no-repeat;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+}
+
+.zine-detail-label {
+  position: absolute;
+  left: 20%;
+  bottom: 21%;
+  width: 23%;
+  min-height: 10%;
+  display: grid;
+  place-items: center;
+  color: #10449e;
+  font-family: "Gochi Hand", cursive;
+  font-size: clamp(2rem, 3.1vw, 3.75rem);
+  line-height: 1;
+  background:
+    url("assets/paper-label.png") center center / 100% 100% no-repeat;
+  transform: rotate(-4deg);
+}
+
+.zine-detail-disc-wrap {
+  position: absolute;
+  right: 4.1%;
+  top: 3.4%;
+  display: block;
+  width: 47%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.zine-detail-disc {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 1rem 2rem rgba(0, 0, 0, 0.35));
+}
+
+.zine-detail-meta {
+  position: absolute;
+  right: 7.5%;
+  top: 48.5%;
+  width: 28%;
+  color: #f0c791;
+  font-family: "Helvetica Neue", "Inter", sans-serif;
+  font-size: clamp(0.28rem, 0.46vw, 0.42rem);
+  line-height: 1.15;
+  text-align: right;
+}
+
+.zine-detail-meta p,
+.zine-detail-meta span {
+  margin: 0;
+}
+
+.zine-detail-meta span {
+  display: block;
+  margin-top: 0.45rem;
+  font-style: italic;
+}
+
+.zine-detail-hint {
+  margin: 1.5rem auto 0;
+  font-family: "Helvetica Neue", "Inter", sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.zine-page-arrow {
+  position: absolute;
+  left: 0.25rem;
+  top: 50%;
+  width: clamp(3rem, 5vw, 5rem);
+  height: clamp(3rem, 5vw, 5rem);
+  border: 0;
+  color: #fff;
+  background: transparent;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 900px) {
+  .zine-hero-image {
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("assets/drive-import/Mobile/HOME page/Other Assets/CD_zine_cover.png");
+  }
+
+  .zine-detail-shell {
+    width: min(98vw, 48rem);
+    margin-top: 0.8rem;
+  }
+
+  .zine-detail-stage {
+    width: min(90vw, 44rem);
+  }
+
+  .zine-detail-label {
+    left: 19%;
+    bottom: 20%;
+    width: 24%;
+    font-size: clamp(1.45rem, 4.4vw, 2.35rem);
+  }
+
+  .zine-detail-disc-wrap {
+    right: 4.1%;
+    top: 3.4%;
+    width: 47%;
+  }
+
+  .zine-detail-meta {
+    right: 7%;
+    top: 48%;
+    width: 28%;
+    font-size: clamp(0.18rem, 0.62vw, 0.3rem);
+  }
+
+  .zine-page-arrow {
+    left: -0.1rem;
+    top: 44%;
+  }
+}
+
+@media (max-width: 640px) {
+  .zine-hero-image {
+    min-height: 100vh;
+    background-position: center center;
+  }
+
+  .zine-detail-panel {
+    min-height: 0;
+    padding: 3rem 0.5rem 1.75rem;
+  }
+
+  .zine-detail-shell {
+    width: min(100vw, 24rem);
+    margin-top: 0.6rem;
+  }
+
+  .zine-detail-stage {
+    width: min(88vw, 22rem);
+  }
+
+  .zine-detail-label {
+    left: 19%;
+    bottom: 20%;
+    width: 24%;
+    font-size: 1.2rem;
+  }
+
+  .zine-detail-meta {
+    right: 6.5%;
+    top: 48%;
+    width: 30%;
+    font-size: 0.14rem;
+  }
+
+  .zine-detail-hint {
+    width: 92%;
+    margin-top: 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .zine-page-arrow {
+    left: -0.1rem;
+    top: 43%;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 2.7rem;
+  }
+}
+
+/* Standalone submission page */
+.submission-page {
+  background: #000;
+}
+
+.submission-page-header {
+  position: relative;
+  min-height: 4.5rem;
+  background: #000;
+}
+
+.submission-topbar {
+  inset: 1rem 1rem auto;
+}
+
+.submission-page-main {
+  min-height: calc(100vh - 4.5rem);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+    url("assets/drive-import/Desktop/SUBMISSION page/Pictures (Original)/wine_and_cheese_spread.jpeg")
+      center center / cover no-repeat;
+}
+
+.submission-page-stage {
+  position: relative;
+  display: grid;
+  align-items: start;
+  min-height: calc(100vh - 4.5rem);
+  padding: 5.25rem 1.125rem 2rem;
+}
+
+.submission-page-stage .section-label {
+  top: 1rem;
+  left: 1.125rem;
+  color: #fff;
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
+  font-weight: 600;
+}
+
+.submission-card-standalone {
+  width: min(91.25vw, 82.125rem);
+  min-height: min(46.5625rem, calc(100vh - 8.5rem));
+  margin: 0 auto;
+  padding: 1.35rem 1.9rem 0.9rem;
+  background: rgba(56, 56, 56, 0.52);
+  backdrop-filter: blur(3px);
+}
+
+.submission-card-standalone .submission-form-state,
+.submission-card-standalone .submission-success-state {
+  width: 100%;
+}
+
+.submission-card-standalone .submission-card h2 {
+  width: auto;
+}
+
+.submission-card-standalone h2 {
+  width: auto;
+  margin: 0 0 1.4rem;
+}
+
+@media (max-width: 900px) {
+  .submission-page-main {
+    background-position: center 40%;
+  }
+
+  .submission-page-stage {
+    padding: 4.9rem 0.9rem 1.5rem;
+  }
+
+  .submission-page-stage .section-label {
+    left: 0.9rem;
+  }
+
+  .submission-card-standalone {
+    width: min(95vw, 82.125rem);
+    min-height: 0;
+    padding: 1rem 1rem 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .submission-page-header {
+    min-height: 4rem;
+  }
+
+  .submission-page-main,
+  .submission-page-stage {
+    min-height: calc(100vh - 4rem);
+  }
+
+  .submission-page-stage {
+    padding: 4.5rem 0.75rem 1rem;
+  }
+
+  .submission-page-stage .section-label {
+    top: 0.8rem;
+    left: 0.75rem;
+  }
+
+  .submission-card-standalone {
+    padding: 1rem 1rem 0.65rem;
   }
 }

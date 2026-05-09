@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starving Artist Society</title>
+    <link rel="icon" type="image/png" href="assets/sas-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="join.css" />
+  </head>
+  <body class="join-page">
+    <div class="site-frame">
+      <header class="join-header" id="top">
+        <nav class="topbar join-topbar">
+          <a class="brand" href="index.html#top">Starving Artist Society</a>
+          <button
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+          <div class="menu-panel">
+            <div class="menu-links">
+              <a class="menu-link" href="index.html#top">Home</a>
+              <a class="menu-link" href="events.html#top">Events</a>
+              <a class="menu-link" href="zine.html">Zines</a>
+              <a class="menu-link" href="gallery.html">Gallery</a>
+              <a class="menu-link" href="about.html">About</a>
+            </div>
+
+            <div class="menu-divider"></div>
+
+            <a class="menu-feature" href="submission.html">Submission &#8594;</a>
+            <p class="menu-caption">Want to be featured on our platform?</p>
+
+            <div class="menu-divider"></div>
+
+            <a class="menu-secondary" href="join.html">Join the Society</a>
+            <a class="menu-secondary" href="privacy.html">Privacy Policy</a>
+
+            <div class="menu-socials">
+              <a href="https://www.instagram.com/strvingartistsociety/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@StarvingArtistSociety" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <main class="join-stage">
+          <section class="join-card">
+            <img
+              class="join-mark"
+              src="assets/drive-import/Desktop/JOIN THE SOCIETY page/Other Assets/SAS_logo_(black).png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <div class="join-card-inner join-form-state">
+              <h1>Join the Society</h1>
+
+              <form class="join-form" novalidate>
+                <label class="join-input-shell">
+                  <span class="sr-only">Email address</span>
+                  <input class="join-input" type="email" name="email" placeholder="Enter email address" required />
+                  <button class="join-submit" type="submit" aria-label="Submit email">&#8594;</button>
+                </label>
+              </form>
+
+              <p class="join-copy">
+                Become a member of our community. Receive updates on events, artists, and the
+                space we&rsquo;re creating.
+              </p>
+            </div>
+
+            <div class="join-card-inner join-success-state" hidden>
+              <h1>You&rsquo;re In!</h1>
+              <p class="join-success-copy">You should be receiving an email confirmation.</p>
+              <button class="join-reset" type="button">Done</button>
+            </div>
+          </section>
+        </main>
+      </header>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,342 @@
+/* Home page overrides and active tuning */
+.hero-image {
+  background:
+    linear-gradient(180deg, rgba(11, 8, 8, 0.08) 0%, rgba(11, 8, 8, 0.18) 52%, rgba(0, 0, 0, 0.78) 100%),
+    url("assets/drive-import/Desktop/HOME page/Pictures (Original)/SAS_record_player.jpg")
+      center 31% / cover no-repeat;
+}
+
+.hero-image::after {
+  height: 15rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0) 72%);
+}
+
+.hero-overlay {
+  padding: 1.25rem 2rem 2.6rem;
+}
+
+.hero-glow {
+  bottom: 2.05rem;
+  width: min(19.75rem, 40vw);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.featured-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#featured,
+.events-panel,
+.zines-panel,
+.submission-panel {
+  min-height: min(61.2rem, 100vh);
+}
+
+#featured {
+  padding-top: 3rem;
+  min-height: min(53rem, 86vh);
+}
+
+.featured-slider {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.featured-slider .slider-track {
+  display: block;
+  height: 100%;
+}
+
+.featured-slide {
+  position: relative;
+  display: block;
+  min-height: calc(min(53rem, 86vh) - 3rem);
+  overflow: hidden;
+}
+
+.featured-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: calc(min(53rem, 86vh) - 3rem);
+  object-fit: cover;
+  filter: saturate(0.98) contrast(1.02);
+}
+
+.featured-image-motion {
+  object-position: center 24%;
+}
+
+.featured-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.58) 100%);
+  pointer-events: none;
+}
+
+.featured-caption {
+  right: 2.2rem;
+  bottom: 1.1rem;
+  width: auto;
+  z-index: 1;
+  font-size: clamp(1.6rem, 2vw, 1.875rem);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.events-panel {
+  padding: 3.5rem 0 0;
+  background: #000;
+}
+
+.events-empty-state {
+  display: grid;
+  flex: 1 1 auto;
+  place-items: center;
+  padding: 1.25rem 4rem 0;
+}
+
+.events-scene-desktop {
+  position: relative;
+  width: min(86.95vw, 78.25rem);
+  min-height: min(47rem, 76vh);
+  background:
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Fridge.jpeg")
+      center center / cover no-repeat;
+}
+
+.events-desktop-note {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(28rem, 46%);
+  padding: 1.35rem 1.5rem;
+  color: #000;
+  font-family: "Circ Handwriting", "Gochi Hand", cursive;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.84);
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.events-desktop-title {
+  margin: 0;
+  font-size: clamp(3.25rem, 5vw, 4.75rem);
+  line-height: 0.92;
+}
+
+.events-desktop-note a {
+  display: block;
+  margin-top: 0.85rem;
+  color: #000;
+  font-size: clamp(1.25rem, 2.1vw, 1.8rem);
+  line-height: 1.02;
+  text-decoration: underline;
+}
+
+.events-scene-mobile {
+  display: none;
+}
+
+.events-plate-card {
+  display: grid;
+  place-items: center;
+  width: min(92vw, 29rem);
+  aspect-ratio: 1;
+  background:
+    url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/plate_(mobile).png")
+      center center / contain no-repeat;
+}
+
+.events-plate-note {
+  width: min(12rem, 50%);
+  margin-top: -0.2rem;
+  color: #000;
+  font-family: "Circ Handwriting", "Gochi Hand", cursive;
+  text-align: center;
+  transform: rotate(-12deg);
+}
+
+.events-plate-note p {
+  margin: 0;
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  line-height: 0.9;
+}
+
+.events-plate-note a {
+  display: block;
+  margin-top: 0.75rem;
+  color: #000;
+  font-size: clamp(0.95rem, 2.6vw, 1.35rem);
+  line-height: 1.05;
+  text-decoration: underline;
+}
+
+.events-panel .panel-link {
+  width: fit-content;
+  margin: 0 1.2rem 0.65rem auto;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.submission-form input,
+.submission-form textarea {
+  font-size: clamp(1.35rem, 1.85vw, 2rem);
+}
+
+.submission-form input {
+  min-height: 3.2rem;
+  padding: 0.25rem 0 0.9rem;
+}
+
+.submission-form textarea {
+  min-height: 12rem;
+  padding: 0.8rem 0.8rem 1rem;
+}
+
+@media (max-width: 1100px) {
+  .featured-image-motion {
+    object-position: center 20%;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-image {
+    background-image:
+      linear-gradient(180deg, rgba(11, 8, 8, 0.08) 0%, rgba(11, 8, 8, 0.18) 52%, rgba(0, 0, 0, 0.78) 100%),
+      url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/SAS_record_player.jpg");
+    background-position: center 26%;
+  }
+
+  .featured-slide,
+  .featured-image {
+    min-height: 36rem;
+  }
+
+  .featured-image-motion {
+    object-position: center 18%;
+  }
+
+  .events-empty-state {
+    padding: 1rem 1rem 0;
+  }
+
+  .events-scene-desktop {
+    display: none;
+  }
+
+  .events-scene-mobile {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-image {
+    min-height: 55.3125rem;
+    background-position: center 24%;
+  }
+
+  .hero-overlay {
+    padding: 1rem 1rem 2.5rem;
+  }
+
+  .hero-glow {
+    bottom: 2.05rem;
+    width: 9.5rem;
+  }
+
+  .hero-cta {
+    font-size: 1rem;
+  }
+
+  #featured,
+  .events-panel,
+  .zines-panel,
+  .submission-panel {
+    min-height: 0;
+  }
+
+  #featured {
+    padding-top: 3.3rem;
+  }
+
+  .featured-slide,
+  .featured-image {
+    min-height: 42rem;
+  }
+
+  .featured-image-motion {
+    object-position: center 12%;
+  }
+
+  .featured-caption {
+    right: 1rem;
+    bottom: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .events-panel {
+    padding-top: 3.3rem;
+    min-height: 54.8125rem;
+  }
+
+  .events-scene-mobile {
+    min-height: 39rem;
+    align-content: start;
+    padding-top: 3.1rem;
+  }
+
+  .events-plate-card {
+    width: min(90vw, 20rem);
+  }
+
+  .events-plate-note {
+    width: 9.6rem;
+    transform: rotate(-14deg) translateY(-0.15rem);
+  }
+
+  .events-plate-note p {
+    font-size: 2.85rem;
+    line-height: 0.88;
+  }
+
+  .events-plate-note a {
+    margin-top: 0.35rem;
+    font-size: 0.98rem;
+    line-height: 1;
+  }
+
+  .events-panel .panel-link {
+    margin-right: 0.75rem;
+    margin-bottom: 0.85rem;
+    font-size: 1.35rem;
+  }
+
+  .submission-panel {
+    padding: 3.4rem 0.75rem 1rem;
+  }
+
+  .submission-card {
+    padding: 1rem 1rem 0.65rem;
+    min-height: 0;
+  }
+
+  .submission-form span,
+  .submission-field-title {
+    font-size: 0.95rem;
+  }
+
+  .submission-form input {
+    min-height: 2.85rem;
+  }
+
+  .submission-form textarea {
+    min-height: 10.5rem;
+  }
+}

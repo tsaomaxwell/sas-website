@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starving Artist Society</title>
+    <link rel="icon" type="image/png" href="assets/sas-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="submission.css" />
+  </head>
+  <body class="submission-page">
+    <div class="site-frame">
+      <header class="submission-page-header" id="top">
+        <nav class="topbar submission-topbar">
+          <a class="brand" href="index.html#top">Starving Artist Society</a>
+          <button
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+          <div class="menu-panel">
+            <div class="menu-links">
+              <a class="menu-link" href="index.html#top">Home</a>
+              <a class="menu-link" href="events.html#top">Events</a>
+              <a class="menu-link" href="zine.html">Zines</a>
+              <a class="menu-link" href="gallery.html">Gallery</a>
+              <a class="menu-link" href="about.html">About</a>
+            </div>
+
+            <div class="menu-divider"></div>
+
+            <a class="menu-feature" href="submission.html">Submission &#8594;</a>
+            <p class="menu-caption">Want to be featured on our platform?</p>
+
+            <div class="menu-divider"></div>
+
+            <a class="menu-secondary" href="join.html">Join the Society</a>
+            <a class="menu-secondary" href="privacy.html">Privacy Policy</a>
+
+            <div class="menu-socials">
+              <a href="https://www.instagram.com/strvingartistsociety/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@StarvingArtistSociety" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="submission-page-main">
+        <section class="submission-page-stage">
+          <div class="section-label">Submission</div>
+          <div class="submission-card submission-card-standalone">
+            <div class="submission-form-state">
+              <h2>Artist Details</h2>
+
+              <form class="submission-form" novalidate>
+                <label>
+                  <span>Artist Name <em>*</em></span>
+                  <input type="text" name="artistName" placeholder="What is your artist name?" required />
+                </label>
+
+                <label>
+                  <span>Email <em>*</em></span>
+                  <input type="email" name="email" placeholder="Email address" required />
+                </label>
+
+                <label>
+                  <span>Bio <em>*</em></span>
+                  <textarea name="bio" rows="4" placeholder="Tell us about you and your art ..." required></textarea>
+                </label>
+
+                <div class="submission-file-row">
+                  <span class="submission-field-title">Files <em>*</em></span>
+                  <label class="upload-tile">
+                    <input class="upload-input" type="file" name="files" accept=".mp3,audio/*,.pdf,.png,.jpg,.jpeg" required />
+                    <span class="upload-icon" aria-hidden="true">&#8682;</span>
+                    <span class="upload-hint">(i.e. MP3)</span>
+                  </label>
+                  <p class="upload-filename" aria-live="polite">No file selected</p>
+                </div>
+
+                <label>
+                  <span>Links</span>
+                  <input type="text" name="links" placeholder="Spotify, Portfolio, Instagram, etc." />
+                </label>
+
+                <div class="submission-actions">
+                  <button type="submit" class="next-link">Next &#8594;</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="submission-success-state" hidden>
+              <img
+                class="submission-success-mark"
+                src="assets/drive-import/Desktop/SUBMISSION page/Other Assets/SAS_logo_(offwhite).png"
+                alt="Starving Artist Society"
+              />
+              <p class="submission-success-message">
+                Thank you for sharing your work with us! We&rsquo;ve received your submission
+                and a confirmation email has been sent to your inbox.
+              </p>
+              <div class="submission-actions submission-actions-success">
+                <button type="button" class="next-link submission-done-button">Done</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
