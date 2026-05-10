@@ -317,28 +317,28 @@ wordSearchGames.forEach((game) => {
 
   const gridRows = [
     "THREEUAHCMIT",
-    "QSKYDIVINGXB",
+    "__ASKYDIVING",
     "LIFULKXZDCRB",
-    "TMPONAIFZHQW",
-    "DAKQLHALFJYD",
-    "WSISTERAOAPO",
+    "TM______ZH__",
+    "DAKQLHALFEYD",
+    "WSISTERAOLPO",
     "OUTVXJLSTLGE",
-    "QEXCYAZATAEJ",
-    "XARENOMGKPFT",
-    "RNIJABDCNEBW",
-    "EDVPIZZAONKL",
-    "ORTJKQLWHOML",
-    "BEOHOVDSAXTC",
+    "QEXCYAZATEJS",
+    "XVRENOMGKOFT",
+    "RIJABDCNFBWE",
+    "EVYPIZZAOAK_",
+    "_OTJKQ_EHML_",
+    "BROHOV_DEAX_",
   ];
 
   const targets = [
     { word: "THREE", start: { row: 0, col: 0 }, end: { row: 0, col: 4 } },
-    { word: "SKYDIVING", start: { row: 1, col: 1 }, end: { row: 1, col: 9 } },
-    { word: "HALF", start: { row: 4, col: 5 }, end: { row: 4, col: 8 } },
+    { word: "SKYDIVING", start: { row: 1, col: 3 }, end: { row: 1, col: 11 } },
+    { word: "IMA", start: { row: 2, col: 1 }, end: { row: 4, col: 1 } },
     { word: "SISTER", start: { row: 5, col: 1 }, end: { row: 5, col: 6 } },
+    { word: "MICHELLEOBAMA", start: { row: 0, col: 9 }, end: { row: 12, col: 9 } },
     { word: "PIZZA", start: { row: 10, col: 3 }, end: { row: 10, col: 7 } },
-    { word: "ANDRE", start: { row: 8, col: 1 }, end: { row: 12, col: 1 } },
-    { word: "JALAPENO", start: { row: 4, col: 9 }, end: { row: 11, col: 9 } },
+    { word: "LASAGNA", start: { row: 4, col: 7 }, end: { row: 10, col: 7 } },
   ];
 
   const totalWords = targets.length;
@@ -572,10 +572,19 @@ wordSearchGames.forEach((game) => {
       const cell = document.createElement("button");
       cell.type = "button";
       cell.className = "word-search-cell";
-      cell.textContent = letter.toLowerCase();
       cell.dataset.row = String(rowIndex);
       cell.dataset.col = String(colIndex);
       cell.setAttribute("role", "gridcell");
+
+      if (letter === "_") {
+        cell.classList.add("is-inactive");
+        cell.disabled = true;
+        cell.tabIndex = -1;
+        cell.setAttribute("aria-hidden", "true");
+      } else {
+        cell.textContent = letter.toLowerCase();
+      }
+
       gridElement.appendChild(cell);
       cells.push(cell);
     });

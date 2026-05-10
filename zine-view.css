@@ -352,6 +352,13 @@ body.zine-view-page {
   text-transform: lowercase;
 }
 
+.word-search-cell.is-inactive {
+  border-color: transparent;
+  background: transparent;
+  color: transparent;
+  pointer-events: none;
+}
+
 .word-search-cell.is-active,
 .word-search-cell.is-found {
   background: rgba(240, 199, 145, 0.52);
