@@ -387,8 +387,24 @@
 }
 
 @media (max-width: 660px) {
+  #featured {
+    min-height: 0;
+  }
+
+  .featured-slider,
+  .featured-slider .slider-track,
+  .featured-picture {
+    height: auto;
+  }
+
   .featured-slide {
     background: #000;
+    min-height: 0;
+  }
+
+  .featured-image {
+    height: auto;
+    min-height: 0;
   }
 
   .featured-image-motion {

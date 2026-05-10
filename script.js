@@ -2,6 +2,7 @@ const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuLinks = Array.from(document.querySelectorAll(".mobile-menu a"));
 const sliders = Array.from(document.querySelectorAll("[data-slider]"));
+const quizGames = Array.from(document.querySelectorAll("[data-quiz]"));
 const wordSearchGames = Array.from(document.querySelectorAll("[data-word-search]"));
 const submissionForm = document.querySelector(".submission-form");
 const submissionCard = document.querySelector(".submission-card");
@@ -229,6 +230,79 @@ sliders.forEach((slider) => {
       render(activeIndex);
     });
   });
+});
+
+quizGames.forEach((game) => {
+  const questions = Array.from(game.querySelectorAll(".quiz-question"));
+  const resultBlank = game.querySelector(".quiz-result-blank");
+  const restartButton = game.querySelector(".quiz-restart");
+
+  if (!questions.length || !resultBlank || !restartButton) {
+    return;
+  }
+
+  const selections = new Map();
+
+  const render = () => {
+    questions.forEach((question) => {
+      const selectedValue = selections.get(question.dataset.question || "");
+      const options = Array.from(question.querySelectorAll(".quiz-option"));
+
+      options.forEach((option) => {
+        const isSelected = option.dataset.value === selectedValue;
+        option.classList.toggle("is-selected", isSelected);
+        option.setAttribute("aria-pressed", String(isSelected));
+      });
+    });
+
+    if (selections.size !== questions.length) {
+      resultBlank.textContent = "_____";
+      game.classList.remove("is-complete");
+      restartButton.hidden = true;
+      return;
+    }
+
+    let bishopScore = 0;
+    let simonScore = 0;
+
+    selections.forEach((value) => {
+      if (value === "bishop") {
+        bishopScore += 1;
+      } else if (value === "simon") {
+        simonScore += 1;
+      }
+    });
+
+    if (bishopScore > simonScore) {
+      resultBlank.textContent = "Bishop";
+    } else if (simonScore > bishopScore) {
+      resultBlank.textContent = "Simon";
+    } else {
+      resultBlank.textContent = "Both";
+    }
+
+    game.classList.add("is-complete");
+    restartButton.hidden = false;
+  };
+
+  questions.forEach((question) => {
+    const key = question.dataset.question || "";
+    const options = Array.from(question.querySelectorAll(".quiz-option"));
+
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        selections.set(key, option.dataset.value || "");
+        render();
+      });
+    });
+  });
+
+  restartButton.addEventListener("click", () => {
+    selections.clear();
+    render();
+  });
+
+  render();
 });
 
 wordSearchGames.forEach((game) => {
