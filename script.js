@@ -2,6 +2,7 @@ const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuLinks = Array.from(document.querySelectorAll(".mobile-menu a"));
 const sliders = Array.from(document.querySelectorAll("[data-slider]"));
+const wordSearchGames = Array.from(document.querySelectorAll("[data-word-search]"));
 const submissionForm = document.querySelector(".submission-form");
 const submissionCard = document.querySelector(".submission-card");
 const submissionSuccessState = document.querySelector(".submission-success-state");
@@ -228,6 +229,352 @@ sliders.forEach((slider) => {
       render(activeIndex);
     });
   });
+});
+
+wordSearchGames.forEach((game) => {
+  const gridElement = game.querySelector(".word-search-grid");
+  const timerElement = game.querySelector(".word-search-timer");
+  const actionButton = game.querySelector("[data-word-search-action]");
+  const clueItems = Array.from(game.querySelectorAll(".word-search-clues [data-word]"));
+
+  if (!gridElement || !timerElement || !actionButton) {
+    return;
+  }
+
+  const gridRows = [
+    "THREEUAHCMIT",
+    "QSKYDIVINGXB",
+    "LIFULKXZDCRB",
+    "TMPONAIFZHQW",
+    "DAKQLHALFJYD",
+    "WSISTERAOAPO",
+    "OUTVXJLSTLGE",
+    "QEXCYAZATAEJ",
+    "XARENOMGKPFT",
+    "RNIJABDCNEBW",
+    "EDVPIZZAONKL",
+    "ORTJKQLWHOML",
+    "BEOHOVDSAXTC",
+  ];
+
+  const targets = [
+    { word: "THREE", start: { row: 0, col: 0 }, end: { row: 0, col: 4 } },
+    { word: "SKYDIVING", start: { row: 1, col: 1 }, end: { row: 1, col: 9 } },
+    { word: "HALF", start: { row: 4, col: 5 }, end: { row: 4, col: 8 } },
+    { word: "SISTER", start: { row: 5, col: 1 }, end: { row: 5, col: 6 } },
+    { word: "PIZZA", start: { row: 10, col: 3 }, end: { row: 10, col: 7 } },
+    { word: "ANDRE", start: { row: 8, col: 1 }, end: { row: 12, col: 1 } },
+    { word: "JALAPENO", start: { row: 4, col: 9 }, end: { row: 11, col: 9 } },
+  ];
+
+  const totalWords = targets.length;
+  const targetByWord = new Map(targets.map((target) => [target.word, target]));
+  const clueByWord = new Map(clueItems.map((item) => [item.dataset.word || "", item]));
+  const cells = [];
+  let status = "idle";
+  let isSelecting = false;
+  let startCell = null;
+  let activePath = [];
+  let foundWords = new Set();
+  let elapsedSeconds = 0;
+  let timerId = null;
+
+  const cellKey = (row, col) => `${row}:${col}`;
+
+  const foundCellKeys = () => {
+    const keys = new Set();
+
+    foundWords.forEach((word) => {
+      const target = targetByWord.get(word);
+      if (!target) {
+        return;
+      }
+
+      const path = getLineCells(target.start, target.end) || [];
+      path.forEach(({ row, col }) => keys.add(cellKey(row, col)));
+    });
+
+    return keys;
+  };
+
+  const gcd = (a, b) => {
+    let x = Math.abs(a);
+    let y = Math.abs(b);
+
+    while (y !== 0) {
+      const remainder = x % y;
+      x = y;
+      y = remainder;
+    }
+
+    return x || 1;
+  };
+
+  const getLineCells = (start, end) => {
+    const deltaRow = end.row - start.row;
+    const deltaCol = end.col - start.col;
+
+    if (!(deltaRow === 0 || deltaCol === 0 || Math.abs(deltaRow) === Math.abs(deltaCol))) {
+      return null;
+    }
+
+    const steps = Math.max(Math.abs(deltaRow), Math.abs(deltaCol));
+    const divisor = gcd(deltaRow, deltaCol);
+    const rowStep = steps === 0 ? 0 : deltaRow / divisor;
+    const colStep = steps === 0 ? 0 : deltaCol / divisor;
+    const normalizedRowStep = Math.max(-1, Math.min(1, rowStep));
+    const normalizedColStep = Math.max(-1, Math.min(1, colStep));
+    const path = [];
+
+    for (let index = 0; index <= steps; index += 1) {
+      const row = start.row + normalizedRowStep * index;
+      const col = start.col + normalizedColStep * index;
+      path.push({ row, col });
+    }
+
+    return path;
+  };
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainder = seconds % 60;
+    return `${minutes}:${String(remainder).padStart(2, "0")}`;
+  };
+
+  const stopTimer = () => {
+    if (timerId) {
+      window.clearInterval(timerId);
+      timerId = null;
+    }
+  };
+
+  const renderGrid = ({ invalid = false } = {}) => {
+    const foundKeys = foundCellKeys();
+    const activeKeys = new Set(activePath.map(({ row, col }) => cellKey(row, col)));
+
+    cells.forEach((cell) => {
+      const key = cellKey(Number(cell.dataset.row), Number(cell.dataset.col));
+      const isFound = foundKeys.has(key);
+      const isActive = activeKeys.has(key) && !isFound;
+
+      cell.classList.toggle("is-found", isFound);
+      cell.classList.toggle("is-active", isActive);
+      cell.classList.toggle("is-invalid", invalid && isActive);
+    });
+  };
+
+  const renderClues = () => {
+    clueItems.forEach((item) => {
+      const word = item.dataset.word || "";
+      item.classList.toggle("is-found", foundWords.has(word));
+    });
+  };
+
+  const renderTimer = () => {
+    timerElement.textContent = formatTime(elapsedSeconds);
+  };
+
+  const renderButton = () => {
+    actionButton.disabled = false;
+    actionButton.classList.remove("word-search-button-start", "word-search-button-complete", "word-search-button-restart");
+
+    if (status === "idle") {
+      actionButton.textContent = "Start";
+      actionButton.classList.add("word-search-button-start");
+      return;
+    }
+
+    if (status === "playing") {
+      actionButton.textContent = "Complete";
+      actionButton.classList.add("word-search-button-complete");
+      actionButton.disabled = foundWords.size !== totalWords;
+      return;
+    }
+
+    actionButton.textContent = "Restart";
+    actionButton.classList.add("word-search-button-restart");
+  };
+
+  const resetSelection = () => {
+    isSelecting = false;
+    startCell = null;
+    activePath = [];
+    renderGrid();
+  };
+
+  const flashInvalidSelection = () => {
+    renderGrid({ invalid: true });
+    window.setTimeout(() => {
+      resetSelection();
+    }, 220);
+  };
+
+  const setStatus = (nextStatus) => {
+    status = nextStatus;
+    renderButton();
+  };
+
+  const startGame = () => {
+    elapsedSeconds = 0;
+    foundWords = new Set();
+    stopTimer();
+    renderTimer();
+    renderClues();
+    resetSelection();
+    setStatus("playing");
+
+    timerId = window.setInterval(() => {
+      elapsedSeconds += 1;
+      renderTimer();
+    }, 1000);
+  };
+
+  const completeGame = () => {
+    stopTimer();
+    setStatus("completed");
+  };
+
+  const resetGame = () => {
+    stopTimer();
+    elapsedSeconds = 0;
+    foundWords = new Set();
+    renderTimer();
+    renderClues();
+    resetSelection();
+    setStatus("idle");
+  };
+
+  const updateSelection = (nextCell) => {
+    if (!startCell) {
+      return;
+    }
+
+    const nextPath = getLineCells(startCell, {
+      row: Number(nextCell.dataset.row),
+      col: Number(nextCell.dataset.col),
+    });
+
+    if (!nextPath) {
+      return;
+    }
+
+    activePath = nextPath;
+    renderGrid();
+  };
+
+  const finalizeSelection = () => {
+    if (!activePath.length) {
+      resetSelection();
+      return;
+    }
+
+    const selectedWord = activePath
+      .map(({ row, col }) => gridRows[row][col])
+      .join("")
+      .toUpperCase();
+    const selectedWordReversed = selectedWord.split("").reverse().join("");
+    const matchedWord = targets.find(
+      (target) =>
+        !foundWords.has(target.word) &&
+        (target.word === selectedWord || target.word === selectedWordReversed),
+    );
+
+    if (!matchedWord) {
+      flashInvalidSelection();
+      return;
+    }
+
+    foundWords.add(matchedWord.word);
+    renderClues();
+    resetSelection();
+
+    if (foundWords.size === totalWords) {
+      renderButton();
+    }
+  };
+
+  gridRows.forEach((rowValue, rowIndex) => {
+    rowValue.split("").forEach((letter, colIndex) => {
+      const cell = document.createElement("button");
+      cell.type = "button";
+      cell.className = "word-search-cell";
+      cell.textContent = letter.toLowerCase();
+      cell.dataset.row = String(rowIndex);
+      cell.dataset.col = String(colIndex);
+      cell.setAttribute("role", "gridcell");
+      gridElement.appendChild(cell);
+      cells.push(cell);
+    });
+  });
+
+  gridElement.addEventListener("pointerdown", (event) => {
+    if (status !== "playing") {
+      return;
+    }
+
+    const cell = event.target.closest(".word-search-cell");
+    if (!cell) {
+      return;
+    }
+
+    event.preventDefault();
+    isSelecting = true;
+    startCell = {
+      row: Number(cell.dataset.row),
+      col: Number(cell.dataset.col),
+    };
+    activePath = [startCell];
+    renderGrid();
+  });
+
+  gridElement.addEventListener("pointerover", (event) => {
+    const cell = event.target.closest(".word-search-cell");
+    if (!isSelecting || !cell) {
+      return;
+    }
+
+    updateSelection(cell);
+  });
+
+  gridElement.addEventListener("pointermove", (event) => {
+    if (!isSelecting) {
+      return;
+    }
+
+    const hoveredCell = document.elementFromPoint(event.clientX, event.clientY)?.closest(".word-search-cell");
+    if (hoveredCell) {
+      updateSelection(hoveredCell);
+    }
+  });
+
+  document.addEventListener("pointerup", () => {
+    if (!isSelecting) {
+      return;
+    }
+
+    finalizeSelection();
+  });
+
+  actionButton.addEventListener("click", () => {
+    if (status === "idle") {
+      startGame();
+      return;
+    }
+
+    if (status === "playing" && foundWords.size === totalWords) {
+      completeGame();
+      return;
+    }
+
+    if (status === "completed") {
+      resetGame();
+    }
+  });
+
+  renderTimer();
+  renderClues();
+  renderButton();
+  renderGrid();
 });
 
 if (submissionForm) {

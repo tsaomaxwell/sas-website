@@ -76,9 +76,16 @@
                 name="join-the-society"
                 method="POST"
                 data-netlify="true"
+                netlify-honeypot="bot-field"
                 novalidate
               >
                 <input type="hidden" name="form-name" value="join-the-society" />
+                <p class="sr-only">
+                  <label>
+                    Don't fill this out if you're human:
+                    <input name="bot-field" />
+                  </label>
+                </p>
                 <label class="join-input-shell">
                   <span class="sr-only">Email address</span>
                   <input class="join-input" type="email" name="email" placeholder="Enter email address" required />

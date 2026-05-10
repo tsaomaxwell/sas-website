@@ -72,10 +72,17 @@
                 name="artist-submission"
                 method="POST"
                 data-netlify="true"
+                netlify-honeypot="bot-field"
                 enctype="multipart/form-data"
                 novalidate
               >
                 <input type="hidden" name="form-name" value="artist-submission" />
+                <p class="sr-only">
+                  <label>
+                    Don't fill this out if you're human:
+                    <input name="bot-field" />
+                  </label>
+                </p>
                 <label>
                   <span>Artist Name <em>*</em></span>
                   <input type="text" name="artistName" placeholder="What is your artist name?" required />

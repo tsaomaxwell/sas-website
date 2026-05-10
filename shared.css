@@ -714,6 +714,13 @@ main > .panel {
   padding-left: clamp(0.6rem, 1.5vw, 1.4rem);
 }
 
+.disc-link {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 .disc {
   position: relative;
   width: min(78%, 30rem);

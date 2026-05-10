@@ -46,6 +46,208 @@ body.zine-view-page {
   object-fit: contain;
 }
 
+.word-search-slide {
+  padding: 1.5rem 2.75rem;
+}
+
+.word-search-page {
+  width: min(100%, 84.625rem);
+  min-height: calc(100svh - 3rem);
+  display: flex;
+  align-items: stretch;
+}
+
+.word-search-spread {
+  position: relative;
+  width: 100%;
+  min-height: calc(100svh - 3rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0 48.6%, rgba(0, 0, 0, 0.4) 48.6% 100%),
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Inside_fridge.jpg")
+      center / cover no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.word-search-left-page,
+.word-search-right-page {
+  position: relative;
+  min-height: calc(100svh - 3rem);
+}
+
+.word-search-left-page {
+  display: grid;
+  place-items: center;
+  padding: 3rem 2rem 4rem;
+}
+
+.word-search-note {
+  position: relative;
+  width: min(100%, 33rem);
+  aspect-ratio: 552 / 720;
+  padding: 8.2rem 4rem 4.6rem 5.25rem;
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
+    url("assets/drive-import/Desktop/HOME page/Other Assets/Napkin.png")
+      center / 100% 100% no-repeat;
+  filter: drop-shadow(0 0.35rem 0.5rem rgba(0, 0, 0, 0.28));
+}
+
+.word-search-tape {
+  position: absolute;
+  top: 1.15rem;
+  left: 50%;
+  width: 25rem;
+  height: 6rem;
+  transform: translateX(-50%) rotate(-2deg);
+  background: url("assets/paper-label.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+.word-search-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-bottom: 1.8rem;
+  color: #7f3c2e;
+  font-family: "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
+  font-size: clamp(3.75rem, 5vw, 5rem);
+  font-style: italic;
+  line-height: 0.95;
+}
+
+.word-search-title span:last-child {
+  transform: translateY(1.2rem);
+}
+
+.word-search-clues {
+  margin: 0;
+  padding-left: 1.45rem;
+  color: #27110b;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.34;
+}
+
+.word-search-clues li + li {
+  margin-top: 0.35rem;
+}
+
+.word-search-clues li.is-found {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.word-search-right-page {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  padding: 2.8rem 2.2rem 6rem;
+}
+
+.word-search-directions {
+  max-width: 20rem;
+  margin: 0;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.word-search-directions strong {
+  font-weight: 700;
+}
+
+.word-search-timer {
+  margin-top: 0.65rem;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.word-search-grid {
+  margin-top: 1.15rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 3rem));
+  grid-auto-rows: 3rem;
+  gap: 0;
+  user-select: none;
+  touch-action: none;
+}
+
+.word-search-cell {
+  display: grid;
+  place-items: center;
+  border: 0.125rem solid rgba(255, 255, 255, 0.92);
+  color: #fff;
+  background: transparent;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2.1rem;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.word-search-cell.is-active,
+.word-search-cell.is-found {
+  background: rgba(240, 199, 145, 0.52);
+}
+
+.word-search-cell.is-invalid {
+  background: rgba(160, 30, 30, 0.42);
+}
+
+.word-search-button {
+  margin-top: 1.8rem;
+  min-width: 7.8rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 0.65rem;
+  background: #720000;
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.word-search-button:disabled {
+  background: rgba(114, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.word-search-button.word-search-button-complete {
+  background: rgba(114, 0, 0, 0.35);
+}
+
+.word-search-button.word-search-button-complete:not(:disabled) {
+  background: #720000;
+  color: #fff;
+}
+
+.word-search-page-number {
+  position: absolute;
+  bottom: 1rem;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.word-search-page-number-left {
+  left: -0.3rem;
+}
+
+.word-search-page-number-right {
+  right: -0.3rem;
+}
+
 .zine-reader-arrow {
   position: absolute;
   top: 50%;
@@ -80,6 +282,69 @@ body.zine-view-page {
     width: min(100%, 58rem);
     max-height: calc(100svh - 2rem);
   }
+
+  .word-search-slide {
+    padding: 1rem 2rem;
+  }
+
+  .word-search-page,
+  .word-search-spread,
+  .word-search-left-page,
+  .word-search-right-page {
+    min-height: calc(100svh - 2rem);
+  }
+
+  .word-search-spread {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(0, auto);
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0 52%, rgba(0, 0, 0, 0.42) 52% 100%),
+      url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Inside_fridge.jpg")
+        center / cover no-repeat;
+  }
+
+  .word-search-left-page {
+    min-height: auto;
+    padding: 1.5rem 1.5rem 0.5rem;
+  }
+
+  .word-search-note {
+    width: min(100%, 26rem);
+    padding: 6.7rem 3.2rem 3.5rem 4rem;
+  }
+
+  .word-search-tape {
+    width: 18rem;
+    height: 4.6rem;
+  }
+
+  .word-search-right-page {
+    min-height: auto;
+    padding: 1rem 1.2rem 4rem;
+  }
+
+  .word-search-grid {
+    grid-template-columns: repeat(12, minmax(0, 2.4rem));
+    grid-auto-rows: 2.4rem;
+  }
+
+  .word-search-cell {
+    font-size: 1.75rem;
+  }
+
+  .word-search-page-number {
+    font-size: 1.15rem;
+  }
+
+  .word-search-page-number-left {
+    left: 0.45rem;
+    bottom: 0.2rem;
+  }
+
+  .word-search-page-number-right {
+    right: 0.45rem;
+    bottom: 0.2rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -96,5 +361,82 @@ body.zine-view-page {
   .zine-reader-image {
     width: min(100%, 24rem);
     max-height: calc(100svh - 2rem);
+  }
+
+  .word-search-slide {
+    padding: 0.75rem 1rem;
+  }
+
+  .word-search-page,
+  .word-search-spread,
+  .word-search-left-page,
+  .word-search-right-page {
+    min-height: calc(100svh - 1.5rem);
+  }
+
+  .word-search-left-page {
+    padding: 1rem 0.9rem 0.25rem;
+  }
+
+  .word-search-note {
+    width: min(100%, 19rem);
+    padding: 4.85rem 2rem 2.55rem 2.75rem;
+  }
+
+  .word-search-tape {
+    top: 0.8rem;
+    width: 13rem;
+    height: 3.3rem;
+  }
+
+  .word-search-title {
+    margin-bottom: 1rem;
+    font-size: 2.7rem;
+  }
+
+  .word-search-title span:last-child {
+    transform: translateY(0.8rem);
+  }
+
+  .word-search-clues {
+    font-size: 0.72rem;
+    line-height: 1.28;
+  }
+
+  .word-search-right-page {
+    padding: 0.5rem 0.55rem 3rem;
+  }
+
+  .word-search-directions {
+    max-width: 15rem;
+    font-size: 0.75rem;
+  }
+
+  .word-search-timer {
+    margin-top: 0.45rem;
+    font-size: 1.15rem;
+  }
+
+  .word-search-grid {
+    margin-top: 0.85rem;
+    grid-template-columns: repeat(12, minmax(0, 1.55rem));
+    grid-auto-rows: 1.55rem;
+  }
+
+  .word-search-cell {
+    border-width: 0.08rem;
+    font-size: 1.05rem;
+  }
+
+  .word-search-button {
+    margin-top: 1rem;
+    min-width: 6.4rem;
+    height: 2rem;
+    border-radius: 0.45rem;
+    font-size: 0.82rem;
+  }
+
+  .word-search-page-number {
+    font-size: 0.8rem;
   }
 }

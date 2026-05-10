@@ -126,9 +126,11 @@
                     <div class="paper-label">Zine 1</div>
                   </div>
                   <div class="case-panel case-disc">
-                    <div class="disc">
-                      <span class="disc-hole"></span>
-                    </div>
+                    <a class="disc-link" href="zine-view.html" aria-label="Open Zine 1">
+                      <div class="disc">
+                        <span class="disc-hole"></span>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </article>
@@ -147,10 +149,17 @@
                 name="artist-submission"
                 method="POST"
                 data-netlify="true"
+                netlify-honeypot="bot-field"
                 enctype="multipart/form-data"
                 novalidate
               >
                 <input type="hidden" name="form-name" value="artist-submission" />
+                <p class="sr-only">
+                  <label>
+                    Don't fill this out if you're human:
+                    <input name="bot-field" />
+                  </label>
+                </p>
                 <label>
                   <span>Artist Name <em>*</em></span>
                   <input type="text" name="artistName" placeholder="What is your artist name?" required />
@@ -231,9 +240,16 @@
             name="join-the-society"
             method="POST"
             data-netlify="true"
+            netlify-honeypot="bot-field"
             novalidate
           >
             <input type="hidden" name="form-name" value="join-the-society" />
+            <p class="sr-only">
+              <label>
+                Don't fill this out if you're human:
+                <input name="bot-field" />
+              </label>
+            </p>
             <label class="subscribe-modal-input-shell">
               <span class="sr-only">Email address</span>
               <input
