@@ -148,12 +148,27 @@ if (menuButton && mobileMenu) {
 sliders.forEach((slider) => {
   const slides = Array.from(slider.querySelectorAll(".slide"));
   const arrows = Array.from(slider.querySelectorAll(".slider-arrow"));
+  const isZineReader = slider.classList.contains("zine-reader");
+  const mobileZineQuery = window.matchMedia("(max-width: 660px)");
 
-  if (slides.length <= 1 || arrows.length === 0) {
+  if (slides.length <= 1) {
     return;
   }
 
-  let activeIndex = slides.findIndex((slide) => slide.classList.contains("slide-active"));
+  const getRenderableSlides = () => {
+    if (!isZineReader) {
+      return slides;
+    }
+
+    const activeVariant = mobileZineQuery.matches ? "mobile" : "desktop";
+    return slides.filter((slide) => {
+      const slideVariant = slide.dataset.variant;
+      return !slideVariant || slideVariant === activeVariant;
+    });
+  };
+
+  let renderableSlides = getRenderableSlides();
+  let activeIndex = renderableSlides.findIndex((slide) => slide.classList.contains("slide-active"));
   activeIndex = activeIndex >= 0 ? activeIndex : 0;
 
   if (slider.classList.contains("slider--carousel")) {
@@ -169,12 +184,22 @@ sliders.forEach((slider) => {
     let resumeTimer = null;
 
     const render = (index) => {
-      slides.forEach((slide, slideIndex) => {
-        slide.classList.toggle("slide-active", slideIndex === index);
-        slide.setAttribute("aria-hidden", String(slideIndex !== index));
+      renderableSlides = getRenderableSlides();
+
+      if (!renderableSlides.length) {
+        return;
+      }
+
+      activeIndex = ((index % renderableSlides.length) + renderableSlides.length) % renderableSlides.length;
+
+      slides.forEach((slide) => {
+        const visibleIndex = renderableSlides.indexOf(slide);
+        const isActive = visibleIndex === activeIndex;
+        slide.classList.toggle("slide-active", isActive);
+        slide.setAttribute("aria-hidden", String(!isActive));
       });
 
-      track.style.transform = `translateX(-${index * 100}%)`;
+      track.style.transform = `translateX(-${activeIndex * 100}%)`;
     };
 
     const stopAutoAdvance = () => {
@@ -187,7 +212,7 @@ sliders.forEach((slider) => {
     const startAutoAdvance = () => {
       stopAutoAdvance();
       autoAdvanceTimer = window.setInterval(() => {
-        activeIndex = (activeIndex + 1) % slides.length;
+        activeIndex = (activeIndex + 1) % renderableSlides.length;
         render(activeIndex);
       }, AUTO_ADVANCE_MS);
     };
@@ -207,7 +232,7 @@ sliders.forEach((slider) => {
         const direction = Number(arrow.dataset.direction || 1);
         stopAutoAdvance();
         scheduleResume();
-        activeIndex = (activeIndex + direction + slides.length) % slides.length;
+        activeIndex = (activeIndex + direction + renderableSlides.length) % renderableSlides.length;
         render(activeIndex);
       });
     });
@@ -218,19 +243,112 @@ sliders.forEach((slider) => {
   }
 
   const render = (index) => {
-    slides.forEach((slide, slideIndex) => {
-      slide.classList.toggle("slide-active", slideIndex === index);
+    renderableSlides = getRenderableSlides();
+
+    if (!renderableSlides.length) {
+      return;
+    }
+
+    activeIndex = ((index % renderableSlides.length) + renderableSlides.length) % renderableSlides.length;
+
+    slides.forEach((slide) => {
+      slide.classList.toggle("slide-active", renderableSlides[activeIndex] === slide);
     });
   };
 
   arrows.forEach((arrow) => {
     arrow.addEventListener("click", () => {
       const direction = Number(arrow.dataset.direction || 1);
-      activeIndex = (activeIndex + direction + slides.length) % slides.length;
+      activeIndex = (activeIndex + direction + renderableSlides.length) % renderableSlides.length;
       render(activeIndex);
     });
   });
+
+  if (isZineReader) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let swipeBlocked = false;
+
+    slider.addEventListener(
+      "touchstart",
+      (event) => {
+        swipeBlocked = Boolean(
+          event.target.closest(
+            ".word-search-grid, .word-search-button, .quiz-option, .quiz-restart",
+          ),
+        );
+
+        if (swipeBlocked) {
+          return;
+        }
+
+        const [touch] = event.touches;
+        if (!touch) {
+          return;
+        }
+
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+      },
+      { passive: true },
+    );
+
+    slider.addEventListener(
+      "touchend",
+      (event) => {
+        if (swipeBlocked) {
+          swipeBlocked = false;
+          return;
+        }
+
+        const [touch] = event.changedTouches;
+        if (!touch || renderableSlides.length <= 1) {
+          return;
+        }
+
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+
+        if (Math.abs(deltaX) < 40 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+          return;
+        }
+
+        activeIndex =
+          deltaX < 0
+            ? (activeIndex + 1 + renderableSlides.length) % renderableSlides.length
+            : (activeIndex - 1 + renderableSlides.length) % renderableSlides.length;
+
+        render(activeIndex);
+      },
+      { passive: true },
+    );
+
+    const handleVariantChange = () => {
+      activeIndex = 0;
+      render(activeIndex);
+    };
+
+    if (typeof mobileZineQuery.addEventListener === "function") {
+      mobileZineQuery.addEventListener("change", handleVariantChange);
+    } else if (typeof mobileZineQuery.addListener === "function") {
+      mobileZineQuery.addListener(handleVariantChange);
+    }
+  }
+
+  render(activeIndex);
 });
+
+if (document.body.classList.contains("zine-view-page")) {
+  try {
+    window.history.pushState({ zineReaderGuard: true }, "", window.location.href);
+  } catch {
+    // Ignore history API failures and fall back to default browser behavior.
+  }
+
+  window.addEventListener("popstate", () => {
+    window.location.href = "zine.html";
+  });
+}
 
 quizGames.forEach((game) => {
   const questions = Array.from(game.querySelectorAll(".quiz-question"));

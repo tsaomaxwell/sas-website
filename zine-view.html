@@ -17,19 +17,277 @@
   <body class="zine-view-page">
     <main class="zine-view-shell">
       <div class="slider zine-reader" data-slider>
+        <div class="zine-reader-mobile-chrome">
+          <div class="zine-reader-mobile-brand">STARVING ARTIST SOCIETY</div>
+          <a class="zine-reader-mobile-close" href="zine.html" aria-label="Close zine reader">&times;</a>
+        </div>
+
         <button class="slider-arrow zine-reader-arrow zine-reader-arrow-left" type="button" data-direction="-1" aria-label="Previous spread">
           &#8250;
         </button>
 
         <div class="slider-track zine-reader-track">
-          <article class="slide slide-active zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page zine-mobile-page-cover">
+              <div class="zine-mobile-stage">
+                <img
+                  class="zine-mobile-image"
+                  src="assets/zine pages mobile/cover.png"
+                  alt="Starving Artist Society. Redefine what it means to be a starving artist: hungry to create. Zine 01."
+                />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide zine-mobile-slide word-search-mobile-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage word-search-mobile-note-stage">
+                <div class="word-search-mobile-note">
+                  <span class="word-search-mobile-tape" aria-hidden="true"></span>
+                  <div class="word-search-mobile-title">
+                    <span>Word</span>
+                    <span>Search</span>
+                  </div>
+                  <ol class="word-search-mobile-clues">
+                    <li>What dish was cooked this episode?</li>
+                    <li>Who knows Motion Blu best? (They both gave the same answer)</li>
+                    <li>According to Bishop, which song feels like this dish?</li>
+                    <li>Who is Simon's dream dinner guest?</li>
+                    <li>What's on Bishop's bucket list?</li>
+                    <li>If their music were a flavor, Simon said it would be...</li>
+                    <li>Bishop rated the dish __ out of 10.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide zine-mobile-slide word-search-mobile-slide" data-variant="mobile">
+            <section class="word-search-mobile-page" data-word-search>
+              <div class="zine-mobile-page">
+                <div class="zine-mobile-stage word-search-mobile-grid-stage">
+                  <p class="word-search-mobile-directions">
+                    <strong>Direction:</strong> Find the answers to the questions hidden in the word search. Click Start to begin the timer. Once you've found all the words, click Complete to record your time.
+                  </p>
+                  <div class="word-search-timer word-search-mobile-timer" aria-live="polite">0:00</div>
+                  <div class="word-search-grid word-search-mobile-grid" role="grid" aria-label="Motion Blu word search puzzle"></div>
+                  <button class="word-search-button word-search-button-start word-search-mobile-button" type="button" data-word-search-action>
+                    Start
+                  </button>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="slide zine-reader-slide zine-mobile-slide quiz-mobile-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="quiz-mobile-stage quiz-mobile-stage-intro">
+                <div class="quiz-mobile-title">Quiz</div>
+                <p class="quiz-mobile-intro">
+                  Pack your bags and follow the prompts to plan your dream concert trip with Motion Blu. From the artist you&rsquo;d see to the way you spend the night before the show, every choice reveals a little more about your personality. By the end, find out whether your energy aligns more with Bishop or Simon.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide zine-mobile-slide quiz-mobile-slide" data-variant="mobile">
+            <section class="quiz-mobile-page" data-quiz>
+              <div class="zine-mobile-page">
+                <div class="quiz-mobile-stage quiz-mobile-stage-paper">
+                  <div class="quiz-mobile-paper">
+                    <div class="quiz-questions">
+                      <div class="quiz-question" data-question="artist-mobile">
+                        <p>First things first, who are you seeing? Are they a pop artist or alternative?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Pop</button>
+                          <button type="button" class="quiz-option" data-value="simon">Alternative</button>
+                        </div>
+                      </div>
+
+                      <div class="quiz-question" data-question="location-mobile">
+                        <p>Where is the concert located?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Japan</button>
+                          <button type="button" class="quiz-option" data-value="simon">Brazil</button>
+                        </div>
+                      </div>
+
+                      <div class="quiz-question" data-question="suitcase-mobile">
+                        <p>Time to dig in the closet for your suitcase. Is it orange or green?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Orange</button>
+                          <button type="button" class="quiz-option" data-value="simon">Green</button>
+                        </div>
+                      </div>
+
+                      <div class="quiz-question" data-question="outfit-mobile">
+                        <p>Load up your bags. Are you dressing up or packing cozy?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Cozy</button>
+                          <button type="button" class="quiz-option" data-value="simon">Dressing up</button>
+                        </div>
+                      </div>
+
+                      <div class="quiz-question" data-question="essentials-mobile">
+                        <p>What do you need to run back inside for?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Glasses/contacts</button>
+                          <button type="button" class="quiz-option" data-value="simon">Headphones</button>
+                        </div>
+                      </div>
+
+                      <div class="quiz-question" data-question="fruit-mobile">
+                        <p>The flight attendants bring around some fruit. What are you choosing?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Mango</button>
+                          <button type="button" class="quiz-option" data-value="simon">Orange</button>
+                        </div>
+                      </div>
+
+                      <div class="quiz-question" data-question="night-before-mobile">
+                        <p>It&rsquo;s the night before the show. Are you hitting the town or having a night in?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Night in</button>
+                          <button type="button" class="quiz-option" data-value="simon">Out on the town</button>
+                        </div>
+                      </div>
+
+                      <div class="quiz-question" data-question="show-time-mobile">
+                        <p>Does the show take place in the evening, or is it a late night event?</p>
+                        <div class="quiz-options">
+                          <button type="button" class="quiz-option" data-value="bishop">Late night</button>
+                          <button type="button" class="quiz-option" data-value="simon">Evening</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p class="quiz-result-line">
+                      You enter the venue and to your surprise you run into
+                      <span class="quiz-result-blank" aria-live="polite">_____</span>!
+                    </p>
+                    <p class="quiz-result-copy">
+                      You guys find a spot to watch the concert together and it ends up being the best time
+                      you&rsquo;ve had in a while.
+                    </p>
+                    <button class="quiz-restart" type="button" hidden>Restart</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/motion blu 1.png" alt="Motion Blu mobile zine page 1." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/motion blu 2.png" alt="Motion Blu mobile zine page 2." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/lasagna 1.png" alt="Lasagna mobile zine page 1." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/lasagna 2.png" alt="Lasagna mobile zine page 2." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/global artists 1.png" alt="Global artists mobile zine page 1." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/global artists 2.png" alt="Global artists mobile zine page 2." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/postcards 1.png" alt="Postcards mobile zine page 1." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/postcards 2.png" alt="Postcards mobile zine page 2." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/postcards 3.png" alt="Postcards mobile zine page 3." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/postcards 4.png" alt="Postcards mobile zine page 4." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/receipt 1.png" alt="Receipt mobile zine page 1." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/receipt 2.png" alt="Receipt mobile zine page 2." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide zine-reader-slide" data-variant="mobile">
+            <div class="zine-mobile-page">
+              <div class="zine-mobile-stage">
+                <img class="zine-mobile-image" src="assets/zine pages mobile/back.png" alt="Zine 1 mobile back cover." />
+              </div>
+            </div>
+          </article>
+
+          <article class="slide slide-active zine-reader-slide" data-variant="desktop">
             <img
               class="zine-reader-image"
               src="assets/zine pages desktop/cover.png"
               alt="Starving Artist Society. Redefine what it means to be a starving artist: hungry to create. Zine 01."
             />
           </article>
-          <article class="slide zine-reader-slide quiz-slide">
+          <article class="slide zine-reader-slide quiz-slide" data-variant="desktop">
             <section class="quiz-page" data-quiz>
               <div class="quiz-spread">
                 <div class="quiz-left-page">
@@ -126,7 +384,7 @@
               </div>
             </section>
           </article>
-          <article class="slide zine-reader-slide word-search-slide">
+          <article class="slide zine-reader-slide word-search-slide" data-variant="desktop">
             <section class="word-search-page" data-word-search>
               <div class="word-search-spread">
                 <div class="word-search-left-page">
@@ -163,45 +421,45 @@
               </div>
             </section>
           </article>
-          <article class="slide zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="desktop">
             <img
               class="zine-reader-image"
               src="assets/zine pages desktop/motion blu zine page.png"
               alt="This month, Starving Artist Society (SAS) is excited to spotlight Motion Blu: a dynamic R&amp;B duo making waves in the Los Angeles scene. Lyricist and vocalist Bishop Freeman and multi-instrumentalist producer Simon Chernow first sparked a connection in 2021 while attending UCLA. What began as a one-off outreach, Simon seeking Bishop’s vocals for a short film, rapidly transitioned into an electrifying exchange of tracks and ideas. Fueled by mutual respect and inspiration, they decided to move forward together in their musical careers. Through a series of FaceTime calls and meet-ups, they sought a name for themselves, something that reflected their artistry. They landed on Motion Blu: Motion representing their ever-evolving sound, and Blu capturing the vast amount of emotions the color can evoke. Executed beautifully, with themes of love, connection, and self discovery, their music is transcendental. Motion Blu. Page 1. Bishop, left: From North Carolina to Southern California, Bishop Freeman is a natural-born performer. He first stepped into the spotlight as a child, singing to the rhythm of his sister's guitar for family, school, and church. As they matured, the siblings branched out to cultivate their own distinct musical identities, yet still find moments to create together and keep that original magic alive. Bishop’s artistry knows no bounds. His magnetic stage presence is undoubtedly enhanced by his skill and passion for acting, a craft he has refined as a theater major at UCLA. Set to graduate this year, Bishop continues to thrive while ensuring his creative honesty remains a constant force, both on and off the stage. Simon, right: Born and raised in Boston, Massachusetts, Simon Chernow is a multifaceted artist to his core. Before becoming a musician, he was, and remains, a powerhouse on the dance floor, commanding the space with his skills in street dancing, krump, and house. As a teenager, Simon’s dance videos were silenced by audio copyright blocks. Refusing to let this stop him, he was inspired to start making beats of his own. His love for movement, people, and music led him to UCLA, where he double majored in dance and education, then graduated in 2025. Beyond the stage and studio, Simon is a humanitarian. Although we might not hear him sing in his music, his voice is strong in his community. Page 2."
             />
           </article>
-          <article class="slide zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="desktop">
             <img
               class="zine-reader-image"
               src="assets/zine pages desktop/lasagna.png"
               alt="LASAGNA. Meat sauce: 1 pound ground beef, 1 half pound Italian sausage, 2 tablespoons olive oil, 1 medium onion diced, 1 third cup carrots diced, 1 third cup celery diced, 4 garlic cloves minced, 2 tablespoons tomato paste, 1 quarter cup dry red wine, 24 ounces tomato puree or passata, 1 teaspoon salt, 1 teaspoon oregano, 1 quarter teaspoon black pepper, basil and parmesan rind. Bechamel sauce: 4 tablespoons butter, 4 tablespoons flour, 3 cups warm whole milk, salt and pepper to taste, pinch of nutmeg. A fun and entertaining watch: get to know more about Motion Blu as their cooking skills are put to the test. Will their musical talent translate to culinary skill? Pro tip: ordering pizza is a good Plan B. Pasta: 20 lasagna sheets, 16 to 20 ounces freshly shredded mozzarella, 3 quarters cup freshly shredded parmesan cheese. Instructions. Bechamel sauce: in a small saucepan melt butter and incorporate flour. Whisk for a few minutes. Slowly add warmed milk until thick and creamy. Season with salt, pepper, and nutmeg. Set aside. Meat sauce: in a large pot sauté onion, carrot, and celery in olive oil over medium heat. Once softened, add fresh garlic and mix for a minute. Add in ground beef and Italian sausage. Once browned, incorporate tomato paste and cook down for a few minutes. Deglaze with red wine and reduce. Pour in tomato puree. Season and add basil and parmesan rind. Simmer for 20 minutes until reduced and thickened. Set aside. The pasta: don’t boil the lasagna sheets, cover them with hot water for 15 minutes while the meat sauce cooks. When the noodles are flexible, begin layering in an oven-safe pan or dish. The layering order is meat, noodles, bechamel, mozzarella, and parm. Repeat until you reach the top, adding a generous layer of cheese on top. Bake covered at 375 degrees Fahrenheit for 40 minutes. Uncover and bake an additional 20 minutes. Lastly, broil for 1 to 2 minutes. Pages 3 and 4."
             />
           </article>
-          <article class="slide zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="desktop">
             <img
               class="zine-reader-image"
               src="assets/zine pages desktop/global artists.png"
               alt="Global artists. Saint Levant is a Palestinian singer-songwriter and rapper who incorporates French, Arabic, and English in his music. Much like language, he blends genre, putting out a mix of alternative R&amp;B, hip-hop, rap, and pop. Evrencan Gündüz is a Turkish singer-songwriter and guitarist who makes a blend of blues, rock, and folk music. Michael Omondiaebe Ikhifa, also known as Miki Ikhifa, is a Nigerian musician. As a saxophonist and multi-instrumentalist, he creates Afro-jazz and Afro-Cuban jazz music. Angèle is a Belgian singer-songwriter. In 2018 she was described as one of the biggest breakout acts in French and Belgian pop music. Page numbers shown: 1, 2, 7, and 8."
             />
           </article>
-          <article class="slide zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="desktop">
             <img
               class="zine-reader-image"
               src="assets/zine pages desktop/postcards 1.png"
               alt="Postcards 1. Cafe Tondo. Location: 1135 North Alameda Street, Los Angeles, California 90012. Open hours: Monday closed. Tuesday 8 a.m. to 11 p.m. Wednesday 8 a.m. to 11 p.m. Thursday 8 a.m. to 11 p.m. Friday 8 a.m. to 12 a.m. Saturday 8 a.m. to 12 a.m. Sunday 8 a.m. to 11 p.m. A neighborhood cafe shaped by music and routine: Bolero Nights on Tuesdays, Sunday jazz, and weekend chess gatherings. LACMA, Los Angeles Contemporary Museum of Art. Friday evenings transform the museum Café Tondo with live jazz drifting through the galleries from May to October. Location: 905 Wilshire Boulevard, Los Angeles, California 90036. Open hours: Monday 11 a.m. to 6 p.m. Tuesday 11 a.m. to 6 p.m. Wednesday closed. Thursday 11 a.m. to 6 p.m. Friday 11 a.m. to 8 p.m. Saturday 10 a.m. to 7 p.m. Sunday 10 a.m. to 7 p.m. Page numbers shown: 1, 2, 6, and 7."
             />
           </article>
-          <article class="slide zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="desktop">
             <img
               class="zine-reader-image"
               src="assets/zine pages desktop/postcards 2.png"
               alt="Postcards 2. Starving Artist Society. By Aysu Buldaç. Writer: Berdeen Lott-Clough. Photographer: Tara Radmard. Visual designer: Chamé Koomthong. Price shown: 0 dollars and 0 cents. Page numbers shown: 1, 13, 14, and 2."
             />
           </article>
-          <article class="slide zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="desktop">
             <img class="zine-reader-image" src="assets/zine pages desktop/receipt.png" alt="Receipt zine spread." />
           </article>
-          <article class="slide zine-reader-slide">
+          <article class="slide zine-reader-slide" data-variant="desktop">
             <img class="zine-reader-image" src="assets/zine pages desktop/back.png" alt="Zine 1 back cover." />
           </article>
         </div>

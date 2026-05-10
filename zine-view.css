@@ -19,6 +19,10 @@ body.zine-view-page {
   background: #000;
 }
 
+.zine-reader-mobile-chrome {
+  display: none;
+}
+
 .zine-reader-track {
   display: flex;
   height: 100svh;
@@ -44,6 +48,226 @@ body.zine-view-page {
   width: min(100%, 82rem);
   max-height: calc(100svh - 3rem);
   object-fit: contain;
+}
+
+[data-variant="mobile"] {
+  display: none;
+}
+
+.zine-mobile-page {
+  width: min(100vw, 25.125rem);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 7.25rem 0 2rem;
+  background: #000;
+}
+
+.zine-mobile-stage {
+  width: 23.5rem;
+  min-height: 34.125rem;
+  margin: 0 auto;
+}
+
+.zine-mobile-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.word-search-mobile-note-stage,
+.word-search-mobile-grid-stage,
+.quiz-mobile-stage {
+  position: relative;
+  width: 23.5rem;
+  height: 34.125rem;
+  margin: 0 auto;
+  background:
+    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Inside_fridge.jpg")
+      center / cover no-repeat;
+}
+
+.word-search-mobile-grid-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.word-search-mobile-note {
+  position: absolute;
+  inset: 1.8rem 0.45rem auto;
+  width: 24.35rem;
+  height: 30.45rem;
+  padding: 8.45rem 6.4rem 0 6.35rem;
+  background: url("assets/zine pages desktop/napkin-word-search.png") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
+}
+
+.word-search-mobile-tape {
+  position: absolute;
+  top: 0.45rem;
+  left: 50%;
+  width: 15.1rem;
+  height: 5.5rem;
+  transform: translateX(-50%);
+  background: url("assets/zine pages desktop/tape-word-search.png") center / contain no-repeat;
+}
+
+.word-search-mobile-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 0.55rem;
+  color: #633325;
+  font-family: "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
+  font-size: 2.8rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.word-search-mobile-title span:last-child {
+  transform: translateY(0.85rem);
+}
+
+.word-search-mobile-clues {
+  width: 11.6rem;
+  margin: 0 auto;
+  padding-left: 0.95rem;
+  color: #3b1409;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.5rem;
+  line-height: 1.5;
+}
+
+.word-search-mobile-grid-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.word-search-mobile-directions,
+.word-search-mobile-timer,
+.word-search-mobile-grid,
+.word-search-mobile-button {
+  position: relative;
+  z-index: 1;
+}
+
+.word-search-mobile-directions {
+  width: 10.6rem;
+  margin: 0 auto;
+  padding-top: 1.75rem;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  line-height: 1.125;
+  text-align: center;
+}
+
+.word-search-mobile-timer {
+  margin-top: 0.2rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.word-search-mobile-grid {
+  margin: 0.45rem auto 0;
+  justify-content: center;
+  grid-template-columns: repeat(12, minmax(0, 1.72rem));
+  grid-auto-rows: 1.72rem;
+}
+
+.word-search-mobile-grid .word-search-cell {
+  border-width: 0.08rem;
+  font-size: 1rem;
+}
+
+.word-search-mobile-button {
+  margin: 0.9rem auto 0;
+  min-width: 3.45rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.5rem;
+}
+
+.quiz-mobile-stage-intro {
+  background: url("assets/zine pages desktop/quiz back.png") center / cover no-repeat;
+}
+
+.quiz-mobile-title {
+  position: absolute;
+  top: 8.55rem;
+  left: 1rem;
+  color: #e8e0de;
+  font-family: "Snell Roundhand", "Apple Chancery", "URW Chancery L", cursive;
+  font-size: 6.55rem;
+  font-style: italic;
+  line-height: 1;
+  text-shadow: 0 0.25rem 0.25rem #d9a866;
+}
+
+.quiz-mobile-intro {
+  position: absolute;
+  left: 1.5rem;
+  top: 20.8rem;
+  width: 12.2rem;
+  margin: 0;
+  color: #000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.56rem;
+  font-style: italic;
+  line-height: 1.22;
+}
+
+.quiz-mobile-stage-paper {
+  background: url("assets/zine pages desktop/quiz back.png") center / cover no-repeat;
+}
+
+.quiz-mobile-paper {
+  width: 18.0625rem;
+  min-height: 28.125rem;
+  margin: 3rem auto 0;
+  padding: 2.35rem 1.25rem 1rem;
+  background: url("assets/zine pages desktop/question section back.png") center / 100% 100% no-repeat;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.quiz-mobile-paper .quiz-questions {
+  gap: 0.42rem;
+}
+
+.quiz-mobile-paper .quiz-question p,
+.quiz-mobile-paper .quiz-result-line,
+.quiz-mobile-paper .quiz-result-copy,
+.quiz-mobile-paper .quiz-option {
+  font-size: 0.5rem;
+  line-height: 1.2;
+}
+
+.quiz-mobile-paper .quiz-options {
+  gap: 0.18rem 0.8rem;
+}
+
+.quiz-mobile-paper .quiz-result-line {
+  margin-top: 0.45rem;
+}
+
+.quiz-mobile-paper .quiz-result-copy {
+  margin-top: 0.15rem;
+}
+
+.quiz-mobile-paper .quiz-result-blank {
+  min-width: 2.8rem;
+}
+
+.quiz-mobile-paper .quiz-restart {
+  margin-top: 0.55rem;
+  min-width: 4.2rem;
+  height: 1.45rem;
+  font-size: 0.65rem;
 }
 
 .quiz-slide {
@@ -750,5 +974,62 @@ body.zine-view-page {
 
   .word-search-page-number {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 660px) {
+  [data-variant="desktop"] {
+    display: none !important;
+  }
+
+  .zine-view-shell {
+    place-items: stretch;
+  }
+
+  .zine-reader-mobile-chrome {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100vw, 25.125rem);
+    padding: 0.5rem 0.75rem 0;
+    transform: translateX(-50%);
+  }
+
+  .zine-reader-mobile-brand {
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .zine-reader-mobile-close {
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .zine-reader-track {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .zine-reader-slide {
+    min-height: 100svh;
+    padding: 0;
+  }
+
+  .slide.slide-active.zine-reader-slide[data-variant="mobile"] {
+    display: flex;
+  }
+
+  .zine-reader-arrow {
+    display: none;
   }
 }
