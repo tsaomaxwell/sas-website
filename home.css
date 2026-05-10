@@ -240,13 +240,9 @@
     background-position: center 26%;
   }
 
-  .featured-slide,
-  .featured-image {
-    min-height: 36rem;
-  }
-
   .featured-image-motion {
-    object-position: center 18%;
+    object-fit: contain;
+    object-position: center top;
   }
 
   .events-empty-state {
@@ -297,11 +293,12 @@
 
   .featured-slide,
   .featured-image {
-    min-height: 42rem;
+    min-height: 0;
   }
 
   .featured-image-motion {
-    object-position: center 12%;
+    object-fit: contain;
+    object-position: center top;
   }
 
   .featured-caption {
@@ -393,7 +390,9 @@
 
   .featured-slider,
   .featured-slider .slider-track,
-  .featured-picture {
+  .featured-picture,
+  .featured-slide,
+  .featured-image {
     height: auto;
   }
 

@@ -323,7 +323,7 @@ wordSearchGames.forEach((game) => {
     "DAKQLHALFEYD",
     "WSISTERAOLPO",
     "OUTVXJLSTLGE",
-    "QEXCYAZATEJS",
+    "QRXCYAZATEJS",
     "XVRENOMGKOFT",
     "RIJABDCNFBWE",
     "EVYPIZZAOAK_",
@@ -334,7 +334,7 @@ wordSearchGames.forEach((game) => {
   const targets = [
     { word: "THREE", start: { row: 0, col: 0 }, end: { row: 0, col: 4 } },
     { word: "SKYDIVING", start: { row: 1, col: 3 }, end: { row: 1, col: 11 } },
-    { word: "IMA", start: { row: 2, col: 1 }, end: { row: 4, col: 1 } },
+    { word: "IMASURVIVOR", start: { row: 2, col: 1 }, end: { row: 12, col: 1 } },
     { word: "SISTER", start: { row: 5, col: 1 }, end: { row: 5, col: 6 } },
     { word: "MICHELLEOBAMA", start: { row: 0, col: 9 }, end: { row: 12, col: 9 } },
     { word: "PIZZA", start: { row: 10, col: 3 }, end: { row: 10, col: 7 } },
@@ -814,7 +814,11 @@ if (subscribePopup) {
   };
 
   subscribePopupCloseButtons.forEach((button) => {
-    button.addEventListener("click", () => closeSubscribePopup());
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      closeSubscribePopup();
+    });
   });
 
   subscribePopupTriggers.forEach((trigger) => {
