@@ -1,0 +1,100 @@
+body.zine-view-page {
+  margin: 0;
+  background: #000;
+}
+
+.zine-view-shell {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: #000;
+}
+
+.zine-reader {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #000;
+}
+
+.zine-reader-track {
+  display: flex;
+  height: 100svh;
+  transition: transform 320ms ease;
+}
+
+.zine-reader-slide {
+  flex: 0 0 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100svh;
+  padding: 1.5rem 5rem;
+}
+
+.slide.slide-active.zine-reader-slide {
+  display: flex;
+}
+
+.zine-reader-image {
+  display: block;
+  width: min(100%, 82rem);
+  max-height: calc(100svh - 3rem);
+  object-fit: contain;
+}
+
+.zine-reader-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 3.75rem;
+  height: 3.75rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: #fff;
+  background: transparent;
+  font-size: 3.6rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.zine-reader-arrow-left {
+  left: 0;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.zine-reader-arrow-right {
+  right: 0;
+}
+
+@media (max-width: 900px) {
+  .zine-reader-slide {
+    padding: 1rem 3rem;
+  }
+
+  .zine-reader-image {
+    width: min(100%, 58rem);
+    max-height: calc(100svh - 2rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .zine-reader-slide {
+    padding: 1rem 2rem;
+  }
+
+  .zine-reader-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 2.8rem;
+  }
+
+  .zine-reader-image {
+    width: min(100%, 24rem);
+    max-height: calc(100svh - 2rem);
+  }
+}

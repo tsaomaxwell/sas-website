@@ -71,7 +71,14 @@
             <div class="join-card-inner join-form-state">
               <h1>Join the Society</h1>
 
-              <form class="join-form" novalidate>
+              <form
+                class="join-form"
+                name="join-the-society"
+                method="POST"
+                data-netlify="true"
+                novalidate
+              >
+                <input type="hidden" name="form-name" value="join-the-society" />
                 <label class="join-input-shell">
                   <span class="sr-only">Email address</span>
                   <input class="join-input" type="email" name="email" placeholder="Enter email address" required />

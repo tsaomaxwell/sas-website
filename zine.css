@@ -1,4 +1,12 @@
 /* Standalone zine page overrides */
+.zine-hero-image {
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("assets/751EE3E7-2CED-4018-8986-698335FF7554 1.png");
+  background-position: center center;
+  background-size: cover;
+}
+
 .zine-detail-panel {
   position: relative;
   display: grid;
@@ -35,19 +43,19 @@
 
 .zine-detail-label {
   position: absolute;
-  left: 20%;
-  bottom: 21%;
-  width: 23%;
-  min-height: 10%;
+  left: 26%;
+  top: 59.5%;
+  width: 29%;
+  min-height: 11%;
   display: grid;
   place-items: center;
   color: #10449e;
   font-family: "Gochi Hand", cursive;
-  font-size: clamp(2rem, 3.1vw, 3.75rem);
+  font-size: clamp(2.45rem, 3.8vw, 4.45rem);
   line-height: 1;
   background:
     url("assets/paper-label.png") center center / 100% 100% no-repeat;
-  transform: rotate(-4deg);
+  transform: translate(-50%, -50%) rotate(-4deg);
 }
 
 .zine-detail-disc-wrap {
@@ -113,6 +121,11 @@
 }
 
 @media (max-width: 900px) {
+  .zine-hero-image {
+    background-position: center center;
+    background-size: cover;
+  }
+
   .zine-detail-shell {
     width: min(98vw, 48rem);
     margin-top: 0.8rem;
@@ -123,9 +136,9 @@
   }
 
   .zine-detail-label {
-    left: 19%;
-    bottom: 20%;
-    width: 24%;
+    left: 25.5%;
+    top: 59%;
+    width: 30%;
     font-size: clamp(1.45rem, 4.4vw, 2.35rem);
   }
 
@@ -149,6 +162,11 @@
 }
 
 @media (max-width: 640px) {
+  .zine-hero-image {
+    background-position: center center;
+    background-size: cover;
+  }
+
   .zine-detail-panel {
     min-height: 0;
     padding: 3rem 0.5rem 1.75rem;
@@ -171,10 +189,15 @@
   }
 
   .zine-detail-meta {
-    right: 6.5%;
-    top: 48%;
-    width: 30%;
-    font-size: 0.14rem;
+    right: 10.5%;
+    top: 46.8%;
+    width: 24%;
+    font-size: 0.22rem;
+    line-height: 1.1;
+  }
+
+  .zine-detail-meta span {
+    margin-top: 0.22rem;
   }
 
   .zine-detail-hint {

@@ -75,12 +75,16 @@
               <article class="slide featured-slide">
                 <picture class="featured-picture">
                   <source
+                    media="(max-width: 660px)"
+                    srcset="assets/drive-import/Desktop/HOME page/Pictures (Original)/Motion_Blu_.jpeg"
+                  />
+                  <source
                     media="(max-width: 900px)"
                     srcset="assets/drive-import/Mobile/HOME page/Pictures (cropped)/motion_blu.jpeg"
                   />
                   <img
                     class="featured-image featured-image-motion"
-                    src="assets/drive-import/Desktop/HOME page/Pictures (Original)/Motion_Blu_.jpeg"
+                    src="assets/motion-blu-desktop.png"
                     alt="Motion Blu"
                   />
                 </picture>
@@ -114,11 +118,7 @@
         <section class="panel zines-panel" id="zines">
           <div class="section-label dark-text">Zines</div>
           <a class="zines-more-link" href="zine.html">More &#8594;</a>
-          <div class="slider zine-slider" data-slider="zines">
-            <button class="slider-arrow slider-arrow-left dark-arrow" type="button" data-direction="-1" aria-label="Previous zine">
-              &#8249;
-            </button>
-
+          <div class="slider zine-slider">
             <div class="slider-track">
               <article class="slide slide-active zine-stage">
                 <div class="jewel-case">
@@ -132,23 +132,7 @@
                   </div>
                 </div>
               </article>
-              <article class="slide zine-stage">
-                <div class="jewel-case">
-                  <div class="case-panel case-cover alt-cover">
-                    <div class="paper-label">Zine 1</div>
-                  </div>
-                  <div class="case-panel case-disc">
-                    <div class="disc alt-disc">
-                      <span class="disc-hole"></span>
-                    </div>
-                  </div>
-                </div>
-              </article>
             </div>
-
-            <button class="slider-arrow slider-arrow-right dark-arrow" type="button" data-direction="1" aria-label="Next zine">
-              &#8250;
-            </button>
           </div>
         </section>
 
@@ -158,7 +142,15 @@
             <div class="submission-form-state">
               <h2>Artist Details</h2>
 
-              <form class="submission-form" novalidate>
+              <form
+                class="submission-form"
+                name="artist-submission"
+                method="POST"
+                data-netlify="true"
+                enctype="multipart/form-data"
+                novalidate
+              >
+                <input type="hidden" name="form-name" value="artist-submission" />
                 <label>
                   <span>Artist Name <em>*</em></span>
                   <input type="text" name="artistName" placeholder="What is your artist name?" required />
@@ -234,7 +226,14 @@
         <div class="subscribe-modal-card subscribe-modal-form-state">
           <p class="subscribe-modal-copy">Receive updates on events, artists, and more!</p>
 
-          <form class="subscribe-modal-form" novalidate>
+          <form
+            class="subscribe-modal-form"
+            name="join-the-society"
+            method="POST"
+            data-netlify="true"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="join-the-society" />
             <label class="subscribe-modal-input-shell">
               <span class="sr-only">Email address</span>
               <input

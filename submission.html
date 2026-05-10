@@ -67,7 +67,15 @@
             <div class="submission-form-state">
               <h2>Artist Details</h2>
 
-              <form class="submission-form" novalidate>
+              <form
+                class="submission-form"
+                name="artist-submission"
+                method="POST"
+                data-netlify="true"
+                enctype="multipart/form-data"
+                novalidate
+              >
+                <input type="hidden" name="form-name" value="artist-submission" />
                 <label>
                   <span>Artist Name <em>*</em></span>
                   <input type="text" name="artistName" placeholder="What is your artist name?" required />

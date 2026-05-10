@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zine 1 Reader | Starving Artist Society</title>
+    <link rel="icon" type="image/png" href="assets/sas-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="zine-view.css" />
+  </head>
+  <body class="zine-view-page">
+    <main class="zine-view-shell">
+      <div class="slider zine-reader" data-slider>
+        <button class="slider-arrow zine-reader-arrow zine-reader-arrow-left" type="button" data-direction="-1" aria-label="Previous spread">
+          &#8250;
+        </button>
+
+        <div class="slider-track zine-reader-track">
+          <article class="slide slide-active zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/cover.png" alt="Zine 1 cover" />
+          </article>
+          <article class="slide zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/motion blu zine page.png" alt="Motion Blu zine spread" />
+          </article>
+          <article class="slide zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/lasagna.png" alt="Lasagna zine spread" />
+          </article>
+          <article class="slide zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/global artists.png" alt="Global artists zine spread" />
+          </article>
+          <article class="slide zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/postcards 1.png" alt="Postcards one zine spread" />
+          </article>
+          <article class="slide zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/postcards 2.png" alt="Postcards two zine spread" />
+          </article>
+          <article class="slide zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/receipt.png" alt="Receipt zine spread" />
+          </article>
+          <article class="slide zine-reader-slide">
+            <img class="zine-reader-image" src="assets/zine pages desktop/back.png" alt="Zine 1 back cover" />
+          </article>
+        </div>
+
+        <button class="slider-arrow zine-reader-arrow zine-reader-arrow-right" type="button" data-direction="1" aria-label="Next spread">
+          &#8250;
+        </button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -19,11 +19,41 @@ const subscribePopupCloseButtons = Array.from(document.querySelectorAll("[data-c
 const subscribePopupTriggers = Array.from(document.querySelectorAll("[data-open-subscribe-popup]"));
 const homeFileNames = new Set(["", "index.html"]);
 const localLinks = Array.from(document.querySelectorAll('a[href]'));
-const knownHtmlFiles = new Set(["", "index.html", "events.html", "gallery.html", "about.html", "submission.html", "join.html", "privacy.html", "zine.html", "404.html"]);
+const knownHtmlFiles = new Set(["", "index.html", "events.html", "gallery.html", "about.html", "submission.html", "join.html", "privacy.html", "zine.html", "zine-view.html", "404.html"]);
 const SUBSCRIBE_POPUP_DISMISSED_AT = "sas.subscribePopupDismissedAt";
 const SUBSCRIBE_POPUP_SUBSCRIBED = "sas.subscribePopupSubscribed";
 const SUBSCRIBE_POPUP_DELAY_MS = 1800;
 const SUBSCRIBE_POPUP_COOLDOWN_MS = 24 * 60 * 60 * 1000;
+
+const submitNetlifyForm = async (form) => {
+  const formData = new FormData(form);
+  const hasFileInput = Array.from(form.elements).some(
+    (element) => element instanceof HTMLInputElement && element.type === "file",
+  );
+
+  if (hasFileInput) {
+    const response = await fetch("/", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Submission failed with status ${response.status}`);
+    }
+
+    return;
+  }
+
+  const response = await fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Submission failed with status ${response.status}`);
+  }
+};
 
 const normalizeLocalTarget = (href) => {
   if (!href || href.startsWith("#")) {
@@ -208,17 +238,34 @@ if (submissionForm) {
     });
   }
 
-  submissionForm.addEventListener("submit", (event) => {
+  submissionForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!submissionForm.reportValidity()) {
       return;
     }
 
-    if (submissionCard && submissionSuccessState) {
-      submissionSuccessState.hidden = false;
-      submissionCard.classList.add("is-submitted");
-      submissionCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    const submitButton = submissionForm.querySelector('button[type="submit"]');
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    try {
+      await submitNetlifyForm(submissionForm);
+
+      if (submissionCard && submissionSuccessState) {
+        submissionSuccessState.hidden = false;
+        submissionCard.classList.add("is-submitted");
+        submissionCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    } catch (error) {
+      window.alert("We couldn't send your submission right now. Please try again.");
+      console.error(error);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
     }
   });
 }
@@ -236,16 +283,33 @@ if (submissionDoneButton && submissionCard && submissionSuccessState && submissi
 }
 
 if (joinForm) {
-  joinForm.addEventListener("submit", (event) => {
+  joinForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!joinForm.reportValidity()) {
       return;
     }
 
-    if (joinCard && joinSuccessState) {
-      joinSuccessState.hidden = false;
-      joinCard.classList.add("is-joined");
+    const submitButton = joinForm.querySelector('button[type="submit"]');
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    try {
+      await submitNetlifyForm(joinForm);
+
+      if (joinCard && joinSuccessState) {
+        joinSuccessState.hidden = false;
+        joinCard.classList.add("is-joined");
+      }
+    } catch (error) {
+      window.alert("We couldn't subscribe you right now. Please try again.");
+      console.error(error);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
     }
   });
 }
@@ -331,15 +395,31 @@ if (subscribePopup) {
   });
 
   if (subscribePopupForm) {
-    subscribePopupForm.addEventListener("submit", (event) => {
+    subscribePopupForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       if (!subscribePopupForm.reportValidity()) {
         return;
       }
 
-      writeStorage(SUBSCRIBE_POPUP_SUBSCRIBED, "true");
-      setPopupSuccessState(true);
+      const submitButton = subscribePopupForm.querySelector('button[type="submit"]');
+
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+
+      try {
+        await submitNetlifyForm(subscribePopupForm);
+        writeStorage(SUBSCRIBE_POPUP_SUBSCRIBED, "true");
+        setPopupSuccessState(true);
+      } catch (error) {
+        window.alert("We couldn't subscribe you right now. Please try again.");
+        console.error(error);
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      }
     });
   }
 

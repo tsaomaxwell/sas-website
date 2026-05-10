@@ -719,7 +719,7 @@ main > .panel {
   width: min(78%, 30rem);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: url("assets/cd-design-1-square.png") center center / cover no-repeat;
+  background: url("assets/Untitled_Artwork 10.png") center center / cover no-repeat;
 }
 
 .disc::before {
@@ -735,7 +735,7 @@ main > .panel {
 }
 
 .alt-disc {
-  background-image: url("assets/cd-design-2-square.png");
+  background-image: url("assets/Untitled_Artwork 10.png");
 }
 
 .disc-hole {
@@ -1661,7 +1661,7 @@ body.has-subscribe-modal-open {
   max-height: 84vh;
   padding: 0;
   background:
-    url("assets/drive-import/Desktop/JOIN THE SOCIETY page/Pictures (Original)/brown paper bag.png")
+    url("assets/drive-import/Desktop/SUBSCRIBE POP UP/Open_envelope.png")
       center center / contain no-repeat;
 }
 
@@ -2370,7 +2370,7 @@ body.has-subscribe-modal-open {
 
   .subscribe-modal-dialog {
     background-image:
-      url("assets/drive-import/Mobile/JOIN THE SOCIETY page/Pictures (cropped)/jointhesocietybag(mobile).png");
+      url("assets/drive-import/Mobile/SUBSCRIBE POP UP/Other Assets/open_envelope.png");
   }
 }
 
@@ -2574,9 +2574,21 @@ body.has-subscribe-modal-open {
     padding-top: 3.3rem;
   }
 
+  .zine-slider {
+    width: 100%;
+  }
+
+  .zine-slider .slider-track {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   .zine-stage {
+    width: 100%;
     min-height: 24rem;
-    padding: 1rem 2.2rem 2rem;
+    padding: 1rem 0 2rem;
+    justify-content: center;
   }
 
   .zines-panel .slider-arrow {
@@ -2600,8 +2612,9 @@ body.has-subscribe-modal-open {
   }
 
   .jewel-case {
-    width: min(82vw, 20rem);
+    width: min(calc(100vw - 2rem), 20rem);
     min-height: 12rem;
+    margin: 0 auto;
   }
 
   .case-panel {

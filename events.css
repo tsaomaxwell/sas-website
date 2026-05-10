@@ -8,11 +8,13 @@
 }
 
 .events-upcoming-note h2 {
-  top: 30%;
+  top: 31.8%;
+  width: 32rem;
 }
 
 .events-upcoming-note a {
-  top: 39%;
+  top: 40.8%;
+  width: 30rem;
 }
 
 @media (max-width: 900px) {
@@ -50,41 +52,40 @@
   }
 
   .event-upcoming-panel {
-    min-height: 54.5rem;
+    min-height: 43rem;
     padding-top: 3.5rem;
-    background:
-      url("assets/drive-import/Mobile/EVENTS page/Pictures (cropped)/fridge.jpeg")
-        center center / cover no-repeat;
+    background: #000;
   }
 
   .events-upcoming-empty {
-    padding: 2.4rem 0.85rem 1.6rem;
+    padding: 1.15rem 0.65rem 1.1rem;
   }
 
   .events-upcoming-note {
-    width: min(100%, 25.0625rem);
-    min-height: 26rem;
+    width: min(92vw, 33rem);
+    min-height: 38rem;
     background-position: center top;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   .events-upcoming-note h2 {
-    top: 40.8%;
-    width: 8rem;
-    font-size: 0.9375rem;
-    line-height: 1.2;
+    top: 45.2%;
+    width: 10.2rem;
+    font-size: 1.25rem;
+    line-height: 1.15;
   }
 
   .events-upcoming-note a {
-    top: 46.2%;
-    width: 8.125rem;
-    font-size: 0.5625rem;
-    line-height: 1.2;
+    top: 49.9%;
+    width: 10.4rem;
+    font-size: 0.82rem;
+    line-height: 1.12;
   }
 
   .events-upcoming-note a::after {
-    width: 4rem;
-    margin-top: 0.18rem;
+    width: 5rem;
+    margin-top: 0.22rem;
     border-top-width: 0.5px;
   }
 

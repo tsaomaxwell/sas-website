@@ -67,7 +67,7 @@
 }
 
 .featured-image-motion {
-  object-position: center 24%;
+  object-position: center 14%;
 }
 
 .featured-slide::after {
@@ -93,6 +93,22 @@
   background: #000;
 }
 
+.zines-panel {
+  justify-content: flex-start;
+  min-height: auto;
+  padding-bottom: 1.5rem;
+}
+
+.zine-slider {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.zine-stage {
+  min-height: auto;
+  padding: 2.1rem 0 1.15rem;
+}
+
 .events-empty-state {
   display: grid;
   flex: 1 1 auto;
@@ -104,35 +120,48 @@
   position: relative;
   width: min(86.95vw, 78.25rem);
   min-height: min(47rem, 76vh);
+  display: grid;
+  place-items: center;
+  background: #000;
+}
+
+.events-scene-desktop::before {
+  content: "";
+  width: min(72vw, 56rem);
+  aspect-ratio: 1;
   background:
-    url("assets/drive-import/Desktop/EVENTS page/Pictures (Original)/Fridge.jpeg")
-      center center / cover no-repeat;
+    url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/plate_(mobile).png")
+      center center / contain no-repeat;
 }
 
 .events-desktop-note {
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: min(28rem, 46%);
-  padding: 1.35rem 1.5rem;
+  top: 51.8%;
+  width: min(18rem, 25vw);
+  min-height: 11rem;
+  display: grid;
+  place-items: center;
+  padding: 0.35rem 0 0;
   color: #000;
   font-family: "Circ Handwriting", "Gochi Hand", cursive;
   text-align: center;
-  background: rgba(255, 255, 255, 0.84);
-  transform: translate(-50%, -50%) rotate(-8deg);
+  transform: translate(-50%, -50%) rotate(-12deg);
 }
 
 .events-desktop-title {
+  display: block;
   margin: 0;
-  font-size: clamp(3.25rem, 5vw, 4.75rem);
-  line-height: 0.92;
+  font-size: clamp(2.4rem, 4.1vw, 4.3rem);
+  line-height: 0.9;
 }
 
 .events-desktop-note a {
   display: block;
-  margin-top: 0.85rem;
+  width: min(12.2rem, 78%);
+  margin-top: 0.55rem;
   color: #000;
-  font-size: clamp(1.25rem, 2.1vw, 1.8rem);
+  font-size: clamp(1rem, 1.45vw, 1.45rem);
   line-height: 1.02;
   text-decoration: underline;
 }
@@ -199,7 +228,7 @@
 
 @media (max-width: 1100px) {
   .featured-image-motion {
-    object-position: center 20%;
+    object-position: center 16%;
   }
 }
 
@@ -282,40 +311,56 @@
   }
 
   .events-panel {
-    padding-top: 3.3rem;
-    min-height: 54.8125rem;
+    padding-top: 2.9rem;
+    min-height: 35rem;
   }
 
   .events-scene-mobile {
-    min-height: 39rem;
-    align-content: start;
-    padding-top: 3.1rem;
+    min-height: 20.5rem;
+    align-content: center;
+    padding-top: 0.15rem;
   }
 
   .events-plate-card {
-    width: min(90vw, 20rem);
+    width: min(112vw, 31rem);
   }
 
   .events-plate-note {
-    width: 9.6rem;
-    transform: rotate(-14deg) translateY(-0.15rem);
+    width: 14.2rem;
+    transform: rotate(-14deg) translateY(-0.22rem);
   }
 
   .events-plate-note p {
-    font-size: 2.85rem;
-    line-height: 0.88;
+    font-size: 3.9rem;
+    line-height: 0.9;
   }
 
   .events-plate-note a {
     margin-top: 0.35rem;
-    font-size: 0.98rem;
-    line-height: 1;
+    font-size: 1.22rem;
+    line-height: 1.02;
   }
 
   .events-panel .panel-link {
     margin-right: 0.75rem;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.5rem;
     font-size: 1.35rem;
+  }
+
+  .zines-panel {
+    min-height: auto;
+    padding-top: 3.3rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .zine-slider {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .zine-stage {
+    min-height: auto;
+    padding: 0.85rem 0 0.6rem;
   }
 
   .submission-panel {
@@ -338,5 +383,16 @@
 
   .submission-form textarea {
     min-height: 10.5rem;
+  }
+}
+
+@media (max-width: 660px) {
+  .featured-slide {
+    background: #000;
+  }
+
+  .featured-image-motion {
+    object-fit: contain;
+    object-position: center top;
   }
 }

@@ -7,8 +7,9 @@
   }
 
   .privacy-hero {
-    min-height: 33.5rem;
-    padding: 25rem 0.75rem 2.5rem;
+    min-height: calc(100svh - 3.5rem);
+    padding: 5.5rem 0.75rem 1rem;
+    align-items: center;
   }
 
   .privacy-hero h1 {
@@ -18,7 +19,7 @@
   }
 
   .privacy-main {
-    padding: 1.7rem 1rem 2.45rem;
+    padding: 0.75rem 1rem 2.45rem;
   }
 
   .privacy-copy h2 {
