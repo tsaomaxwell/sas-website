@@ -9,7 +9,7 @@
 
 .events-upcoming-note h2 {
   top: 31.8%;
-  width: 32rem;
+  width: 24rem;
 }
 
 .events-upcoming-note a {
@@ -28,6 +28,10 @@
     background-image:
       url("assets/drive-import/Mobile/EVENTS page/Pictures (cropped)/silver_platter.png");
     background-size: contain;
+  }
+
+  .events-upcoming-note h2 {
+    width: min(15rem, 46vw);
   }
 
   .past-events-gif {
@@ -71,8 +75,8 @@
 
   .events-upcoming-note h2 {
     top: 45.2%;
-    width: 7.1rem;
-    font-size: 0.68rem;
+    width: 5.9rem;
+    font-size: 0.62rem;
     line-height: 1.12;
   }
 

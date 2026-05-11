@@ -1672,14 +1672,21 @@ body.has-subscribe-modal-open {
 
 .subscribe-modal-close {
   position: absolute;
-  top: 31.5%;
-  right: 20%;
+  top: 28%;
+  right: 23%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
   border: 0;
   color: #000;
   background: transparent;
+  appearance: none;
   font-size: 2rem;
   line-height: 1;
   padding: 0;
+  text-shadow: 0 0.05em 0.08em rgba(255, 255, 255, 0.75);
 }
 
 .subscribe-modal-card {
@@ -1713,7 +1720,7 @@ body.has-subscribe-modal-open {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  width: min(29.375rem, 62%);
+  width: min(24rem, 52%);
   margin: 0;
   position: absolute;
   left: 50%;
@@ -1723,6 +1730,7 @@ body.has-subscribe-modal-open {
 
 .subscribe-modal-input-shell {
   flex: 1 1 auto;
+  min-width: 0;
   display: block;
   padding: 0 0.75rem;
   background: #f3e1cc;
@@ -1731,6 +1739,7 @@ body.has-subscribe-modal-open {
 
 .subscribe-modal-input {
   width: 100%;
+  min-width: 0;
   padding: 0.5rem 0;
   border: 0;
   color: #b88551;
@@ -1759,13 +1768,13 @@ body.has-subscribe-modal-open {
 
 .subscribe-modal-mark {
   display: block;
-  width: min(6.9375rem, 18vw);
+  width: min(5.75rem, 15vw);
   height: auto;
   object-fit: contain;
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 76.5%;
+  top: 73.5%;
   transform: translateX(-50%);
 }
 
@@ -2637,8 +2646,8 @@ body.has-subscribe-modal-open {
   }
 
   .subscribe-modal-close {
-    top: 31%;
-    right: 18%;
+    top: 28%;
+    right: 22%;
     font-size: 1.7rem;
   }
 
@@ -2815,7 +2824,7 @@ body.has-subscribe-modal-open {
   }
 
   .subscribe-modal-form {
-    width: 62%;
+    width: 54%;
     top: 64%;
   }
 
@@ -2828,8 +2837,8 @@ body.has-subscribe-modal-open {
   }
 
   .subscribe-modal-mark {
-    width: 5.2rem;
-    top: 76%;
+    width: 4.4rem;
+    top: 73.5%;
   }
 
   .subscribe-modal-title {

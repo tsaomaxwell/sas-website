@@ -181,7 +181,7 @@
 }
 
 .events-plate-note {
-  width: min(12rem, 50%);
+  width: min(10.5rem, 44%);
   margin-top: -0.2rem;
   color: #000;
   font-family: "Circ Handwriting", "Gochi Hand", cursive;
@@ -191,7 +191,7 @@
 
 .events-plate-note p {
   margin: 0;
-  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  font-size: clamp(1.8rem, 5vw, 2.85rem);
   line-height: 0.9;
 }
 
@@ -333,12 +333,12 @@
   }
 
   .events-plate-note {
-    width: 14.2rem;
+    width: 10.75rem;
     transform: rotate(-14deg) translate(-0.08rem, -0.12rem);
   }
 
   .events-plate-note p {
-    font-size: 3.9rem;
+    font-size: 3rem;
     line-height: 0.9;
   }
 
