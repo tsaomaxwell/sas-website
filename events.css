@@ -71,21 +71,21 @@
 
   .events-upcoming-note h2 {
     top: 45.2%;
-    width: 10.2rem;
-    font-size: 1.25rem;
-    line-height: 1.15;
-  }
-
-  .events-upcoming-note a {
-    top: 49.9%;
-    width: 10.4rem;
-    font-size: 0.82rem;
+    width: 7.1rem;
+    font-size: 0.68rem;
     line-height: 1.12;
   }
 
+  .events-upcoming-note a {
+    top: 50.8%;
+    width: 4.8rem;
+    font-size: 0.5rem;
+    line-height: 1.05;
+  }
+
   .events-upcoming-note a::after {
-    width: 5rem;
-    margin-top: 0.22rem;
+    width: 2.7rem;
+    margin-top: 0.12rem;
     border-top-width: 0.5px;
   }
 
@@ -113,6 +113,7 @@
 
   .past-events-panel .panel-link {
     margin-right: 0;
+    margin-bottom: 2.3rem;
     align-self: stretch;
     width: auto;
     justify-content: flex-end;

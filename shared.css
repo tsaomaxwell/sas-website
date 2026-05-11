@@ -329,6 +329,30 @@ main > .panel {
   background: var(--dark);
 }
 
+.site-frame > main > section {
+  position: relative;
+}
+
+.site-frame > main > section::before {
+  content: "";
+  position: absolute;
+  inset: -3.25rem 0 auto;
+  z-index: 1;
+  height: 6.5rem;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.28) 42%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 34%, #000 66%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 34%, #000 66%, transparent 100%);
+}
+
 .panel-dark {
   border-top: 0;
 }
@@ -592,6 +616,8 @@ main > .panel {
 
 .panel-link,
 .next-link {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
@@ -604,7 +630,7 @@ main > .panel {
 
 .panel-link {
   width: 100%;
-  padding: 0 1.1rem 0.4rem;
+  padding: 0 1.1rem 2.6rem;
   justify-content: flex-end;
 }
 
@@ -973,6 +999,7 @@ main > .panel {
   align-self: flex-end;
   margin-top: auto;
   margin-right: 0.35rem;
+  margin-bottom: 2rem;
 }
 
 .calendar-collage-panel {
@@ -1709,12 +1736,16 @@ body.has-subscribe-modal-open {
 }
 
 .subscribe-modal-copy {
-  width: min(20rem, 42%);
+  width: min(17rem, 36%);
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 49%;
+  top: 45.5%;
   transform: translate(-50%, -50%);
+  padding: 0.35rem 0.75rem;
+  border-radius: 1rem;
+  background: rgba(255, 241, 222, 0.34);
+  box-shadow: 0 0 0 1px rgba(255, 241, 222, 0.12) inset;
   font-size: clamp(1.55rem, 2vw, 1.875rem);
   line-height: 1.25;
 }
@@ -1727,7 +1758,7 @@ body.has-subscribe-modal-open {
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 64%;
+  top: 60.5%;
   transform: translateX(-50%);
 }
 
@@ -1775,7 +1806,7 @@ body.has-subscribe-modal-open {
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 76.5%;
+  top: 71.5%;
   transform: translateX(-50%);
 }
 
@@ -1783,13 +1814,13 @@ body.has-subscribe-modal-open {
   margin: 0;
   color: #000;
   font-family: "Top Secret Stamp", cursive;
-  font-size: clamp(2.1rem, 3vw, 2.8125rem);
+  font-size: clamp(1.65rem, 2.35vw, 2.2rem);
   font-weight: 400;
   line-height: 1.05;
   text-transform: uppercase;
   position: absolute;
   left: 50%;
-  bottom: 5.4%;
+  bottom: 12.4%;
   transform: translateX(-50%);
 }
 
@@ -2911,6 +2942,8 @@ body.has-subscribe-modal-open {
   .subscribe-modal-copy {
     width: 10.75rem;
     top: 46.5%;
+    padding: 0.22rem 0.5rem;
+    border-radius: 0.75rem;
     font-size: 0.98rem;
     line-height: 1.16;
   }
@@ -2929,13 +2962,14 @@ body.has-subscribe-modal-open {
   }
 
   .subscribe-modal-mark {
-    width: 4.4rem;
-    top: 69.5%;
+    width: 3.7rem;
+    top: 66.8%;
   }
 
   .subscribe-modal-title {
-    bottom: 8%;
-    font-size: 1.45rem;
+    bottom: 10.8%;
+    font-size: 1.1rem;
+    line-height: 1.05;
   }
 
   .subscribe-modal-success-heading {

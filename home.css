@@ -206,7 +206,7 @@
 
 .events-panel .panel-link {
   width: fit-content;
-  margin: 0 1.2rem 0.65rem auto;
+  margin: 0 1.2rem 2.65rem auto;
   padding: 0;
   text-decoration: underline;
 }
@@ -309,22 +309,32 @@
 
   .events-panel {
     padding-top: 2.9rem;
-    min-height: 35rem;
+    min-height: 29rem;
+  }
+
+  .events-empty-state {
+    padding: 0.55rem 0.75rem 0;
   }
 
   .events-scene-mobile {
-    min-height: 20.5rem;
+    min-height: 17.75rem;
     align-content: center;
-    padding-top: 0.15rem;
+    padding-top: 0;
+    justify-items: center;
   }
 
   .events-plate-card {
     width: min(112vw, 31rem);
+    margin-inline: auto;
+    background-position: center center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-55%);
   }
 
   .events-plate-note {
     width: 14.2rem;
-    transform: rotate(-14deg) translateY(-0.22rem);
+    transform: rotate(-14deg) translate(-0.08rem, -0.12rem);
   }
 
   .events-plate-note p {
@@ -340,14 +350,18 @@
 
   .events-panel .panel-link {
     margin-right: 0.75rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2.5rem;
     font-size: 1.35rem;
   }
 
   .zines-panel {
     min-height: auto;
     padding-top: 3.3rem;
-    padding-bottom: 0.8rem;
+    padding-bottom: 0;
+  }
+
+  main > .zines-panel {
+    min-height: 100svh;
   }
 
   .zine-slider {
@@ -356,8 +370,9 @@
   }
 
   .zine-stage {
-    min-height: auto;
-    padding: 0.85rem 0 0.6rem;
+    min-height: calc(100svh - 3.3rem);
+    padding: 0.35rem 0 0;
+    align-items: center;
   }
 
   .submission-panel {
@@ -388,6 +403,9 @@
     min-height: 0;
   }
 
+  #featured .slider-track,
+  #featured .slide,
+  #featured .slide.slide-active,
   .featured-slider,
   .featured-slider .slider-track,
   .featured-picture,
