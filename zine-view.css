@@ -78,7 +78,8 @@ body.zine-view-page {
 .word-search-mobile-grid-stage,
 .quiz-mobile-stage {
   position: relative;
-  width: min(23.5rem, 100%);
+  width: min(24.25rem, 100%, calc((100svh - 8.75rem) / 1.452));
+  min-height: 0;
   aspect-ratio: 376 / 546;
   margin: 0 auto;
   background:
@@ -87,6 +88,7 @@ body.zine-view-page {
 }
 
 .word-search-mobile-grid-stage {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,32 +166,32 @@ body.zine-view-page {
 }
 
 .word-search-mobile-directions {
-  width: 10.6rem;
+  width: min(11.35rem, calc(100% - 6rem));
   margin: 0 auto;
-  padding-top: 1.75rem;
+  padding-top: clamp(1rem, 4.6vw, 1.75rem);
   color: #fff;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 0.5rem;
+  font-size: clamp(0.44rem, 1.55vw, 0.58rem);
   font-weight: 700;
   line-height: 1.125;
   text-align: center;
 }
 
 .word-search-mobile-timer {
-  margin-top: 0.2rem;
+  margin-top: clamp(0.12rem, 0.55vw, 0.2rem);
   width: 100%;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: clamp(0.82rem, 2.85vw, 1.08rem);
 }
 
 .word-search-grid.word-search-mobile-grid {
   --word-search-mobile-cell: clamp(
-    0.95rem,
-    min(calc((100vw - 2rem) / 12), calc((100svh - 15.5rem) / 13)),
-    1.48rem
+    0.72rem,
+    min(calc((100vw - 5rem) / 12), calc((100svh - 16.5rem) / 14)),
+    1.34rem
   );
   --word-search-cell: var(--word-search-mobile-cell);
-  margin: 0.45rem auto 0;
+  margin: clamp(0.28rem, 1.2vw, 0.45rem) auto 0;
   justify-content: center;
   grid-template-columns: repeat(12, minmax(0, var(--word-search-mobile-cell)));
   grid-auto-rows: var(--word-search-mobile-cell);
@@ -198,16 +200,20 @@ body.zine-view-page {
 }
 
 .word-search-mobile-grid .word-search-cell {
-  border-width: clamp(0.045rem, calc(var(--word-search-mobile-cell) * 0.045), 0.08rem);
-  font-size: clamp(0.62rem, calc(var(--word-search-mobile-cell) * 0.58), 0.86rem);
+  box-shadow: inset 0 0 0 clamp(0.045rem, calc(var(--word-search-mobile-cell) * 0.045), 0.08rem) rgba(255, 255, 255, 0.92);
+  font-size: clamp(0.5rem, calc(var(--word-search-mobile-cell) * 0.55), 0.86rem);
+}
+
+.word-search-mobile-grid .word-search-cell.is-inactive {
+  box-shadow: none;
 }
 
 .word-search-mobile-button {
-  margin: clamp(0.45rem, calc(var(--word-search-mobile-cell, 1.48rem) * 0.52), 0.9rem) auto 0;
-  min-width: 3.45rem;
-  height: 1.25rem;
+  margin: clamp(0.34rem, calc(var(--word-search-mobile-cell, 1.48rem) * 0.44), 0.72rem) auto 0;
+  min-width: clamp(3.15rem, 10.8vw, 3.9rem);
+  height: clamp(1.12rem, 3.8vw, 1.42rem);
   border-radius: 0.25rem;
-  font-size: 0.5rem;
+  font-size: clamp(0.48rem, 1.55vw, 0.58rem);
 }
 
 .quiz-mobile-stage-intro {
@@ -589,11 +595,21 @@ body.zine-view-page {
 }
 
 .word-search-cell {
+  width: var(--word-search-cell);
+  height: var(--word-search-cell);
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
   display: grid;
   place-items: center;
-  border: 0.125rem solid rgba(255, 255, 255, 0.92);
   color: #fff;
   background: transparent;
+  box-shadow: inset 0 0 0 0.125rem rgba(255, 255, 255, 0.92);
   font-family: "Times New Roman", Times, serif;
   font-size: clamp(0.95rem, calc(var(--word-search-cell) * 0.7), 2.1rem);
   line-height: 1;
@@ -601,7 +617,7 @@ body.zine-view-page {
 }
 
 .word-search-cell.is-inactive {
-  border-color: transparent;
+  box-shadow: none;
   background: transparent;
   color: transparent;
   pointer-events: none;
@@ -1007,7 +1023,7 @@ body.zine-view-page {
   }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 900px) {
   [data-variant="desktop"] {
     display: none !important;
   }
@@ -1060,6 +1076,28 @@ body.zine-view-page {
 
   .slide.slide-active.zine-reader-slide[data-variant="mobile"] {
     display: flex;
+  }
+
+  .word-search-grid.word-search-mobile-grid {
+    --word-search-mobile-cell: clamp(
+      0.72rem,
+      min(calc((100vw - 5rem) / 12), calc((100svh - 16.5rem) / 14)),
+      1.34rem
+    );
+    --word-search-cell: var(--word-search-mobile-cell);
+    margin-top: clamp(0.28rem, 1.2vw, 0.45rem);
+  }
+
+  .word-search-mobile-grid .word-search-cell {
+    font-size: clamp(0.5rem, calc(var(--word-search-mobile-cell) * 0.55), 0.78rem);
+  }
+
+  .word-search-button.word-search-mobile-button {
+    margin-top: clamp(0.34rem, calc(var(--word-search-mobile-cell, 1.25rem) * 0.44), 0.6rem);
+    min-width: clamp(3.15rem, 10.8vw, 3.9rem);
+    height: clamp(1.12rem, 3.8vw, 1.42rem);
+    border-radius: 0.25rem;
+    font-size: clamp(0.48rem, 1.55vw, 0.58rem);
   }
 
   .zine-reader-arrow {

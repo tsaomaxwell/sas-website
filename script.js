@@ -168,7 +168,7 @@ sliders.forEach((slider) => {
   const slides = Array.from(slider.querySelectorAll(".slide"));
   const arrows = Array.from(slider.querySelectorAll(".slider-arrow"));
   const isZineReader = slider.classList.contains("zine-reader");
-  const mobileZineQuery = window.matchMedia("(max-width: 660px)");
+  const mobileZineQuery = window.matchMedia("(max-width: 900px)");
 
   if (slides.length <= 1) {
     return;
@@ -278,10 +278,14 @@ sliders.forEach((slider) => {
   arrows.forEach((arrow) => {
     arrow.addEventListener("click", () => {
       const direction = Number(arrow.dataset.direction || 1);
-      activeIndex = (activeIndex + direction + renderableSlides.length) % renderableSlides.length;
-      render(activeIndex);
+      goToRelativeSlide(direction);
     });
   });
+
+  const goToRelativeSlide = (direction) => {
+    activeIndex = (activeIndex + direction + renderableSlides.length) % renderableSlides.length;
+    render(activeIndex);
+  };
 
   if (isZineReader) {
     let touchStartX = 0;
@@ -332,15 +336,34 @@ sliders.forEach((slider) => {
           return;
         }
 
-        activeIndex =
-          deltaX < 0
-            ? (activeIndex + 1 + renderableSlides.length) % renderableSlides.length
-            : (activeIndex - 1 + renderableSlides.length) % renderableSlides.length;
-
-        render(activeIndex);
+        goToRelativeSlide(deltaX < 0 ? 1 : -1);
       },
       { passive: true },
     );
+
+    document.addEventListener("keydown", (event) => {
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) {
+        return;
+      }
+
+      const activeElement = document.activeElement;
+      const isTyping =
+        activeElement instanceof HTMLElement &&
+        (activeElement.isContentEditable ||
+          ["INPUT", "TEXTAREA", "SELECT"].includes(activeElement.tagName));
+
+      if (isTyping || renderableSlides.length <= 1) {
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goToRelativeSlide(-1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goToRelativeSlide(1);
+      }
+    });
 
     const handleVariantChange = () => {
       activeIndex = 0;
