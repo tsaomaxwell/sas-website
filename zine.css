@@ -7,11 +7,12 @@
   background-size: cover;
 }
 
-.zine-detail-panel {
+.zine-page main > .zine-detail-panel {
   position: relative;
   display: grid;
   place-items: start center;
-  min-height: clamp(40rem, 100svh, 55.625rem);
+  min-height: auto;
+  height: auto;
   padding: 4rem 1rem 2.5rem;
   background: #000;
   color: #fff;
@@ -126,9 +127,16 @@
     background-size: cover;
   }
 
+  .zine-page main > .zine-detail-panel {
+    min-height: auto;
+    height: auto;
+    align-content: start;
+    padding: 2.75rem 0.75rem 1.15rem;
+  }
+
   .zine-detail-shell {
     width: min(98vw, 48rem);
-    margin-top: 0.8rem;
+    margin-top: 0;
   }
 
   .zine-detail-stage {
@@ -155,6 +163,10 @@
     font-size: clamp(0.18rem, 0.62vw, 0.3rem);
   }
 
+  .zine-detail-hint {
+    margin-top: 0.65rem;
+  }
+
   .zine-page-arrow {
     left: -0.1rem;
     top: 44%;
@@ -167,14 +179,16 @@
     background-size: cover;
   }
 
-  .zine-detail-panel {
-    min-height: 0;
-    padding: 3rem 0.5rem 1.75rem;
+  .zine-page main > .zine-detail-panel {
+    min-height: auto;
+    height: auto;
+    align-content: start;
+    padding: 2.35rem 0.5rem 1rem;
   }
 
   .zine-detail-shell {
     width: min(100vw, 24rem);
-    margin-top: 0.6rem;
+    margin-top: 0;
   }
 
   .zine-detail-stage {
@@ -202,7 +216,7 @@
 
   .zine-detail-hint {
     width: 92%;
-    margin-top: 0.95rem;
+    margin-top: 0.55rem;
     font-size: 0.85rem;
   }
 

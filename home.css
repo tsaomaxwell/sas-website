@@ -35,7 +35,6 @@
 }
 
 #featured {
-  padding-top: 3rem;
   min-height: min(53rem, 86vh);
 }
 
@@ -288,7 +287,7 @@
   }
 
   #featured {
-    padding-top: 3.3rem;
+    padding-top: 0;
   }
 
   .featured-slide,
@@ -356,12 +355,20 @@
 
   .zines-panel {
     min-height: auto;
-    padding-top: 3.3rem;
+    padding-top: 4.7rem;
     padding-bottom: 0;
   }
 
   main > .zines-panel {
     min-height: 100svh;
+  }
+
+  .zines-panel .section-label {
+    top: 2.35rem;
+  }
+
+  .zines-more-link {
+    top: 2.35rem;
   }
 
   .zine-slider {
@@ -370,7 +377,7 @@
   }
 
   .zine-stage {
-    min-height: calc(100svh - 3.3rem);
+    min-height: calc(100svh - 4.7rem);
     padding: 0.35rem 0 0;
     align-items: center;
   }

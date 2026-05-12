@@ -1644,7 +1644,8 @@ body.has-subscribe-modal-open {
   z-index: 20;
   display: grid;
   place-items: center;
-  padding: 1.5rem;
+  padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+  overflow: auto;
 }
 
 .subscribe-modal-backdrop {
@@ -1656,12 +1657,12 @@ body.has-subscribe-modal-open {
 .subscribe-modal-dialog {
   position: relative;
   z-index: 1;
-  width: min(47.0625rem, 92vw);
-  aspect-ratio: 753 / 740;
-  max-height: 84vh;
+  width: min(54rem, 92vw, calc((100svh - 1.5rem) * 0.8));
+  aspect-ratio: 4 / 5;
+  max-height: calc(100svh - 1.5rem);
   padding: 0;
   background:
-    url("assets/drive-import/Desktop/JOIN THE SOCIETY page/Pictures (Original)/brown paper bag.png")
+    url("assets/drive-import/Desktop/SUBSCRIBE POP UP/Open_envelope.png")
       center center / contain no-repeat;
 }
 
@@ -1672,26 +1673,29 @@ body.has-subscribe-modal-open {
 
 .subscribe-modal-close {
   position: absolute;
-  top: 28%;
-  right: 23%;
+  top: 33.8%;
+  right: 18%;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: clamp(1.85rem, 5vw, 2.45rem);
+  height: clamp(1.85rem, 5vw, 2.45rem);
   border: 0;
   color: #000;
   background: transparent;
   appearance: none;
-  font-size: 2rem;
+  font-size: clamp(1.9rem, 4.55vw, 2.45rem);
   line-height: 1;
   padding: 0;
-  text-shadow: 0 0.05em 0.08em rgba(255, 255, 255, 0.75);
+  text-shadow: 0 0.04em 0.06em rgba(255, 255, 255, 0.32);
+  cursor: pointer;
 }
 
 .subscribe-modal-card {
   position: absolute;
   inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -1706,47 +1710,51 @@ body.has-subscribe-modal-open {
 }
 
 .subscribe-modal-copy {
-  width: min(20rem, 42%);
+  width: 42%;
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 49%;
+  top: 43.3%;
   transform: translate(-50%, -50%);
-  font-size: clamp(1.55rem, 2vw, 1.875rem);
-  line-height: 1.25;
+  padding: clamp(0.45rem, 1.05vw, 0.78rem) clamp(0.5rem, 1.2vw, 0.85rem);
+  border-radius: clamp(0.75rem, 2vw, 1.35rem);
+  background: rgba(255, 241, 222, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 241, 222, 0.06) inset;
+  font-size: clamp(1.12rem, 3.35vw, 2.28rem);
+  line-height: 1.12;
 }
 
 .subscribe-modal-form {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  width: min(24rem, 52%);
+  width: 58%;
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 64%;
+  top: 56.8%;
   transform: translateX(-50%);
 }
 
 .subscribe-modal-input-shell {
   flex: 1 1 auto;
+  position: relative;
   min-width: 0;
   display: block;
-  padding: 0 0.75rem;
+  padding: 0 clamp(2.45rem, 5.2vw, 3.25rem) 0 clamp(0.7rem, 2vw, 1.35rem);
   background: #f3e1cc;
-  border-radius: 15px;
+  border-radius: 999px;
 }
 
 .subscribe-modal-input {
   width: 100%;
   min-width: 0;
-  padding: 0.5rem 0;
+  padding: clamp(0.5rem, 1.55vw, 0.8rem) 0;
   border: 0;
   color: #b88551;
   background: transparent;
   font-family: "Inter", sans-serif;
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-size: clamp(0.78rem, 1.8vw, 1.12rem);
+  font-weight: 700;
   line-height: 1.2;
   outline: none;
 }
@@ -1757,24 +1765,32 @@ body.has-subscribe-modal-open {
 }
 
 .subscribe-modal-submit {
-  flex: 0 0 auto;
+  position: absolute;
+  top: 50%;
+  right: clamp(0.45rem, 1.3vw, 0.85rem);
+  display: inline-grid;
+  place-items: center;
+  width: clamp(1.65rem, 4.4vw, 2.6rem);
+  height: clamp(1.65rem, 4.4vw, 2.6rem);
   border: 0;
   color: #b88551;
   background: transparent;
-  font-size: 1.55rem;
+  font-size: clamp(1.45rem, 4vw, 2.3rem);
   line-height: 1;
   padding: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .subscribe-modal-mark {
   display: block;
-  width: min(5.75rem, 15vw);
+  width: clamp(3.25rem, 9.2vw, 5.4rem);
   height: auto;
   object-fit: contain;
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 73.5%;
+  top: 65.8%;
   transform: translateX(-50%);
 }
 
@@ -1782,14 +1798,16 @@ body.has-subscribe-modal-open {
   margin: 0;
   color: #000;
   font-family: "Top Secret Stamp", cursive;
-  font-size: clamp(2.1rem, 3vw, 2.8125rem);
+  font-size: clamp(0.95rem, 2.7vw, 1.7rem);
   font-weight: 400;
   line-height: 1.05;
   text-transform: uppercase;
   position: absolute;
   left: 50%;
-  bottom: 5.4%;
+  top: 75.3%;
   transform: translateX(-50%);
+  width: 54%;
+  white-space: nowrap;
 }
 
 .subscribe-modal-success-state[hidden] {
@@ -1800,21 +1818,26 @@ body.has-subscribe-modal-open {
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 33%;
+  top: 42.6%;
   transform: translateX(-50%);
-  font-size: clamp(1.8rem, 2.2vw, 2.1875rem);
-  line-height: 1.15;
+  width: 48%;
+  padding: clamp(0.55rem, 1.35vw, 1rem) clamp(0.65rem, 1.6vw, 1.1rem);
+  border-radius: clamp(0.75rem, 2vw, 1.35rem);
+  background: rgba(255, 241, 222, 0.34);
+  box-shadow: 0 0 0 1px rgba(255, 241, 222, 0.12) inset;
+  font-size: clamp(1.3rem, 3.8vw, 2.5rem);
+  line-height: 1.08;
 }
 
 .subscribe-modal-success-copy {
-  width: min(13rem, 28%);
+  width: 42%;
   margin: 0;
   position: absolute;
   left: 50%;
-  top: 39%;
+  top: 51.8%;
   transform: translateX(-50%);
-  font-size: 0.9375rem;
-  line-height: 1.33;
+  font-size: clamp(0.8rem, 1.8vw, 1.05rem);
+  line-height: 1.25;
 }
 
 .hero-image {
@@ -2138,7 +2161,8 @@ body.has-subscribe-modal-open {
 }
 
 .upload-icon {
-  font-size: 2rem;
+  transform: translateY(-0.35rem);
+  font-size: 1.75rem;
   color: #ccc9c7;
   line-height: 1;
 }
@@ -2149,8 +2173,10 @@ body.has-subscribe-modal-open {
   bottom: 0.3rem;
   transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.68);
-  font-size: 0.625rem;
-  line-height: 1.2;
+  font-size: 0.5rem;
+  line-height: 1.05;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .upload-filename {
@@ -2379,7 +2405,7 @@ body.has-subscribe-modal-open {
 
   .subscribe-modal-dialog {
     background-image:
-      url("assets/drive-import/Mobile/JOIN THE SOCIETY page/Pictures (cropped)/jointhesocietybag(mobile).png");
+      url("assets/drive-import/Mobile/SUBSCRIBE POP UP/Other Assets/open_envelope.png");
   }
 }
 
@@ -2639,16 +2665,16 @@ body.has-subscribe-modal-open {
   }
 
   .subscribe-modal-dialog {
-    width: min(22rem, 92vw);
-    aspect-ratio: 753 / 740;
-    max-height: 86vh;
+    width: min(22rem, 92vw, calc((100svh - 1.5rem) * 0.8));
+    aspect-ratio: 4 / 5;
+    max-height: calc(100svh - 1.5rem);
     padding: 0;
   }
 
   .subscribe-modal-close {
-    top: 28%;
-    right: 22%;
-    font-size: 1.7rem;
+    top: 33.8%;
+    right: 18%;
+    font-size: clamp(1.7rem, 7.5vw, 2.05rem);
   }
 
   .events-upcoming-empty {
@@ -2817,45 +2843,48 @@ body.has-subscribe-modal-open {
   }
 
   .subscribe-modal-copy {
-    width: 12rem;
-    top: 49%;
-    font-size: 1.15rem;
-    line-height: 1.2;
+    width: 46%;
+    top: 43.8%;
+    font-size: clamp(0.82rem, 4.35vw, 1.05rem);
+    line-height: 1.12;
   }
 
   .subscribe-modal-form {
-    width: 54%;
-    top: 64%;
+    width: 58%;
+    top: 56.8%;
   }
 
   .subscribe-modal-input {
-    font-size: 0.85rem;
+    font-size: clamp(0.68rem, 3.1vw, 0.84rem);
   }
 
   .subscribe-modal-submit {
-    font-size: 1.35rem;
+    font-size: clamp(1.3rem, 6vw, 1.7rem);
   }
 
   .subscribe-modal-mark {
-    width: 4.4rem;
-    top: 73.5%;
+    width: clamp(2.8rem, 13vw, 3.6rem);
+    top: 65.6%;
   }
 
   .subscribe-modal-title {
-    bottom: 5%;
-    font-size: 1.8rem;
+    top: 75.4%;
+    width: 58%;
+    font-size: clamp(0.78rem, 3.8vw, 1rem);
+    line-height: 1.05;
   }
 
   .subscribe-modal-success-heading {
-    top: 33%;
-    font-size: 1.35rem;
+    width: 50%;
+    top: 42.6%;
+    font-size: clamp(1rem, 5.5vw, 1.35rem);
   }
 
   .subscribe-modal-success-copy {
-    width: 8.5rem;
-    top: 39%;
-    font-size: 0.85rem;
-    line-height: 1.3;
+    width: 46%;
+    top: 51.8%;
+    font-size: clamp(0.66rem, 2.8vw, 0.78rem);
+    line-height: 1.2;
   }
 
   .calendar-gallery-shell {

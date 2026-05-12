@@ -1,0 +1,15 @@
+[build.processing]
+  skip_processing = false
+
+[build.processing.images]
+  compress = false
+
+[[headers]]
+  for = "/assets/zine pages mobile/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable, no-transform"
+
+[[headers]]
+  for = "/assets/zine pages desktop/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable, no-transform"
