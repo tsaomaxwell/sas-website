@@ -26,6 +26,7 @@ const SUBSCRIBE_POPUP_DISMISSED_AT = "sas.subscribePopupDismissedAt";
 const SUBSCRIBE_POPUP_SUBSCRIBED = "sas.subscribePopupSubscribed";
 const SUBSCRIBE_POPUP_DELAY_MS = 1800;
 const SUBSCRIBE_POPUP_COOLDOWN_MS = 24 * 60 * 60 * 1000;
+const UPCOMING_EVENT_HIDE_AT = new Date(2026, 4, 19);
 
 const submitNetlifyForm = async (form) => {
   const formData = new FormData(form);
@@ -104,6 +105,24 @@ localLinks.forEach((link) => {
     link.setAttribute("href", "404.html");
   }
 });
+
+if (Date.now() >= UPCOMING_EVENT_HIDE_AT.getTime()) {
+  document.querySelectorAll("[data-upcoming-event]").forEach((eventCard) => {
+    const title = eventCard.querySelector("[data-upcoming-event-title]");
+    const link = eventCard.querySelector("[data-upcoming-event-link]");
+
+    if (title) {
+      title.textContent = "No events yet";
+    }
+
+    if (link) {
+      link.textContent = "Subscribe to stay updated";
+      link.setAttribute("href", "join.html");
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+    }
+  });
+}
 
 if (menuButton && mobileMenu) {
   const topbar = menuButton.closest(".topbar");
