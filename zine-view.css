@@ -1083,9 +1083,7 @@ body.zine-view-page {
   }
 
   .zine-reader-arrow {
-    top: calc(
-      7.25rem + min(34.125rem, calc((100vw - 1rem) * 1.452), calc(100svh - 8.75rem)) + 0.85rem
-    );
+    top: var(--zine-mobile-arrow-top, calc(7.25rem + 34.125rem + 0.75rem));
     bottom: auto;
     width: auto;
     height: 1.25rem;
@@ -1099,12 +1097,6 @@ body.zine-view-page {
     line-height: 1;
     text-transform: uppercase;
     transform: none;
-  }
-
-  .zine-reader[data-active-mobile-slide="interactive"] .zine-reader-arrow {
-    top: calc(
-      7.25rem + min(34.125rem, calc((100vw - 1rem) * 1.452), calc(100svh - 8.75rem)) + 2.25rem
-    );
   }
 
   .zine-reader-arrow-left {

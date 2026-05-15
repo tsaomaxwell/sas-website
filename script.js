@@ -189,6 +189,42 @@ sliders.forEach((slider) => {
   let renderableSlides = getRenderableSlides();
   let activeIndex = renderableSlides.findIndex((slide) => slide.classList.contains("slide-active"));
   activeIndex = activeIndex >= 0 ? activeIndex : 0;
+  let zineArrowFrame = null;
+
+  const updateZineMobileArrowPosition = () => {
+    if (!isZineReader || !mobileZineQuery.matches || !renderableSlides.length) {
+      return;
+    }
+
+    const activeSlide = renderableSlides[activeIndex];
+    const activePage = activeSlide?.querySelector(
+      ".zine-mobile-stage, .zine-mobile-image, .quiz-mobile-stage, .word-search-mobile-note-stage, .word-search-mobile-grid-stage",
+    );
+
+    if (!activePage) {
+      return;
+    }
+
+    const sliderRect = slider.getBoundingClientRect();
+    const pageRect = activePage.getBoundingClientRect();
+    const arrowTop = pageRect.bottom - sliderRect.top + 12;
+    slider.style.setProperty("--zine-mobile-arrow-top", `${Math.round(arrowTop)}px`);
+  };
+
+  const scheduleZineMobileArrowPosition = () => {
+    if (!isZineReader) {
+      return;
+    }
+
+    if (zineArrowFrame) {
+      window.cancelAnimationFrame(zineArrowFrame);
+    }
+
+    zineArrowFrame = window.requestAnimationFrame(() => {
+      zineArrowFrame = null;
+      updateZineMobileArrowPosition();
+    });
+  };
 
   if (slider.classList.contains("slider--carousel")) {
     const track = slider.querySelector(".slider-track");
@@ -277,12 +313,6 @@ sliders.forEach((slider) => {
     });
 
     if (isZineReader) {
-      const activeSlide = renderableSlides[activeIndex];
-      const isInteractiveMobileSlide = Boolean(
-        activeSlide?.matches(".word-search-mobile-slide, .quiz-mobile-slide"),
-      );
-      slider.dataset.activeMobileSlide = isInteractiveMobileSlide ? "interactive" : "standard";
-
       arrows.forEach((arrow) => {
         const direction = Number(arrow.dataset.direction || 1);
         const isUnavailable =
@@ -292,6 +322,8 @@ sliders.forEach((slider) => {
         arrow.disabled = isUnavailable;
         arrow.setAttribute("aria-hidden", String(isUnavailable));
       });
+
+      scheduleZineMobileArrowPosition();
     }
   };
 
@@ -401,6 +433,9 @@ sliders.forEach((slider) => {
     } else if (typeof mobileZineQuery.addListener === "function") {
       mobileZineQuery.addListener(handleVariantChange);
     }
+
+    window.addEventListener("resize", scheduleZineMobileArrowPosition);
+    window.addEventListener("load", scheduleZineMobileArrowPosition);
   }
 
   render(activeIndex);
