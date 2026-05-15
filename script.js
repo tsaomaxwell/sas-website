@@ -268,11 +268,31 @@ sliders.forEach((slider) => {
       return;
     }
 
-    activeIndex = ((index % renderableSlides.length) + renderableSlides.length) % renderableSlides.length;
+    activeIndex = isZineReader
+      ? Math.min(Math.max(index, 0), renderableSlides.length - 1)
+      : ((index % renderableSlides.length) + renderableSlides.length) % renderableSlides.length;
 
     slides.forEach((slide) => {
       slide.classList.toggle("slide-active", renderableSlides[activeIndex] === slide);
     });
+
+    if (isZineReader) {
+      const activeSlide = renderableSlides[activeIndex];
+      const isInteractiveMobileSlide = Boolean(
+        activeSlide?.matches(".word-search-mobile-slide, .quiz-mobile-slide"),
+      );
+      slider.dataset.activeMobileSlide = isInteractiveMobileSlide ? "interactive" : "standard";
+
+      arrows.forEach((arrow) => {
+        const direction = Number(arrow.dataset.direction || 1);
+        const isUnavailable =
+          (direction < 0 && activeIndex === 0) ||
+          (direction > 0 && activeIndex === renderableSlides.length - 1);
+        arrow.hidden = isUnavailable;
+        arrow.disabled = isUnavailable;
+        arrow.setAttribute("aria-hidden", String(isUnavailable));
+      });
+    }
   };
 
   arrows.forEach((arrow) => {
@@ -283,8 +303,14 @@ sliders.forEach((slider) => {
   });
 
   const goToRelativeSlide = (direction) => {
-    activeIndex = (activeIndex + direction + renderableSlides.length) % renderableSlides.length;
-    render(activeIndex);
+    const nextIndex = activeIndex + direction;
+
+    if (isZineReader && (nextIndex < 0 || nextIndex >= renderableSlides.length)) {
+      render(activeIndex);
+      return;
+    }
+
+    render(nextIndex);
   };
 
   if (isZineReader) {
