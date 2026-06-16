@@ -51,17 +51,71 @@
   min-width: 0;
 }
 
-.archive-video {
+.archive-video-link {
+  position: relative;
+  display: block;
   overflow: hidden;
   aspect-ratio: 1;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: #111;
+  color: #fff;
 }
 
-.archive-video iframe {
+.archive-video-link img {
   width: 100%;
   height: 100%;
-  border: 0;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 180ms ease;
+}
+
+.archive-video-link::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.56));
+}
+
+.archive-video-link:hover img,
+.archive-video-link:focus-visible img {
+  transform: scale(1.07);
+}
+
+.archive-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 4.6rem;
+  height: 3.25rem;
+  border-radius: 0.9rem;
+  background: #ff0000;
+  transform: translate(-50%, -50%);
+}
+
+.archive-play-button::before {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  width: 0;
+  height: 0;
+  border-top: 0.65rem solid transparent;
+  border-bottom: 0.65rem solid transparent;
+  border-left: 1.05rem solid #fff;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.archive-watch-label {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .archive-card h2 {
