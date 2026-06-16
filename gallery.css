@@ -1,4 +1,78 @@
-/* Gallery page overrides and mobile tuning */
+/* Archives page */
+.archive-panel {
+  min-height: clamp(48rem, 100svh, 55.625rem);
+  padding: clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  background: #000;
+  color: #fff;
+}
+
+.archive-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.archive-kicker {
+  margin: 0 0 0.65rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.archive-heading h1 {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.archive-channel-link {
+  flex: 0 0 auto;
+  color: inherit;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.archive-card {
+  min-width: 0;
+}
+
+.archive-video {
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #111;
+}
+
+.archive-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.archive-card h2 {
+  margin: 0.9rem 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
 @media (max-width: 900px) {
   .gallery-hero-image {
     background-image:
@@ -6,8 +80,8 @@
       url("assets/drive-import/Mobile/GALLERY page/Pictures (cropped)/guitar_against_the_fridge.jpeg");
   }
 
-  .gallery-hold-gif {
-    width: min(18rem, 62vw);
+  .archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -23,26 +97,24 @@
     line-height: 1.2;
   }
 
-  .gallery-hold-panel {
-    min-height: 54.625rem;
-    background: #000;
+  .archive-panel {
+    min-height: 0;
+    padding: 3rem 1rem 5rem;
   }
 
-  .gallery-hold-stage {
-    gap: 1rem;
-    padding: 20.25rem 0.9rem 2.2rem;
+  .archive-heading {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-  .gallery-hold-gif {
-    width: 19.5625rem;
-    max-width: 78vw;
+  .archive-heading h1 {
+    font-size: 2.75rem;
   }
 
-  .gallery-hold-stage p {
-    width: 19.1875rem;
-    max-width: 90%;
-    font-size: 1.125rem;
-    line-height: 1.2;
+  .archive-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .gallery-footer {
