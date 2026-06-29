@@ -21,70 +21,10 @@
   background: rgba(255, 255, 255, 0.92);
 }
 
-.featured-picture {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-#featured,
 .events-panel,
 .zines-panel,
 .submission-panel {
   min-height: min(61.2rem, 100vh);
-}
-
-#featured {
-  min-height: min(53rem, 86vh);
-}
-
-.featured-slider {
-  position: relative;
-  flex: 1 1 auto;
-  overflow: hidden;
-}
-
-.featured-slider .slider-track {
-  display: block;
-  height: 100%;
-}
-
-.featured-slide {
-  position: relative;
-  display: block;
-  min-height: calc(min(53rem, 86vh) - 3rem);
-  overflow: hidden;
-}
-
-.featured-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: calc(min(53rem, 86vh) - 3rem);
-  object-fit: cover;
-  filter: saturate(0.98) contrast(1.02);
-}
-
-.featured-image-motion {
-  object-position: center 14%;
-}
-
-.featured-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 50%, rgba(0, 0, 0, 0.58) 100%);
-  pointer-events: none;
-}
-
-.featured-caption {
-  right: 2.2rem;
-  bottom: 1.1rem;
-  width: auto;
-  z-index: 1;
-  font-size: clamp(1.6rem, 2vw, 1.875rem);
-  letter-spacing: 0;
-  text-transform: uppercase;
 }
 
 .events-panel {
@@ -93,23 +33,117 @@
 }
 
 .zines-panel {
-  justify-content: flex-start;
-  min-height: auto;
-  padding-bottom: 1.5rem;
+  position: relative;
+  justify-content: center;
+  min-height: min(61.2rem, 100vh);
+  padding-bottom: 2rem;
+  background: #000;
+  color: #fff;
 }
 
-.zine-slider {
-  flex: 0 0 auto;
+main > .zines-panel {
+  min-height: 100vh;
+}
+
+.zines-more-link {
+  position: absolute;
+  right: clamp(1rem, 2vw, 2rem);
+  bottom: clamp(1.5rem, 4vw, 3rem);
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  color: #fff;
+}
+
+.home-zine-library {
+  width: min(100% - 2rem, 46rem);
+  margin: 0 auto 0 clamp(1rem, 2vw, 2rem);
+}
+
+.home-zine-library-heading {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.home-zine-library-heading p {
+  margin: 0 0 0.65rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-zine-library-heading h2 {
+  margin: 0;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.home-zine-viewbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.home-zine-viewbox-card {
+  min-width: 0;
+}
+
+.home-zine-viewbox-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+}
+
+.home-zine-viewbox-link img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 180ms ease;
 }
 
-.zine-stage {
-  min-height: auto;
-  padding: 2.1rem 0 1.15rem;
+.home-zine-viewbox-link::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.56));
 }
 
-.zines-panel .disc {
-  transform: translateX(clamp(-1.2rem, -1.4vw, -0.55rem));
+.home-zine-viewbox-link:hover img,
+.home-zine-viewbox-link:focus-visible img {
+  transform: scale(1.07);
+}
+
+.home-zine-viewbox-label {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 1;
+  font-family: "Inter", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-zine-viewbox-card h3 {
+  margin: 0.72rem 0 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.95rem, 1.4vw, 1.12rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .events-empty-state {
@@ -229,23 +263,12 @@
   padding: 0.8rem 0.8rem 1rem;
 }
 
-@media (max-width: 1100px) {
-  .featured-image-motion {
-    object-position: center 16%;
-  }
-}
-
 @media (max-width: 900px) {
   .hero-image {
     background-image:
       linear-gradient(180deg, rgba(11, 8, 8, 0.08) 0%, rgba(11, 8, 8, 0.18) 52%, rgba(0, 0, 0, 0.78) 100%),
       url("assets/drive-import/Mobile/HOME page/Pictures (cropped)/SAS_record_player.jpg");
     background-position: center 26%;
-  }
-
-  .featured-image-motion {
-    object-fit: contain;
-    object-position: center top;
   }
 
   .events-empty-state {
@@ -283,31 +306,10 @@
     font-size: 1rem;
   }
 
-  #featured,
   .events-panel,
   .zines-panel,
   .submission-panel {
     min-height: 0;
-  }
-
-  #featured {
-    padding-top: 0;
-  }
-
-  .featured-slide,
-  .featured-image {
-    min-height: 0;
-  }
-
-  .featured-image-motion {
-    object-fit: contain;
-    object-position: center top;
-  }
-
-  .featured-caption {
-    right: 1rem;
-    bottom: 0.8rem;
-    font-size: 1rem;
   }
 
   .events-panel {
@@ -360,7 +362,7 @@
   .zines-panel {
     min-height: auto;
     padding-top: 4.7rem;
-    padding-bottom: 0;
+    padding-bottom: 5.5rem;
   }
 
   main > .zines-panel {
@@ -372,18 +374,28 @@
   }
 
   .zines-more-link {
-    top: 2.35rem;
+    right: 1rem;
+    bottom: 2rem;
+    margin: 0;
   }
 
-  .zine-slider {
-    flex: 0 0 auto;
-    width: 100%;
+  .home-zine-library {
+    width: min(100% - 1.5rem, 20rem);
+    margin-top: 2.75rem;
+    margin-inline: auto;
   }
 
-  .zine-stage {
-    min-height: calc(100svh - 4.7rem);
-    padding: 0.35rem 0 0;
-    align-items: center;
+  .home-zine-library-heading {
+    margin-bottom: 2rem;
+  }
+
+  .home-zine-library-heading h2 {
+    font-size: 2.75rem;
+  }
+
+  .home-zine-viewbox-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 4rem;
   }
 
   .submission-panel {
@@ -406,37 +418,5 @@
 
   .submission-form textarea {
     min-height: 10.5rem;
-  }
-}
-
-@media (max-width: 660px) {
-  #featured {
-    min-height: 0;
-  }
-
-  #featured .slider-track,
-  #featured .slide,
-  #featured .slide.slide-active,
-  .featured-slider,
-  .featured-slider .slider-track,
-  .featured-picture,
-  .featured-slide,
-  .featured-image {
-    height: auto;
-  }
-
-  .featured-slide {
-    background: #000;
-    min-height: 0;
-  }
-
-  .featured-image {
-    height: auto;
-    min-height: 0;
-  }
-
-  .featured-image-motion {
-    object-fit: contain;
-    object-position: center top;
   }
 }

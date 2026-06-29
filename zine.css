@@ -7,169 +7,112 @@
   background-size: cover;
 }
 
-.zine-page main > .zine-detail-panel {
-  position: relative;
-  display: grid;
-  place-items: start center;
-  min-height: auto;
-  height: auto;
-  padding: 4rem 1rem 2.5rem;
+.zine-library-panel {
+  min-height: clamp(42rem, 100svh, 55.625rem);
+  padding: clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
   background: #000;
   color: #fff;
 }
 
-.zine-detail-shell {
-  position: relative;
+.zine-library-heading {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.zine-library-kicker {
+  margin: 0 0 0.65rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.zine-library-heading h1 {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.zine-viewbox-grid {
   display: grid;
-  justify-items: center;
-  width: min(96vw, 98rem);
-  margin-top: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  width: min(100%, 46rem);
+  margin: 0 auto 0 0;
 }
 
-.zine-detail-stage {
+.zine-viewbox-card {
+  min-width: 0;
+}
+
+.zine-viewbox-link {
   position: relative;
-  width: min(88vw, 92rem);
-  aspect-ratio: 1235 / 596;
-}
-
-.zine-detail-cover {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background:
-    url("assets/drive-import/Desktop/HOME page/Pictures (Original)/opened_CD_case.jpg")
-      center center / cover no-repeat;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
-}
-
-.zine-detail-label {
-  position: absolute;
-  left: 26%;
-  top: 59.5%;
-  width: 29%;
-  min-height: 11%;
-  display: grid;
-  place-items: center;
-  color: #10449e;
-  font-family: "Gochi Hand", cursive;
-  font-size: clamp(2.45rem, 3.8vw, 4.45rem);
-  line-height: 1;
-  background:
-    url("assets/paper-label.png") center center / 100% 100% no-repeat;
-  transform: translate(-50%, -50%) rotate(-4deg);
-}
-
-.zine-detail-disc-wrap {
-  position: absolute;
-  right: 4.1%;
-  top: 3.4%;
   display: block;
-  width: 47%;
-  color: inherit;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #111;
+  color: #fff;
   text-decoration: none;
 }
 
-.zine-detail-disc {
-  display: block;
+.zine-viewbox-link img {
   width: 100%;
-  filter: drop-shadow(0 1rem 2rem rgba(0, 0, 0, 0.35));
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 180ms ease;
 }
 
-.zine-detail-meta {
+.zine-viewbox-link::after {
   position: absolute;
-  right: 7.5%;
-  top: 48.5%;
-  width: 28%;
-  color: #f0c791;
-  font-family: "Helvetica Neue", "Inter", sans-serif;
-  font-size: clamp(0.28rem, 0.46vw, 0.42rem);
-  line-height: 1.15;
-  text-align: right;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.56));
 }
 
-.zine-detail-meta p,
-.zine-detail-meta span {
-  margin: 0;
+.zine-viewbox-link:hover img,
+.zine-viewbox-link:focus-visible img {
+  transform: scale(1.07);
 }
 
-.zine-detail-meta span {
-  display: block;
-  margin-top: 0.45rem;
-  font-style: italic;
-}
-
-.zine-detail-hint {
-  margin: 1.5rem auto 0;
-  font-family: "Helvetica Neue", "Inter", sans-serif;
-  font-size: clamp(1rem, 1.35vw, 1.25rem);
-  font-style: italic;
-  line-height: 1.2;
-  text-align: center;
-}
-
-.zine-page-arrow {
+.zine-viewbox-label {
   position: absolute;
-  left: 0.25rem;
-  top: 50%;
-  width: clamp(3rem, 5vw, 5rem);
-  height: clamp(3rem, 5vw, 5rem);
-  border: 0;
-  color: #fff;
-  background: transparent;
-  font-size: clamp(3rem, 5vw, 5rem);
-  line-height: 1;
-  transform: translateY(-50%);
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zine-viewbox-card h2 {
+  margin: 0.9rem 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.zine-viewbox-card p {
+  max-width: 28rem;
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.86rem, 1.2vw, 1rem);
+  line-height: 1.45;
 }
 
 @media (max-width: 900px) {
   .zine-hero-image {
     background-position: center center;
     background-size: cover;
-  }
-
-  .zine-page main > .zine-detail-panel {
-    min-height: auto;
-    height: auto;
-    align-content: start;
-    padding: 2.75rem 0.75rem 1.15rem;
-  }
-
-  .zine-detail-shell {
-    width: min(98vw, 48rem);
-    margin-top: 0;
-  }
-
-  .zine-detail-stage {
-    width: min(90vw, 44rem);
-  }
-
-  .zine-detail-label {
-    left: 25.5%;
-    top: 59%;
-    width: 30%;
-    font-size: clamp(1.45rem, 4.4vw, 2.35rem);
-  }
-
-  .zine-detail-disc-wrap {
-    right: 4.1%;
-    top: 3.4%;
-    width: 47%;
-  }
-
-  .zine-detail-meta {
-    right: 7%;
-    top: 48%;
-    width: 28%;
-    font-size: clamp(0.18rem, 0.62vw, 0.3rem);
-  }
-
-  .zine-detail-hint {
-    margin-top: 0.65rem;
-  }
-
-  .zine-page-arrow {
-    left: -0.1rem;
-    top: 44%;
   }
 }
 
@@ -179,52 +122,21 @@
     background-size: cover;
   }
 
-  .zine-page main > .zine-detail-panel {
-    min-height: auto;
-    height: auto;
-    align-content: start;
-    padding: 2.35rem 0.5rem 1rem;
+  .zine-library-panel {
+    min-height: 0;
+    padding: 3rem 1rem 5rem;
   }
 
-  .zine-detail-shell {
-    width: min(100vw, 24rem);
-    margin-top: 0;
+  .zine-library-heading {
+    margin-bottom: 2rem;
   }
 
-  .zine-detail-stage {
-    width: min(88vw, 22rem);
+  .zine-library-heading h1 {
+    font-size: 2.75rem;
   }
 
-  .zine-detail-label {
-    left: 19%;
-    bottom: 20%;
-    width: 24%;
-    font-size: 1.2rem;
-  }
-
-  .zine-detail-meta {
-    right: 10.5%;
-    top: 46.8%;
-    width: 24%;
-    font-size: 0.22rem;
-    line-height: 1.1;
-  }
-
-  .zine-detail-meta span {
-    margin-top: 0.22rem;
-  }
-
-  .zine-detail-hint {
-    width: 92%;
-    margin-top: 0.55rem;
-    font-size: 0.85rem;
-  }
-
-  .zine-page-arrow {
-    left: -0.1rem;
-    top: 43%;
-    width: 2.2rem;
-    height: 2.2rem;
-    font-size: 2.7rem;
+  .zine-viewbox-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 }
