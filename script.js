@@ -349,17 +349,19 @@ sliders.forEach((slider) => {
     let touchStartX = 0;
     let touchStartY = 0;
     let swipeBlocked = false;
+    let multiTouchGesture = false;
 
     slider.addEventListener(
       "touchstart",
       (event) => {
+        multiTouchGesture = event.touches.length > 1;
         swipeBlocked = Boolean(
           event.target.closest(
             ".word-search-grid, .word-search-button, .quiz-option, .quiz-restart",
           ),
         );
 
-        if (swipeBlocked) {
+        if (swipeBlocked || multiTouchGesture) {
           return;
         }
 
@@ -375,8 +377,26 @@ sliders.forEach((slider) => {
     );
 
     slider.addEventListener(
+      "touchmove",
+      (event) => {
+        if (event.touches.length > 1) {
+          multiTouchGesture = true;
+        }
+      },
+      { passive: true },
+    );
+
+    slider.addEventListener(
       "touchend",
       (event) => {
+        if (multiTouchGesture) {
+          if (event.touches.length === 0) {
+            multiTouchGesture = false;
+          }
+          swipeBlocked = false;
+          return;
+        }
+
         if (swipeBlocked) {
           swipeBlocked = false;
           return;
